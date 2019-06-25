@@ -3,7 +3,7 @@ TurtleCoin-themed game where you have to escape a maze
 
 ## Possible Names
 
-Chukwa's Labyrinth
+Chukwa's Labyrinth  
 Akupar's Warren
 
 "I'm a turtle, get me out of here!"
@@ -12,10 +12,10 @@ Akupar's Warren
 
 GPLv3
 
-- Disclose source
-- License and copyright notice
-- Same license
-- State changes
+- Disclose source  
+- License and copyright notice  
+- Same license  
+- State changes  
 
 [See more](https://choosealicense.com/licenses/gpl-3.0/)
 
