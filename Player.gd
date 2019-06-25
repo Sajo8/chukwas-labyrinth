@@ -4,12 +4,15 @@ func _physics_process(delta):
 	var moveBy = Vector2(0,0)
 
 	if Input.is_key_pressed(KEY_LEFT):
-		moveBy = Vector2(-5, 0)
+		moveBy.x -= 1
 	if Input.is_key_pressed(KEY_RIGHT):
-		moveBy = Vector2(5, 0)
+		moveBy.x += 1
 	if Input.is_key_pressed(KEY_UP):
-		moveBy = Vector2(0, -5)
+		moveBy.y -= 1
 	if Input.is_key_pressed(KEY_DOWN):
-		moveBy = Vector2(0, 5)
+		moveBy.y += 1
+
+	if moveBy.length() > 0:
+		moveBy = moveBy.normalized() * 5
 
 	self.move_and_collide(moveBy)
