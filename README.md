@@ -21,15 +21,15 @@ GPLv3
 
 ## Current Version Gif
 
-Whenever I make significant changes, I'll update this gif to show a preview of how the game currently looks.
+Whenever I make significant changes, I'll update this link to a gif of how the game currently looks.
 
 June 24, 2019
-![v2](https://i.imgur.com/8sfFOak.gif)
+https://i.imgur.com/8sfFOak.gif
 
 ### All Version Gifs
 
 June 24, 2019
-![v2](https://i.imgur.com/8sfFOak.gif)
+https://i.imgur.com/8sfFOak.gif
 
 June 24, 2019
-![v1](https://i.imgur.com/8fockzl.gif)
+https://i.imgur.com/8fockzl.gif
