@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+export var speed = 5
+
 func _physics_process(delta):
 	var moveBy = Vector2(0,0)
 
@@ -13,6 +15,6 @@ func _physics_process(delta):
 		moveBy.y += 1
 
 	if moveBy.length() > 0:
-		moveBy = moveBy.normalized() * 5
+		moveBy = moveBy.normalized() * speed
 
 	self.move_and_collide(moveBy)
