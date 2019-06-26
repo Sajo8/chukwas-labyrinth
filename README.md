@@ -14,11 +14,7 @@ Akupar's Warren
 
 ## (More urgent-type) Todo
 
-- Change mask to make visible area smaller
-  
-## Running Game
-
-Download file(s) for your OS from `build/`
+--
 
 ## Editing Game
 
