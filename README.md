@@ -10,23 +10,35 @@ Akupar's Warren
 
 ## License
 
-GPLv3
+[GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
 
-- Disclose source  
-- License and copyright notice  
-- Same license  
-- State changes  
+## (More urgent-type) Todo
 
-[See more](https://choosealicense.com/licenses/gpl-3.0/)
+- Change mask to make visible area smaller
+  
+## Running Game
+
+Download file(s) for your OS from `build/`
+
+## Editing Game
+
+Clone repo, and import `project.godot` in the [Godot game engine(<30MB, single file)](https://godotengine.org/download)
+
+## Contributions
+
+Currently not accepted; ideas are though! Ping me @Sajo8#2953 on the [TurtleCoin discord](http://chat.turtlecoin.lol) in #dev_gaming
 
 ## Current Version Gif
 
 Whenever I make significant changes, I'll update this link to a gif of how the game currently looks.
 
-June 24, 2019  
-https://i.imgur.com/8sfFOak.gif
+June 26, 2019  
+https://i.imgur.com/Nv4PjOg.gif
 
 ### All Version Gifs
+
+June 26, 2019  
+https://i.imgur.com/Nv4PjOg.gif
 
 June 24, 2019  
 https://i.imgur.com/8sfFOak.gif
