@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="maze"
+run/main_scene="res://levels/GenericEmeraldLevel.tscn"
 config/icon="res://icon.png"
 
 [display]
