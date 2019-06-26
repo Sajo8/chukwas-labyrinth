@@ -1,20 +1,22 @@
 extends KinematicBody2D
 
-export var speed = 5
+export var speed = 200
+
+func get_input():
+	# Detect up/down/left/right keystate and only move when pressed
+	var velocity = Vector2(0,0)
+	if Input.is_action_pressed('ui_right'):
+		velocity.x += 1
+	if Input.is_action_pressed('ui_left'):
+		velocity.x -= 1
+	if Input.is_action_pressed('ui_down'):
+		velocity.y += 1
+	if Input.is_action_pressed('ui_up'):
+		velocity.y -= 1
+
+	velocity = velocity.normalized() * speed
+	return velocity
 
 func _physics_process(delta):
-	var moveBy = Vector2(0,0)
-
-	if Input.is_key_pressed(KEY_LEFT):
-		moveBy.x -= 1
-	if Input.is_key_pressed(KEY_RIGHT):
-		moveBy.x += 1
-	if Input.is_key_pressed(KEY_UP):
-		moveBy.y -= 1
-	if Input.is_key_pressed(KEY_DOWN):
-		moveBy.y += 1
-
-	if moveBy.length() > 0:
-		moveBy = moveBy.normalized() * speed
-
-	self.move_and_collide(moveBy)
+	var velocity = get_input()
+	move_and_slide(velocity)
