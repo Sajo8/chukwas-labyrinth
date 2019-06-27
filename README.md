@@ -1,12 +1,5 @@
-# Turtle Maze
+# Chukwa's Labyrinth
 TurtleCoin-themed game where you have to escape a maze
-
-## Possible Names
-
-Chukwa's Labyrinth  
-Akupar's Warren
-
-"I'm a turtle, get me out of here!"
 
 ## License
 
