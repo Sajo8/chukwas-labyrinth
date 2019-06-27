@@ -4,86 +4,38 @@
 
 [node name="stone_tiles" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 18, 10 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 136, 0, 16, 16 )
-
-[node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 40, 10 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 136, 17, 16, 16 )
-
-[node name="Sprite3" type="Sprite" parent="."]
-position = Vector2( 60, 10 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 153, 0, 16, 16 )
-
-[node name="Sprite4" type="Sprite" parent="."]
-position = Vector2( 80, 10 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 153, 17, 16, 16 )
-
-[node name="Sprite5" type="Sprite" parent="."]
-position = Vector2( 100, 10 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 170, 0, 16, 16 )
-
-[node name="Sprite6" type="Sprite" parent="."]
-position = Vector2( 120, 10 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 170, 17, 16, 16 )
-
-[node name="Sprite7" type="Sprite" parent="."]
-position = Vector2( 140, 10 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 187, 0, 16, 16 )
-
-[node name="Sprite8" type="Sprite" parent="."]
-position = Vector2( 18, 30 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 187, 17, 16, 16 )
-
-[node name="Sprite9" type="Sprite" parent="."]
-position = Vector2( 40, 30 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 238, 0, 16, 16 )
-
-[node name="Sprite10" type="Sprite" parent="."]
-position = Vector2( 60, 30 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 255, 0, 16, 16 )
-
-[node name="Sprite11" type="Sprite" parent="."]
-position = Vector2( 80, 30 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 238, 17, 16, 16 )
-
-[node name="Sprite12" type="Sprite" parent="."]
-position = Vector2( 100, 30 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 255, 17, 16, 16 )
-
-[node name="Sprite13" type="Sprite" parent="."]
-position = Vector2( 120, 30 )
+[node name="Sprite1" type="Sprite" parent="."]
+position = Vector2( 20, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 153, 34, 16, 16 )
 
-[node name="Sprite14" type="Sprite" parent="."]
-position = Vector2( 140, 30 )
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 40, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 187, 51, 16, 16 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 60, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 187, 17, 16, 16 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 80, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 170, 17, 16, 16 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( 100, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 136, 17, 16, 16 )
+
+[node name="Sprite6" type="Sprite" parent="."]
+position = Vector2( 120, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 238, 0, 16, 16 )
