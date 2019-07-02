@@ -14,9 +14,19 @@ func get_input():
 	if Input.is_action_pressed('ui_up'):
 		velocity.y -= 1
 
-	velocity = velocity.normalized() * speed
 	return velocity
+
+func animate_player(velocity):
+	var velocity_length = velocity.length()
+	print(velocity)
+	print(velocity_length)
+	if velocity_length >= 1:
+		$Sprite/AnimationPlayer.play("walk")
+	else:
+		$Sprite/AnimationPlayer.play("idle")
 
 func _physics_process(delta):
 	var velocity = get_input()
+	animate_player(velocity)
+	velocity = velocity.normalized() * speed
 	move_and_slide(velocity)
