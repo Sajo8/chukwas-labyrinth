@@ -18,8 +18,45 @@ func get_input():
 
 func animate_player(velocity):
 	var velocity_length = velocity.length()
-	print(velocity)
-	print(velocity_length)
+	
+	if velocity_length == 1:
+		
+		if velocity.x == 1:
+			# Going right
+			$Sprite.rotation_degrees = 90
+		if velocity.x == -1:
+			# Going left
+			$Sprite.rotation_degrees = 270
+		
+		if velocity.y == 1:
+			# Going down
+			$Sprite.rotation_degrees = 180
+		if velocity.y == -1:
+			# Going up
+			$Sprite.rotation_degrees = 0
+		
+	else:
+		if not velocity_length > 1:
+			# Don't do anything if we're not moving
+			return
+		else:
+			if velocity.x == -1:
+				# Going left
+				if velocity.y == -1:
+					# Going to top left
+					$Sprite.rotation_degrees = 315
+				if velocity.y == 1:
+					# Going to bottom left
+					$Sprite.rotation_degrees = 225
+			else:
+				# Going right
+				if velocity.y == -1:
+					# Going to top right
+					$Sprite.rotation_degrees = 45
+				if velocity.y == 1:
+					# Going to bottom right
+					$Sprite.rotation_degrees = 135
+	
 	if velocity_length >= 1:
 		$Sprite/AnimationPlayer.play("walk")
 	else:
