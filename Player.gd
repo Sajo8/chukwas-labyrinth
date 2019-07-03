@@ -36,10 +36,8 @@ func animate_player(velocity):
 			$Sprite.rotation_degrees = 0
 		
 	else:
-		if not velocity_length > 1:
-			# Don't do anything if we're not moving
-			return
-		else:
+		if velocity_length > 1:
+			# Only do something if we're actually moving; ignore a velocity_length of 0
 			if velocity.x == -1:
 				# Going left
 				if velocity.y == -1:
