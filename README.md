@@ -11,7 +11,7 @@ TurtleCoin-themed game where you have to go through a series of mazes in order t
 
 ## Editing Game
 
-Clone repo, and import `project.godot` in the [Godot game engine(<30MB, single file)](https://godotengine.org/download)
+Clone repo, and import `project.godot` in the [Godot game engine(<25MB, single file)](https://godotengine.org/download)
 
 ## Contributions
 
@@ -21,10 +21,13 @@ Currently not accepted; ideas are though! Ping me @Sajo8#2953 on the [TurtleCoin
 
 Whenever I make significant changes, I'll update this link to a gif of how the game currently looks.
 
-June 26, 2019  
-https://i.imgur.com/FZNQjJ1.gif
+July 3, 2019  
+https://i.imgur.com/U3nPazf.gif
 
 ### All Version Gifs
+
+July 3, 2019  
+https://i.imgur.com/U3nPazf.gif
 
 June 26, 2019  
 https://i.imgur.com/FZNQjJ1.gif
