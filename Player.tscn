@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/turtle_spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://assets/lightmask.png" type="Texture" id=3]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "idle"
 length = 0.9
 loop = true
@@ -22,10 +22,10 @@ tracks/0/keys = {
 "values": [ 0, 5, 0 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "walk"
-length = 0.75
 loop = true
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -33,14 +33,26 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 6, 0, 7 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CollisionShape2D:shape:extents")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 16.0794, 16 ), Vector2( 15.0683, 16 ), Vector2( 15.971, 16 ), Vector2( 14.9988, 16 ) ]
+}
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16.0794, 16 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -50,14 +62,13 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 4
-frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
-anims/idle = SubResource( 2 )
-anims/walk = SubResource( 3 )
+anims/idle = SubResource( 1 )
+anims/walk = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 3 )
