@@ -1,5 +1,5 @@
 # Chukwa's Labyrinth
-TurtleCoin-themed game where you have to escape a maze
+TurtleCoin-themed game where you have to go through a series of mazes in order to reach the treasure
 
 ## License
 
