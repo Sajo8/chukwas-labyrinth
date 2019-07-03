@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://tilesets/dirt/dt_bg_tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://tilesets/dirt/dt_rock_tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://tilesets/dirt/dt_wall_tiles.tres" type="TileSet" id=3]
+
+[node name="dirt" type="Node2D"]
+
+[node name="bg" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="rock" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="wall" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
