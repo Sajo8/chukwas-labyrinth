@@ -6,11 +6,13 @@ func _ready():
 		Tween.TRANS_QUAD, Tween.EASE_OUT)
 	
 	$Effect.interpolate_property($Sprite, 'modulate',
-		get_modulate(), Color(0, 0, 0, 0), 0.5,
+		Color(1, 1, 1, 1), Color(0, 0, 0, 0), 0.5,
 		Tween.TRANS_QUAD, Tween.EASE_OUT)
 
 func _on_Powerup_body_entered(body):
 	if body.get_name() == "Player":
+		# Remove the collision shapes to prevent extra collisions
+		shape_owner_clear_shapes(get_shape_owners()[0])
 		$Effect.start()
 
 func _on_Effect_tween_completed(object, key):
