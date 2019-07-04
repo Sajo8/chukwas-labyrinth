@@ -20,7 +20,7 @@ func animate_player(velocity):
 	var velocity_length = velocity.length()
 	
 	if velocity_length == 1:
-		
+		# Going in one direction(straight, any direction)
 		if velocity.x == 1:
 			# Going right
 			$Sprite.rotation_degrees = 90
@@ -36,6 +36,7 @@ func animate_player(velocity):
 			$Sprite.rotation_degrees = 0
 		
 	else:
+		# Either moving diagonally or not at all
 		if velocity_length > 1:
 			# Only do something if we're actually moving; ignore a velocity_length of 0
 			if velocity.x == -1:
@@ -56,8 +57,10 @@ func animate_player(velocity):
 					$Sprite.rotation_degrees = 135
 	
 	if velocity_length >= 1:
+		# If moving in any direction, play walk animation.
 		$Sprite/AnimationPlayer.play("walk")
 	else:
+		# Not moving, idle anim
 		$Sprite/AnimationPlayer.play("idle")
 
 func _physics_process(delta):
