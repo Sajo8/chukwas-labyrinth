@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tilesets/emerald/e_rock_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/emerald/e_bg_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/emerald/e_wall_tiles.tres" type="TileSet" id=3]
 [ext_resource path="res://exits/EmeraldDoor.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Powerup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 
@@ -29,7 +30,10 @@ tile_data = PoolIntArray( 65537, 8, 0, 65538, 4, 0, 65539, 4, 0, 65540, 4, 0, 65
 [node name="EmeraldDoor" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, 623 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
+[node name="Powerup" parent="." instance=ExtResource( 5 )]
+position = Vector2( 552.831, 70.1477 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 144, 128 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
