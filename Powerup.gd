@@ -11,7 +11,7 @@ func _ready():
 
 func _on_Powerup_body_entered(body):
 	if body.get_name() == "Player":
-		# Remove the collision shapes to prevent extra collisions
+		# Remove the collision shapes to prevent extra collisions during the time the effect is taking place.
 		shape_owner_clear_shapes(get_shape_owners()[0])
 		$Effect.start()
 
