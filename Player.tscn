@@ -5,14 +5,14 @@
 [ext_resource path="res://assets/lightmask.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.0794, 16 )
+extents = Vector2( 15.971, 16 )
 
 [sub_resource type="Animation" id=2]
 length = 0.9
 loop = true
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -23,13 +23,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 5, 0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:shape:extents")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 16.0264, 16 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 loop = true
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -40,7 +52,7 @@ tracks/0/keys = {
 "values": [ 0, 6, 0, 7 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../CollisionShape2D:shape:extents")
+tracks/1/path = NodePath("./CollisionShape2D:shape:extents")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -69,5 +81,6 @@ texture = ExtResource( 3 )
 mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
 anims/idle = SubResource( 2 )
 anims/walk = SubResource( 3 )
