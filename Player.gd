@@ -18,53 +18,25 @@ func get_input():
 
 func animate_player(velocity):
 	var velocity_length = velocity.length()
+	var velocity_angle = velocity.angle()
+	# Convert it to degrees
+	velocity_angle = rad2deg(velocity_angle)
+	# Add 90 degrees since otherwise it treats going right as 0 degrees
+	velocity_angle = velocity_angle + 90
 	
-	if velocity_length == 1:
-		# Going in one direction(straight, any direction)
-		if velocity.x == 1:
-			# Going right
-			$Sprite.rotation_degrees = 90
-		if velocity.x == -1:
-			# Going left
-			$Sprite.rotation_degrees = 270
-		
-		if velocity.y == 1:
-			# Going down
-			$Sprite.rotation_degrees = 180
-		if velocity.y == -1:
-			# Going up
-			$Sprite.rotation_degrees = 0
-		
-	else:
-		# Either moving diagonally or not at all
-		if velocity_length > 1:
-			# Only do something if we're actually moving; ignore a velocity_length of 0
-			if velocity.x == -1:
-				# Going left
-				if velocity.y == -1:
-					# Going to top left
-					$Sprite.rotation_degrees = 315
-				if velocity.y == 1:
-					# Going to bottom left
-					$Sprite.rotation_degrees = 225
-			else:
-				# Going right
-				if velocity.y == -1:
-					# Going to top right
-					$Sprite.rotation_degrees = 45
-				if velocity.y == 1:
-					# Going to bottom right
-					$Sprite.rotation_degrees = 135
+	# If we're moving, change rotation
+	if velocity.length() >= 1:
+		$Sprite.rotation_degrees = velocity_angle
 	
 	if velocity_length >= 1:
 		# If moving in any direction, play walk animation.
-		$Sprite/AnimationPlayer.play("walk")
+		$AnimationPlayer.play("walk")
 	else:
 		# Not moving, idle anim
-		$Sprite/AnimationPlayer.play("idle")
+		$AnimationPlayer.play("idle")
 
 func _physics_process(delta):
 	var velocity = get_input()
-	animate_player(velocity)
 	velocity = velocity.normalized() * speed
+	animate_player(velocity)
 	move_and_slide(velocity)
