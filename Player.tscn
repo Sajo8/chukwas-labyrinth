@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/lightmask.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15.971, 16 )
+extents = Vector2( 16.0794, 16 )
 
 [sub_resource type="Animation" id=2]
 length = 0.9
