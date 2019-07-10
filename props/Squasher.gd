@@ -23,9 +23,9 @@ func _ready():
 	
 	# Interpolate properties going from bottom to top, then returning to bottom
 	# See easings at https://easings.net
+	
 	# Bottom to Top goes fast and abrupt
 	# Top to bottom goes slower and smoother
-	
 	tween.interpolate_property(self, "position", 
 		init_pos, move_to, duration, 
 		Tween.TRANS_CIRC, Tween.EASE_OUT, IDLE_DURATION)
@@ -33,4 +33,5 @@ func _ready():
 		move_to, init_pos, duration, 
 		Tween.TRANS_SINE, Tween.EASE_IN_OUT, duration + (IDLE_DURATION * 2))
 	
+	# Start it
 	tween.start()
