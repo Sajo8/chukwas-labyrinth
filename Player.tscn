@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/lightmask.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.0794, 16 )
+extents = Vector2( 10.0304, 11.511 )
 
 [sub_resource type="Animation" id=2]
 length = 0.9
@@ -33,7 +33,19 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 16.0264, 16 ) ]
+"values": [ Vector2( 10.0304, 11.511 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 3.03494 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -52,16 +64,28 @@ tracks/0/keys = {
 "values": [ 0, 6, 0, 7 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("./CollisionShape2D:shape:extents")
+tracks/1/path = NodePath("CollisionShape2D:shape:extents")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( 16.0794, 16 ), Vector2( 15.0683, 16 ), Vector2( 15.971, 16 ), Vector2( 14.9988, 16 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 10.0304, 11.511 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 3.03494 ) ]
 }
 
 [node name="Player" type="KinematicBody2D"]
@@ -74,9 +98,11 @@ vframes = 2
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3.03494 )
 shape = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0, 3.03467 )
 texture = ExtResource( 3 )
 mode = 3
 
