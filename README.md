@@ -5,10 +5,6 @@ TurtleCoin-themed game where you have to go through a series of mazes in order t
 
 [GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
 
-## (More urgent-type) Todo
-
---
-
 ## Editing Game
 
 Clone repo, and import `project.godot` in the [Godot game engine(<25MB, single file)](https://godotengine.org/download)
