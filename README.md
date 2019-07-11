@@ -3,7 +3,7 @@ TurtleCoin-themed game where you have to go through a series of mazes in order t
 
 ## License
 
-[GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
+[GPLv3 License](https://choosealicense.com/licenses/gpl-3.0/)
 
 ## Editing Game
 
