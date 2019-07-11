@@ -5,11 +5,11 @@ signal powerup_grabbed
 func _ready():
 	# Increase size
 	$Effect.interpolate_property($Sprite, 'scale',
-		$Sprite.get_scale(), Vector2(2, 2), 0.5,
+		$Sprite.get_scale(), Vector2(2, 2), 0.6,
 		Tween.TRANS_CUBIC, Tween.EASE_OUT)
 	# Fade out
 	$Effect.interpolate_property($Sprite, 'modulate',
-		Color(1, 1, 1, 1), Color(0, 0, 0, 0), 0.5,
+		Color(1, 1, 1, 1), Color(0, 0, 0, 0), 0.6,
 		Tween.TRANS_LINEAR, Tween.EASE_OUT)
 
 func _on_Powerup_body_entered(body):
