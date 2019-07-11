@@ -1,37 +1,77 @@
-tool
 extends KinematicBody2D
 
-# Time between movements
-const IDLE_DURATION = 2
-
-# Distance it travels
-export var move_amount = 80
+# Node refs
 
 onready var tween = $Tween
 
-# Get x and y
-onready var x = get_position().x
-onready var y = get_position().y
+# Main column
+onready var squasher = $Squasher
+onready var squasher_collision = $SquasherCollisionShape
 
-# Set the starting position
-onready var init_pos = Vector2(x, y)
-# Set the position to move to
-onready var move_to =  Vector2(x, (y - move_amount))
+# Top-part of pillar
+onready var squashertop = $SquasherTop
+onready var squashertop_collision = $TopCollisionShape
+
+# Where the top-part started out
+onready var original_pos = squashertop.position
+# Where the top-part will end up after the squasher shrinks
+onready var squashed_pos = Vector2(0, original_pos.y + 49)
 
 func _ready():
+	
+	shrink_squasher()
+	yield(tween, "tween_completed")
+	maximise_squasher()
+	yield(tween, "tween_completed")
+
+func shrink_squasher():
+	
+	var idle_duration = 3
+	var duration = 2
+
+	# Reduce size of column    
+	tween.interpolate_property(squasher, "scale", 
+		Vector2(1.0, 1.0), Vector2(1.0, 0.1), duration,
+		Tween.TRANS_SINE, Tween.EASE_IN_OUT, idle_duration)
+	
+	tween.interpolate_property(squasher_collision, "scale", 
+		Vector2(1.0, 1.0), Vector2(1.0, 0.1), duration,
+		Tween.TRANS_SINE, Tween.EASE_IN_OUT, idle_duration)
+
+
+	# Change position of top portion to match
+	tween.interpolate_property(squashertop, "position", 
+		original_pos, squashed_pos, duration,
+		Tween.TRANS_SINE, Tween.EASE_IN_OUT, idle_duration)
+	
+	tween.interpolate_property(squashertop_collision, "position", 
+		original_pos, squashed_pos, duration,
+		Tween.TRANS_SINE, Tween.EASE_IN_OUT, idle_duration)
+
+	tween.start()
+
+func maximise_squasher():
+	
+	var idle_duration = 1.5
 	var duration = 0.5
 	
-	# Interpolate properties going from bottom to top, then returning to bottom
-	# See easings at https://easings.net
+	# Increase size of column    
+	tween.interpolate_property(squasher, "scale", 
+		null, Vector2(1.0, 1.0), duration,
+		Tween.TRANS_CIRC, Tween.EASE_OUT, idle_duration)
 	
-	# Bottom to Top goes fast and abrupt
-	# Top to bottom goes slower and smoother
-	tween.interpolate_property(self, "position", 
-		init_pos, move_to, duration, 
-		Tween.TRANS_CIRC, Tween.EASE_OUT, IDLE_DURATION)
-	tween.interpolate_property(self, "position", 
-		move_to, init_pos, duration, 
-		Tween.TRANS_SINE, Tween.EASE_IN_OUT, duration + (IDLE_DURATION * 2))
+	tween.interpolate_property(squasher_collision, "scale", 
+		null, Vector2(1.0, 1.0), duration,
+		Tween.TRANS_CIRC, Tween.EASE_OUT, idle_duration)
+
+
+	# Change position of top portion to match
+	tween.interpolate_property(squashertop, "position", 
+		squashed_pos, original_pos, duration,
+		Tween.TRANS_CIRC, Tween.EASE_OUT, idle_duration)
 	
-	# Start it
+	tween.interpolate_property(squashertop_collision, "position", 
+		squashed_pos, original_pos, duration,
+		Tween.TRANS_CIRC, Tween.EASE_OUT, idle_duration)
+
 	tween.start()
