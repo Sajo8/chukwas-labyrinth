@@ -17,10 +17,13 @@ Currently not accepted; ideas are though! Ping me @Sajo8#2953 on the [TurtleCoin
 
 Whenever I make significant changes, I'll update this link to a gif of how the game currently looks.
 
-July 9, 2019  
-https://i.imgur.com/pO0P0D6.gifv
+July 11, 2019  
+https://i.imgur.com/ft1sMLg.gifv
 
 ### All Version Gifs
+
+July 11, 2019  
+https://i.imgur.com/ft1sMLg.gifv
 
 July 9, 2019  
 https://i.imgur.com/pO0P0D6.gifv
