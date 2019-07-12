@@ -33,13 +33,16 @@ tile_data = PoolIntArray( 65537, 8, 0, 65538, 4, 0, 65539, 4, 0, 65540, 4, 0, 65
 [node name="EmeraldDoor" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, 623 )
 
-[node name="Powerup" parent="." instance=ExtResource( 5 )]
+[node name="Props" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Powerup" parent="Props" instance=ExtResource( 5 )]
 position = Vector2( 550.989, 88.3135 )
 
-[node name="Spikes" parent="." instance=ExtResource( 6 )]
+[node name="Spikes" parent="Props" instance=ExtResource( 6 )]
 position = Vector2( 549.055, 36.7245 )
 
-[node name="Squasher" parent="." instance=ExtResource( 7 )]
+[node name="Squasher" parent="Props" instance=ExtResource( 7 )]
 position = Vector2( 548.297, 124.881 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
