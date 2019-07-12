@@ -6,6 +6,13 @@ extends StaticBody2D
 # It doesn't go down properly; abrupt goes up again from down position
 # But doesn't happen again so whatever
 
+# Note:
+# The values by which the position of stuff change after the squasher shrinks are hardcoded in
+# based on what the scale of the main column changes to  (0.1).
+# If that is changed, then the values need to be tweaked as well
+
+signal game_over
+
 # Node refs
 
 onready var tween = $Tween
@@ -14,7 +21,9 @@ onready var tween = $Tween
 onready var squasher = $Squasher
 onready var squasher_collision = $SquasherCollisionShape
 
+# Where the collisionshape started out
 onready var original_squasher_collision_pos = squasher_collision.position
+# Where it will end up after the squasher shrinks
 onready var squashed_squasher_collision_pos = Vector2(0, original_squasher_collision_pos.y + 48.75)
 
 # Top-part of pillar
@@ -27,6 +36,10 @@ onready var original_pos = squashertop.position
 onready var squashed_pos = Vector2(0, original_pos.y + 98)
 
 func _ready():
+	
+	var player = get_tree().get_nodes_in_group("player")[0]
+	
+	player.connect("hit_squasher", self, "_on_hit_squasher")
 	
 	shrink_squasher()
 	yield(tween, "tween_completed")
@@ -98,3 +111,12 @@ func maximise_squasher():
 		Tween.TRANS_CIRC, Tween.EASE_OUT, idle_duration)
 
 	tween.start()
+
+func _on_hit_squasher(collision):
+	if collision.normal.y != -1: # Only continue if it hit the top
+		return
+	var current_tween_time = tween.tell()
+	
+	if current_tween_time >= 2 and current_tween_time <= 3.2: # Only check when it's fully extended
+		yield(tween, "tween_completed") # Wait for animation to finish
+		emit_signal("game_over")

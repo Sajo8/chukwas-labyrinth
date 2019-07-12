@@ -2,6 +2,11 @@ extends KinematicBody2D
 
 export var speed = 200
 
+signal hit_squasher(collision)
+
+var game_over := false
+var velocity
+
 func get_input():
 	# Detect up/down/left/right keystate and only move when pressed
 	var velocity = Vector2(0,0)
@@ -36,7 +41,23 @@ func animate_player(velocity):
 		$AnimationPlayer.play("idle")
 
 func _physics_process(delta):
-	var velocity = get_input()
+	if game_over: # Don't do anything if the player died
+		return
+	
+	velocity = get_input()
 	velocity = velocity.normalized() * speed
 	animate_player(velocity)
 	move_and_slide(velocity)
+	
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		emit_signal("hit_squasher", collision)
+
+func _on_game_over():
+	$AnimationPlayer.play("squash")
+	game_over = true
+
+func _ready():
+	var traps = get_tree().get_nodes_in_group("trap")
+	for trap in traps:
+		trap.connect("game_over", self, "_on_game_over")

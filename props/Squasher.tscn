@@ -9,7 +9,9 @@ extents = Vector2( 29, 9 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16, 54 )
 
-[node name="Squasher" type="StaticBody2D"]
+[node name="Squasher" type="StaticBody2D" groups=[
+"trap",
+]]
 script = ExtResource( 1 )
 
 [node name="SquasherTop" type="Sprite" parent="."]

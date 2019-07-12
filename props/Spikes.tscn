@@ -8,7 +8,9 @@ load_path = "res://.import/spikes.png-4a2427e7b6483a335646e762227cfd31.stex"
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 16.9, -11.51, 12.22, 20.73, -11.35, 20.62, -15.22, -11.41 )
 
-[node name="Spikes" type="Area2D"]
+[node name="Spikes" type="Area2D" groups=[
+"trap",
+]]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

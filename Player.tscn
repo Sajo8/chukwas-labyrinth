@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/turtle_spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://assets/lightmask.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 11.5 )
+extents = Vector2( 10.0304, 11.511 )
 
 [sub_resource type="Animation" id=2]
 length = 0.9
@@ -48,6 +48,22 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 3.03494 ) ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "squash"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
 [sub_resource type="Animation" id=3]
 loop = true
 step = 0.05
@@ -88,13 +104,15 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 3.03494 ) ]
 }
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
-vframes = 2
+vframes = 3
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -109,4 +127,5 @@ mode = 3
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/idle = SubResource( 2 )
+anims/squash = SubResource( 4 )
 anims/walk = SubResource( 3 )
