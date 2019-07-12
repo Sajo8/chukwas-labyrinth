@@ -67,7 +67,7 @@ func _on_game_over():
 	get_tree().reload_current_scene()
 
 func _on_exit_entered():
-	Globals.go_to_next_level()
+	SceneChanger.go_to_next_level()
 
 func _ready():
 	
