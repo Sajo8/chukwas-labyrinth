@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10.0304, 11.511 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "blink"
 step = 0.05
 tracks/0/type = "value"
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ 0, 11, 0, 11 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 0.9
 loop = true
 step = 0.05
@@ -64,8 +64,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 3.03494 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "squash"
+[sub_resource type="Animation" id=4]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -80,7 +79,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 loop = true
 step = 0.05
 tracks/0/type = "value"
@@ -141,7 +140,7 @@ texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/blink = SubResource( 5 )
-anims/idle = SubResource( 2 )
-anims/squash = SubResource( 3 )
-anims/walk = SubResource( 4 )
+anims/blink = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/squash = SubResource( 4 )
+anims/walk = SubResource( 5 )

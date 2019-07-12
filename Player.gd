@@ -66,6 +66,9 @@ func _on_game_over():
 	# Restart scene
 	get_tree().reload_current_scene()
 
+func _on_exit_entered():
+	Globals.go_to_next_level()
+
 func _ready():
 	
 	if Globals.game_over: # Just respawned after dying
@@ -78,6 +81,11 @@ func _ready():
 		Globals.set("game_over", false)
 	
 	# Connect signals for traps
-	var traps = get_tree().get_nodes_in_group("trap")
+	var traps = get_tree().get_nodes_in_group("traps")
 	for trap in traps:
 		trap.connect("game_over", self, "_on_game_over")
+	
+	# Connect signals for exits
+	var exits = get_tree().get_nodes_in_group("exits")
+	for exit in exits:
+		exit.connect("exit_entered", self, "_on_exit_entered")

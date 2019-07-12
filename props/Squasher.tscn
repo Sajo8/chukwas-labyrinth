@@ -10,7 +10,7 @@ extents = Vector2( 29, 9 )
 extents = Vector2( 16, 54 )
 
 [node name="Squasher" type="StaticBody2D" groups=[
-"trap",
+"traps",
 ]]
 script = ExtResource( 1 )
 

@@ -6,7 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.8524, 23.7736 )
 
-[node name="DiamondDoor" type="Area2D"]
+[node name="DiamondDoor" type="Area2D" groups=[
+"exits",
+]]
 script = ExtResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
