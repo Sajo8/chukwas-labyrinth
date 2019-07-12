@@ -19,6 +19,10 @@ config/name="maze"
 run/main_scene="res://levels/GenericLevels/GenericEmeraldLevel.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://Globals.gd"
+
 [display]
 
 window/size/width=1920

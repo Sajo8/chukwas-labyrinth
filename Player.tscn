@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/turtle_spritesheet.png" type="Texture" id=2]
@@ -6,6 +6,22 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10.0304, 11.511 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "blink"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 11, 0, 11 ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.9
@@ -114,6 +130,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 vframes = 3
 hframes = 4
+frame = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3.03494 )
@@ -124,6 +141,7 @@ texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
+anims/blink = SubResource( 5 )
 anims/idle = SubResource( 2 )
 anims/squash = SubResource( 3 )
 anims/walk = SubResource( 4 )

@@ -4,7 +4,7 @@ export var speed = 200
 
 signal hit_squasher(collision)
 
-var game_over := false
+var game_over
 var velocity
 
 func get_input():
@@ -41,7 +41,7 @@ func animate_player(velocity):
 		$AnimationPlayer.play("idle")
 
 func _physics_process(delta):
-	if game_over: # Don't do anything if the player died
+	if Globals.game_over: # Don't do anything if the player died
 		return
 	
 	velocity = get_input()
@@ -54,10 +54,30 @@ func _physics_process(delta):
 		emit_signal("hit_squasher", collision)
 
 func _on_game_over():
+	# Squash the player into the void
 	$AnimationPlayer.play("squash")
-	game_over = true
+	
+	# Turn off input and wait for animation to finish
+	Globals.set("game_over", true)
+	yield($AnimationPlayer, "animation_finished")
+	
+	# Wait for 2s
+	yield(get_tree().create_timer(2), "timeout")
+	# Restart scene
+	get_tree().reload_current_scene()
 
 func _ready():
+	
+	if Globals.game_over: # Just respawned after dying
+		# Blink the player to let them know they died
+		$AnimationPlayer.play("blink")
+		# Wait for animation to finish playing
+		yield($AnimationPlayer, "animation_finished")
+		
+		# Take input again
+		Globals.set("game_over", false)
+	
+	# Connect signals for traps
 	var traps = get_tree().get_nodes_in_group("trap")
 	for trap in traps:
 		trap.connect("game_over", self, "_on_game_over")
