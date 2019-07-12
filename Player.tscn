@@ -48,7 +48,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 3.03494 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "squash"
 step = 0.05
 tracks/0/type = "value"
@@ -64,7 +64,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 loop = true
 step = 0.05
 tracks/0/type = "value"
@@ -120,12 +120,10 @@ position = Vector2( 0, 3.03494 )
 shape = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 0, 3.03467 )
 texture = ExtResource( 3 )
-mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/idle = SubResource( 2 )
-anims/squash = SubResource( 4 )
-anims/walk = SubResource( 3 )
+anims/squash = SubResource( 3 )
+anims/walk = SubResource( 4 )

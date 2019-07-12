@@ -42,6 +42,9 @@ position = Vector2( 549.055, 36.7245 )
 [node name="Squasher" parent="." instance=ExtResource( 7 )]
 position = Vector2( 548.297, 124.881 )
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0, 0, 0, 1 )
+
 [node name="Player" parent="." instance=ExtResource( 8 )]
 position = Vector2( 90, 70 )
 
