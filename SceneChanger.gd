@@ -37,11 +37,8 @@ func go_to_level(new_level):
 	yield(animation_player, "animation_finished")
 
 func go_to_next_level():
-	# Prevent going any further if we're already at the highest level there is
-#	if current_level == levels.size():
-#		return
-	
-	# Increment level counter
+
+	# Make temp var for next level
 	var next_level = current_level + 1
 	
 	go_to_level(next_level)
