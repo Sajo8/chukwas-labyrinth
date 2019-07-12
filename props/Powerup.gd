@@ -1,7 +1,5 @@
 extends Area2D
 
-signal powerup_grabbed
-
 func _ready():
 	# Increase size
 	$Effect.interpolate_property($Sprite, 'scale',
@@ -16,11 +14,8 @@ func _on_Powerup_body_entered(body):
 	if body.get_name() == "Player":
 		# Remove the collision shapes to prevent extra collisions during the time the effect is taking place.
 		shape_owner_clear_shapes(get_shape_owners()[0])
-		emit_signal("powerup_grabbed")
 		$Effect.start()
 
 func _on_Effect_tween_completed(object, key):
-	"""
-	Still want to do something more with the powerup, not yet decided.
-	"""
+	SceneChanger.go_to_next_level()
 	queue_free()
