@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://tilesets/dirt/dt_rock_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/dirt/dt_bg_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/dirt/dt_wall_tiles.tres" type="TileSet" id=3]
 [ext_resource path="res://exits/Stairs.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://props/Powerup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=6]
+[ext_resource path="res://props/Squasher.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=8]
 
 [node name="Node2D" type="Node2D"]
 
@@ -29,7 +32,17 @@ tile_data = PoolIntArray( 65537, 0, 4, 65538, 0, 2, 65539, 0, 2, 65540, 0, 2, 65
 [node name="Stairs" parent="." instance=ExtResource( 4 )]
 position = Vector2( 15, 616 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
+[node name="Powerup" parent="." instance=ExtResource( 5 )]
+position = Vector2( 291.959, 165.436 )
+
+[node name="Spikes" parent="." instance=ExtResource( 6 )]
+position = Vector2( 291.507, 209.821 )
+
+[node name="Squasher" parent="." instance=ExtResource( 7 )]
+position = Vector2( 293.116, 120.043 )
+rotation = 3.14159
+
+[node name="Player" parent="." instance=ExtResource( 8 )]
 position = Vector2( 144, 128 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
