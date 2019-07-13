@@ -3,10 +3,11 @@ extends CanvasLayer
 onready var animation_player = $AnimationPlayer
 
 var levels = {
-	1: "GenericLevels/GenericDirtLevel",
-	2: "GenericLevels/GenericStoneLevel",
-	3: "GenericLevels/GenericDiamondLevel",
-	4: "GenericLevels/GenericEmeraldLevel"
+	1: "dirt/level1",
+	2: "GenericLevels/GenericDirtLevel",
+	3: "GenericLevels/GenericStoneLevel",
+	4: "GenericLevels/GenericDiamondLevel",
+	5: "GenericLevels/GenericEmeraldLevel"
 }
 
 var current_level = 1

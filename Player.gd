@@ -4,7 +4,6 @@ export var speed = 200
 
 signal hit_squasher(collision)
 
-var game_over
 var velocity
 
 func get_input():
@@ -28,11 +27,11 @@ func animate_player(velocity):
 	velocity_angle = rad2deg(velocity_angle)
 	# Add 90 degrees since otherwise it treats going right as 0 degrees
 	velocity_angle = velocity_angle + 90
-	
+
 	# If we're moving, change rotation
 	if velocity.length() >= 1:
 		$Sprite.rotation_degrees = velocity_angle
-	
+
 	if velocity_length >= 1:
 		# If moving in any direction, play walk animation.
 		$AnimationPlayer.play("walk")
@@ -41,51 +40,76 @@ func animate_player(velocity):
 		$AnimationPlayer.play("idle")
 
 func _physics_process(delta):
-	if Globals.game_over: # Don't do anything if the player died
+
+	# Disable any movement if the player died
+	if Globals.player_dead:
 		return
-	
+
 	velocity = get_input()
 	velocity = velocity.normalized() * speed
 	animate_player(velocity)
 	move_and_slide(velocity)
-	
+
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		emit_signal("hit_squasher", collision)
+		if collision.collider.name == "Squasher":
+			emit_signal("hit_squasher", collision)
 
 func _on_game_over():
 	# Squash the player into the void
 	$AnimationPlayer.play("squash")
-	
-	# Turn off input and wait for animation to finish
-	Globals.set("game_over", true)
+
+	# Set player_dead to true, will be used when scene restarts
+	Globals.set("player_dead", true)
+
+	# wait for animation to finish
 	yield($AnimationPlayer, "animation_finished")
-	
-	# Wait for 2s
-	yield(get_tree().create_timer(2), "timeout")
+	# Wait for 1s
+	yield(get_tree().create_timer(1), "timeout")
+
 	# Restart scene
 	get_tree().reload_current_scene()
 
 func _on_exit_entered():
+	# Stop movement and animation
+	set_physics_process(false)
+	$AnimationPlayer.stop(true)
+
+	SceneChanger.go_to_next_level()
+
+func _on_powerup_grabbed():
+	# Stop movement and animation
+	set_physics_process(false)
+	$AnimationPlayer.stop(true)
+
 	SceneChanger.go_to_next_level()
 
 func _ready():
-	
-	if Globals.game_over: # Just respawned after dying
-		# Blink the player to let them know they died
-		$AnimationPlayer.play("blink")
+
+	if Globals.player_dead: # Just respawned after dying
+
+		# Show blinking animation
+		$AnimationPlayer.play("respawn")
 		# Wait for animation to finish playing
 		yield($AnimationPlayer, "animation_finished")
-		
-		# Take input again
-		Globals.set("game_over", false)
-	
+
+		# No longer dead
+		Globals.set("player_dead", false)
+
 	# Connect signals for traps
 	var traps = get_tree().get_nodes_in_group("traps")
-	for trap in traps:
-		trap.connect("game_over", self, "_on_game_over")
-	
+	if traps:
+		for trap in traps:
+			trap.connect("game_over", self, "_on_game_over")
+
 	# Connect signals for exits
 	var exits = get_tree().get_nodes_in_group("exits")
-	for exit in exits:
-		exit.connect("exit_entered", self, "_on_exit_entered")
+	if exits:
+		for exit in exits:
+			exit.connect("exit_entered", self, "_on_exit_entered")
+
+	# Connect signal for powerup
+	var powerup = get_tree().get_nodes_in_group("powerup")
+	if powerup:
+		powerup = powerup[0]
+		powerup.connect("powerup_grabbed", self, "_on_powerup_grabbed")

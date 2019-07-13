@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="maze"
-run/main_scene="res://levels/GenericLevels/GenericDirtLevel.tscn"
+run/main_scene="res://levels/dirt/Level_1.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -62,5 +62,6 @@ ui_down={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
