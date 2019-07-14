@@ -6,7 +6,7 @@ func save_game():
 	# saves in
 	# /home/sajo/.local/share/godot/app_userdata/maze
 	# i installed thru steam so may be different
-	
+
 	# windows: (untested)
 	# %APPDATA%\Godot\app_userdata\maze
 	var save_dict = {

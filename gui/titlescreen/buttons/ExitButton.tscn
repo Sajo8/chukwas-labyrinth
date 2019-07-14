@@ -4,13 +4,11 @@
 [ext_resource path="res://gui/titlescreen/buttons/ExitButton.gd" type="Script" id=2]
 [ext_resource path="res://gui/fonts/monsterrat_eb_50.tres" type="DynamicFont" id=3]
 
-
-
 [node name="ExitButton" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Label" parent="." index="0"]
 custom_fonts/font = ExtResource( 3 )
-text = "Exit
+text = "Save & Exit
 "
 [connection signal="pressed" from="." to="." method="_on_ExitButton_pressed"]
