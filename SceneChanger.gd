@@ -8,6 +8,7 @@ var levels = {
 }
 
 var current_level = 1
+var max_levels = levels.size()
 
 func fade_out():
 	animation_player.play("fade")
@@ -17,7 +18,7 @@ func fade_in():
 
 func go_to_level(new_level):
 	# Prevent going any further if we're already at the highest level there is
-	if current_level == levels.size():
+	if current_level == max_levels:
 		return
 
 	fade_out()
