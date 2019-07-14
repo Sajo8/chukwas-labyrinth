@@ -13,6 +13,13 @@ Clone repo, and import `project.godot` in the [Godot game engine(<25MB, single f
 
 Currently not accepted; ideas are though! Ping me @Sajo8#2953 on the [TurtleCoin discord](http://chat.turtlecoin.lol) in #dev_gaming
 
+## Credits
+
+- Oiboo for all the art!
+- GT3000 for helping me get started
+- Kenney for his amazing tileset which I used as the background and as walls
+- [Kira_Justine20](https://opengameart.org/users/kirajustine20) for the apple image used in-game
+
 ## Current Version Gif
 
 Whenever I make significant changes, I'll update this link to a gif of how the game currently looks.
