@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var speed = 200
+export var speed = 150
 
 signal hit_squasher(collision)
 

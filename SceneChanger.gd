@@ -10,11 +10,19 @@ var levels = {
 var current_level = 1
 var max_levels = levels.size()
 
-func fade_out():
+func fade(from_end):
 	animation_player.play("fade")
+	if from_end:
+		animation_player.play_backwards("fade")
+
+func fade_out():
+	fade(false)
+	yield(animation_player, "animation_finished")
 
 func fade_in():
-	animation_player.play_backwards("fade")
+	fade(true)
+	yield(animation_player, "animation_finished")
+
 
 func go_to_level(new_level):
 	# Prevent going any further if we're already at the highest level there is
@@ -22,8 +30,7 @@ func go_to_level(new_level):
 		return
 
 	fade_out()
-	yield(animation_player, "animation_finished")
-
+	
 	# Make new path for scene to be switched
 	var new_level_path = "res://levels/" + levels[new_level] + ".tscn"
 	# Switch scene
@@ -33,7 +40,6 @@ func go_to_level(new_level):
 	current_level = new_level
 
 	fade_in()
-	yield(animation_player, "animation_finished")
 
 	Globals.save_game()
 
@@ -43,3 +49,11 @@ func go_to_next_level():
 	var next_level = current_level + 1
 
 	go_to_level(next_level)
+
+func go_to_scene(scene_path):
+	
+	fade_out()
+	
+	get_tree().change_scene(scene_path)
+	
+	fade_in()

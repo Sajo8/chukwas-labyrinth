@@ -1,13 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://gui/titlescreen/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://gui/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/icon.png" type="Texture" id=2]
 [ext_resource path="res://gui/fonts/monsterrat_eb_30.tres" type="DynamicFont" id=3]
-[ext_resource path="res://gui/titlescreen/buttons/PlayButton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://gui/titlescreen/buttons/OptionsButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://gui/titlescreen/buttons/AboutButton.tscn" type="PackedScene" id=6]
-[ext_resource path="res://gui/titlescreen/buttons/ExitButton.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/turtle_spritesheet.png" type="Texture" id=8]
+[ext_resource path="res://gui/buttons/PlayButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/buttons/OptionsButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gui/buttons/AboutButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui/buttons/ExitButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/big_turtle.png" type="Texture" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.25098, 0.756863, 0.556863, 1 )
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -51,21 +54,25 @@ text = "Use arrow keys and enter to select"
 margin_top = 175.0
 margin_right = 838.0
 margin_bottom = 300.0
+custom_styles/focus = SubResource( 1 )
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
 margin_top = 320.0
 margin_right = 838.0
 margin_bottom = 445.0
+custom_styles/focus = SubResource( 1 )
 
 [node name="AboutButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 6 )]
 margin_top = 465.0
 margin_right = 838.0
 margin_bottom = 590.0
+custom_styles/focus = SubResource( 1 )
 
 [node name="ExitButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 7 )]
 margin_top = 610.0
 margin_right = 838.0
 margin_bottom = 735.0
+custom_styles/focus = SubResource( 1 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
 margin_left = 842.0
@@ -75,8 +82,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Characters" type="TextureRect" parent="Menu/CenterRow/CenterContainer"]
-margin_left = 291.0
-margin_top = 330.0
-margin_right = 547.0
-margin_bottom = 522.0
+margin_left = 51.0
+margin_top = 52.0
+margin_right = 786.0
+margin_bottom = 799.0
 texture = ExtResource( 8 )
