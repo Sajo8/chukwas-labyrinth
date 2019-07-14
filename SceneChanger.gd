@@ -18,7 +18,7 @@ func fade_in():
 
 func go_to_level(new_level):
 	# Prevent going any further if we're already at the highest level there is
-	if current_level == max_levels:
+	if new_level > max_levels:
 		return
 
 	fade_out()
@@ -34,6 +34,8 @@ func go_to_level(new_level):
 
 	fade_in()
 	yield(animation_player, "animation_finished")
+
+	Globals.save_game()
 
 func go_to_next_level():
 
