@@ -7,7 +7,7 @@ func pause_or_unpause():
 		$Popup.hide()
 	else:
 		$Popup.show()
-		$Popup/MarginContainer/Buttons/ResumeButton.grab_focus()
+		$Popup/MarginContainer/Buttons/HBoxContainer/ResumeButton.grab_focus()
 	get_tree().paused = !get_tree().paused
 
 func _input(event):

@@ -3,6 +3,8 @@ extends KinematicBody2D
 export var speed = 150
 
 signal hit_squasher(collision)
+signal level_passed
+signal player_died
 
 var velocity
 
@@ -56,33 +58,34 @@ func _physics_process(delta):
 			emit_signal("hit_squasher", collision)
 
 func _on_game_over():
+	
+	set_physics_process(false)
+	Globals.set("player_dead", true)
+	
 	# Squash the player into the void
 	$AnimationPlayer.play("squash")
-
-	# Set player_dead to true, will be used when scene restarts
-	Globals.set("player_dead", true)
-
+	
 	# wait for animation to finish
 	yield($AnimationPlayer, "animation_finished")
+	
 	# Wait for 1s
 	yield(get_tree().create_timer(1), "timeout")
-
-	# Restart scene
-	get_tree().reload_current_scene()
+	
+	emit_signal("player_died")
 
 func _on_exit_entered():
 	# Stop movement and animation
 	set_physics_process(false)
 	$AnimationPlayer.stop(true)
-
-	SceneChanger.go_to_next_level()
+	
+	emit_signal("level_passed")
 
 func _on_powerup_grabbed():
 	# Stop movement and animation
 	set_physics_process(false)
-	$AnimationPlayer.stop(true)
-
-	SceneChanger.go_to_next_level()
+	$AnimationPlayer.stop(true)\
+	
+	emit_signal("level_passed")
 
 func _ready():
 
@@ -96,12 +99,6 @@ func _ready():
 		# No longer dead
 		Globals.set("player_dead", false)
 
-	# Connect signals for traps
-	var traps = get_tree().get_nodes_in_group("traps")
-	if traps:
-		for trap in traps:
-			trap.connect("game_over", self, "_on_game_over")
-
 	# Connect signals for exits
 	var exits = get_tree().get_nodes_in_group("exits")
 	if exits:
@@ -113,3 +110,14 @@ func _ready():
 	if powerup:
 		powerup = powerup[0]
 		powerup.connect("powerup_grabbed", self, "_on_powerup_grabbed")
+		
+	# Connect signals for traps
+	var traps = get_tree().get_nodes_in_group("traps")
+	if traps:
+		for trap in traps:
+			trap.connect("game_over", self, "_on_game_over")
+	
+	var restart = get_tree().get_nodes_in_group("restart")
+	if restart:
+		restart = restart[0]
+		restart.connect("level_resetarted", self, "_on_level_restarted")

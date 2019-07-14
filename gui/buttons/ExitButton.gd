@@ -1,5 +1,5 @@
 extends Button
 
 func _on_ExitButton_pressed():
-	Globals.save_game()
+	Globals.save_current_level()
 	get_tree().quit()

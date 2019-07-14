@@ -2,7 +2,13 @@ extends Node
 
 var player_dead = false
 
-func save_game():
+func save_current_level():
+	save_game(SceneChanger.current_level)
+
+func save_next_level():
+	save_game(SceneChanger.current_level + 1)
+
+func save_game(level_to_save):
 	# saves in
 	# /home/sajo/.local/share/godot/app_userdata/maze
 	# i installed thru steam so may be different
@@ -10,7 +16,7 @@ func save_game():
 	# windows: (untested)
 	# %APPDATA%\Godot\app_userdata\maze
 	var save_dict = {
-		"level": SceneChanger.current_level
+		"level": level_to_save
 	}
 
 	var save_game = File.new()
@@ -35,4 +41,3 @@ func load_save():
 	SceneChanger.current_level = saved_level
 
 	save_game.close()
-
