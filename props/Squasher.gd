@@ -78,7 +78,7 @@ func shrink_squasher():
 
 	# The pillar automatically scales from the top only because the pivot point has been set to the bottom-most point. No such option exists for a CollisionShape, so this exists
 	# Change position of collisionshape so that it matches the actual column
-	# Too high to proper height
+	# From too high to the proper height
 	tween.interpolate_property(squasher_collision, "position",
 		original_squasher_collision_pos, squashed_squasher_collision_pos, duration,
 		Tween.TRANS_SINE, Tween.EASE_IN_OUT, idle_duration)
@@ -111,7 +111,7 @@ func maximise_squasher():
 
 	# The pillar automatically scales from the top only because the pivot point has been set to the bottom-most point. No such option exists for a CollisionShape, so this exists
 	# Change position of collisionshape so that it matches the actual column
-	# Too low to proper height
+	# From too low to the proper height
 	tween.interpolate_property(squasher_collision, "position",
 		squashed_squasher_collision_pos, original_squasher_collision_pos, duration,
 		Tween.TRANS_CIRC, Tween.EASE_OUT, idle_duration)
