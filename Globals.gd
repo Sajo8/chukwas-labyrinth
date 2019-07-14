@@ -6,7 +6,11 @@ func save_current_level():
 	save_game(SceneChanger.current_level)
 
 func save_next_level():
-	save_game(SceneChanger.current_level + 1)
+	var next_level = SceneChanger.current_level + 1
+	if next_level >  SceneChanger.current_level:
+		return
+	else:
+		save_game(SceneChanger.current_level + 1)
 
 func save_game(level_to_save):
 	# saves in
