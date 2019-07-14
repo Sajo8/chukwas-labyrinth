@@ -3,7 +3,7 @@ extends CanvasLayer
 onready var animation_player = $AnimationPlayer
 
 var levels = {
-	1: "dirt/Level_2",
+	1: "dirt/Level_1",
 	2: "dirt/Level_2",
 }
 
