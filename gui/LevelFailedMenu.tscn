@@ -42,7 +42,7 @@ margin_top = 421.0
 margin_right = 1920.0
 margin_bottom = 483.0
 custom_fonts/font = ExtResource( 2 )
-text = "Level Passed"
+text = "Level Failed"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Popup/MarginContainer/Buttons"]
