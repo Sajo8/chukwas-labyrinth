@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://gui/LevelHUD.gd" type="Script" id=1]
-[ext_resource path="res://gui/fonts/monsterrat_eb_30.tres" type="DynamicFont" id=2]
+[ext_resource path="res://gui/fonts/norse_b_30.tres" type="DynamicFont" id=2]
 
 [node name="LevelHUD" type="Control"]
 anchor_right = 1.0
@@ -13,16 +13,19 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="LevelLabel" type="Label" parent="Stats"]
-margin_top = 1.0
-margin_right = 101.0
-margin_bottom = 39.0
+margin_top = 17.0
+margin_right = 66.0
+margin_bottom = 48.0
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "Level: "
 
 [node name="LevelValLabel" type="Label" parent="Stats"]
-margin_left = 105.0
-margin_top = 1.0
-margin_right = 162.0
-margin_bottom = 39.0
+margin_left = 70.0
+margin_right = 111.0
+margin_bottom = 65.0
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "1/10"

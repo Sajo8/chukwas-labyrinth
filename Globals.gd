@@ -7,7 +7,7 @@ func save_current_level():
 
 func save_next_level():
 	var next_level = SceneChanger.current_level + 1
-	if next_level >  SceneChanger.current_level:
+	if next_level >  SceneChanger.levels.size(): # Don't save if they just finished the max level
 		return
 	else:
 		save_game(SceneChanger.current_level + 1)

@@ -4,7 +4,6 @@ export var speed = 150
 
 signal hit_squasher(collision)
 signal level_passed
-signal player_died
 
 var velocity
 var player_is_immune = false
@@ -71,18 +70,22 @@ func _on_game_over():
 	
 	# wait for animation to finish
 	yield($AnimationPlayer, "animation_finished")
+
+	$AnimationPlayer.stop(true)
 	
 	# Wait for 1s
 	yield(get_tree().create_timer(1), "timeout")
 	
-	emit_signal("player_died")
+	SceneChanger.go_to_scene("res://gui/LevelFailedMenu.tscn")
 
 func _on_exit_entered():
 	# Stop movement and animation
 	set_physics_process(false)
 	$AnimationPlayer.stop(true)
-	
-	emit_signal("level_passed")
+
+	# Save it now in case the player decides to quit to main menu
+	Globals.save_next_level()
+	SceneChanger.go_to_scene("res://gui/LevelPassedMenu.tscn")
 
 func _on_powerup_grabbed(type):
 	
@@ -90,7 +93,8 @@ func _on_powerup_grabbed(type):
 		# Stop movement and animation
 		set_physics_process(false)
 		$AnimationPlayer.stop(true)
-		emit_signal("level_passed")
+		# emit_signal("level_passed")
+		_on_exit_entered()
 	elif type == 'apple':
 		# Increase speed to 250 for 2 minutes
 		speed = 250
@@ -132,8 +136,3 @@ func _ready():
 	if traps:
 		for trap in traps:
 			trap.connect("game_over", self, "_on_game_over")
-	
-	var restart = get_tree().get_nodes_in_group("restart")
-	if restart:
-		restart = restart[0]
-		restart.connect("level_resetarted", self, "_on_level_restarted")

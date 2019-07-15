@@ -46,3 +46,9 @@ func go_to_scene(scene_path):
 	fade_out()
 	get_tree().change_scene(scene_path)
 	fade_in()
+
+func restart_level():
+	fade_out()
+	var failed_level_path = "res://levels/" + levels[current_level] + ".tscn"
+	get_tree().change_scene(failed_level_path)
+	fade_in()

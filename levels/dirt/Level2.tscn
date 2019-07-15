@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://tilesets/dirt/dt_bg_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/dirt/dt_rock_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/dirt/dt_wall_tiles.tres" type="TileSet" id=3]
 [ext_resource path="res://exits/Stairs.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
 
@@ -30,7 +31,10 @@ tile_data = PoolIntArray( 65537, 3, 0, 65538, 2, 2, 65539, 2, 2, 65540, 2, 2, 65
 [node name="Stairs" parent="." instance=ExtResource( 4 )]
 position = Vector2( 894.959, 53.9983 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
+[node name="Spikes" parent="." instance=ExtResource( 5 )]
+position = Vector2( 286.994, 178.695 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 120.411, 111.258 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
@@ -48,4 +52,4 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="CanvasLayer" instance=ExtResource( 6 )]
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 7 )]

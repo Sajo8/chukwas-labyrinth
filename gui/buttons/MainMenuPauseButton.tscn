@@ -11,6 +11,5 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1680.0
 margin_bottom = 125.0
-custom_constants/shadow_offset_y = 3
 text = "Return to Main Menu"
 [connection signal="pressed" from="." to="." method="_on_MainMenuButton_pressed"]

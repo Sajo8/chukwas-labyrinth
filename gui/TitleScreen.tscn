@@ -2,7 +2,7 @@
 
 [ext_resource path="res://gui/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/titlescreen_bg.png" type="Texture" id=2]
-[ext_resource path="res://gui/fonts/monsterrat_eb_30.tres" type="DynamicFont" id=3]
+[ext_resource path="res://gui/fonts/norse_b_30.tres" type="DynamicFont" id=3]
 [ext_resource path="res://gui/buttons/PlayButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/buttons/OptionsButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gui/buttons/AboutButton.tscn" type="PackedScene" id=6]
@@ -38,10 +38,11 @@ custom_constants/separation = 20
 alignment = 2
 
 [node name="Label" type="Label" parent="Menu/CenterRow/Buttons"]
-margin_top = 302.0
+margin_top = 309.0
 margin_right = 838.0
 margin_bottom = 340.0
 custom_fonts/font = ExtResource( 3 )
+custom_constants/shadow_as_outline = 3
 text = "Use arrow keys and enter to select"
 
 [node name="PlayButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]

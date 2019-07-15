@@ -1,7 +1,5 @@
 extends Control
 
-var popup
-
 func pause_or_unpause():
 	if get_tree().paused:
 		$Popup.hide()
