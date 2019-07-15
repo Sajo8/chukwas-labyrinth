@@ -45,3 +45,8 @@ func load_save():
 	SceneChanger.current_level = saved_level
 
 	save_game.close()
+	
+# pwerup idea
+# :marine:
+# removes all walll tiles
+# would be fun

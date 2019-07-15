@@ -18,7 +18,6 @@ Currently not accepted; ideas are though! Ping me @Sajo8#2953 on the [TurtleCoin
 - Oiboo for all the art!
 - GT3000 for helping me get started
 - Kenney for his amazing tileset which I used as the background and as walls
-- [Kira_Justine20](https://opengameart.org/users/kirajustine20) for the apple image used in-game
 
 ## Current Version Gif
 
