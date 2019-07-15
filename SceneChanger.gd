@@ -30,7 +30,6 @@ func go_to_level(new_level):
 	fade_out()
 	# Make new path for scene to be switched
 	var new_level_path = "res://levels/" + levels[new_level] + ".tscn"
-	print(new_level_path)
 	# Switch scene
 	get_tree().change_scene(new_level_path)
 	# Switched scenes, let's update current level number

@@ -1,6 +1,6 @@
 extends Area2D
 
-signal powerup_grabbed
+signal powerup_grabbed(type)
 
 func _ready():
 	# Increase size
@@ -12,11 +12,11 @@ func _ready():
 		Color(1, 1, 1, 1), Color(0, 0, 0, 0), 0.6,
 		Tween.TRANS_LINEAR, Tween.EASE_OUT)
 
-func _on_Powerup_body_entered(body):
+func _on_TurtleIcon_body_entered(body):
 	if body.get_name() == "Player":
 		# Remove the collision shapes to prevent extra collisions during the time the effect is taking place.
 		shape_owner_clear_shapes(get_shape_owners()[0])
-		emit_signal("powerup_grabbed")
+		emit_signal("powerup_grabbed", 'turtleicon')
 		$Effect.start()
 
 func _on_Effect_tween_completed(object, key):

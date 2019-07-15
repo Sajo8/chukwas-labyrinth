@@ -80,12 +80,20 @@ func _on_exit_entered():
 	
 	emit_signal("level_passed")
 
-func _on_powerup_grabbed():
-	# Stop movement and animation
-	set_physics_process(false)
-	$AnimationPlayer.stop(true)\
+func _on_powerup_grabbed(type):
 	
-	emit_signal("level_passed")
+	if type == 'turtleicon':
+		# Stop movement and animation
+		set_physics_process(false)
+		$AnimationPlayer.stop(true)
+		emit_signal("level_passed")
+	elif type == 'apple':
+		# Increase speed to 250 for 2 minutes
+		speed = 250
+		yield(get_tree().create_timer(120.0, false), "timeout")
+		speed = 150
+	else:
+		pass
 
 func _ready():
 
@@ -106,10 +114,10 @@ func _ready():
 			exit.connect("exit_entered", self, "_on_exit_entered")
 
 	# Connect signal for powerup
-	var powerup = get_tree().get_nodes_in_group("powerup")
-	if powerup:
-		powerup = powerup[0]
-		powerup.connect("powerup_grabbed", self, "_on_powerup_grabbed")
+	var powerups = get_tree().get_nodes_in_group("powerup")
+	if powerups:
+		for powerup in powerups:
+			powerup.connect("powerup_grabbed", self, "_on_powerup_grabbed")
 		
 	# Connect signals for traps
 	var traps = get_tree().get_nodes_in_group("traps")
