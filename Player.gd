@@ -7,6 +7,7 @@ signal level_passed
 signal player_died
 
 var velocity
+var player_is_immune = false
 
 func get_input():
 	# Detect up/down/left/right keystate and only move when pressed
@@ -59,6 +60,9 @@ func _physics_process(delta):
 
 func _on_game_over():
 	
+	if player_is_immune:
+		return
+	
 	set_physics_process(false)
 	Globals.set("player_dead", true)
 	
@@ -92,6 +96,10 @@ func _on_powerup_grabbed(type):
 		speed = 250
 		yield(get_tree().create_timer(120.0, false), "timeout")
 		speed = 150
+	elif type == 'watermelon':
+		player_is_immune = true
+		yield(get_tree().create_timer(120.0, false), "timeout")
+		player_is_immune = false
 	else:
 		pass
 
