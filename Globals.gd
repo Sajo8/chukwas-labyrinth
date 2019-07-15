@@ -50,3 +50,5 @@ func load_save():
 # :marine:
 # removes all walll tiles
 # would be fun
+
+# have power downs not power ups! :t_devilish:  player gets twice as big for 10 seconds can't fit through gaps. Slow down for 10 seconds. Super vision lights up the whole map.
