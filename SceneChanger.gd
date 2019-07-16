@@ -5,6 +5,7 @@ onready var animation_player = $AnimationPlayer
 var levels = {
 	1: "dirt/Level1",
 	2: "dirt/Level2",
+	3: "stone/Level3",
 }
 
 var current_level = 1
