@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://tilesets/dirt/dt_bg_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/dirt/dt_rock_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/dirt/dt_wall_tiles.tres" type="TileSet" id=3]
 [ext_resource path="res://exits/Stairs.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui/GenericTinyLabel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://props/Watermelon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=7]
+[ext_resource path="res://props/Squasher.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=10]
 
 [node name="Node2D" type="Node2D"]
 
@@ -30,7 +34,75 @@ tile_data = PoolIntArray( 65537, 3, 0, 65538, 2, 2, 65539, 2, 2, 65540, 2, 2, 65
 [node name="Stairs" parent="." instance=ExtResource( 4 )]
 position = Vector2( 894.959, 53.9983 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
+[node name="Instructions" type="Node2D" parent="."]
+
+[node name="Spikes" parent="Instructions" instance=ExtResource( 5 )]
+margin_left = 167.019
+margin_top = 182.49
+margin_right = 231.019
+margin_bottom = 264.49
+text = "Watch out for spikes!"
+autowrap = true
+
+[node name="Squashers" parent="Instructions" instance=ExtResource( 5 )]
+margin_left = 243.634
+margin_top = 415.893
+margin_right = 299.634
+margin_bottom = 481.893
+text = "ANd squashers too"
+autowrap = true
+
+[node name="Watermelon" parent="Instructions" instance=ExtResource( 5 )]
+margin_left = 402.863
+margin_top = 335.269
+margin_right = 491.863
+margin_bottom = 447.269
+text = "Watermelons will make you immune to spikes and squashers"
+autowrap = true
+
+[node name="Glhf" parent="Instructions" instance=ExtResource( 5 )]
+margin_left = 925.0
+margin_top = 36.0
+margin_right = 959.0
+margin_bottom = 56.0
+text = "glhf"
+autowrap = true
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Watermelon" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( 510.13, 366.188 )
+
+[node name="Spikes" parent="Props" instance=ExtResource( 7 )]
+position = Vector2( 209.797, 273.069 )
+rotation = 1.5708
+
+[node name="Squasher" parent="Props" instance=ExtResource( 8 )]
+position = Vector2( 208.022, 486.994 )
+
+[node name="EndSpikes" type="Node2D" parent="Props"]
+
+[node name="Spikes" parent="Props/EndSpikes" instance=ExtResource( 7 )]
+position = Vector2( 959.921, 543.461 )
+rotation = 1.5708
+
+[node name="Spikes2" parent="Props/EndSpikes" instance=ExtResource( 7 )]
+position = Vector2( 926.462, 543.409 )
+rotation = 3.14159
+
+[node name="Spikes3" parent="Props/EndSpikes" instance=ExtResource( 7 )]
+position = Vector2( 893.175, 543.409 )
+rotation = 3.14159
+
+[node name="Spikes4" parent="Props/EndSpikes" instance=ExtResource( 7 )]
+position = Vector2( 861.349, 543.701 )
+rotation = 3.14159
+
+[node name="Spikes5" parent="Props/EndSpikes" instance=ExtResource( 7 )]
+position = Vector2( 959.694, 507.497 )
+rotation = 1.5708
+
+[node name="Player" parent="." instance=ExtResource( 9 )]
 position = Vector2( 120.411, 111.258 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
@@ -48,4 +120,4 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="CanvasLayer" instance=ExtResource( 6 )]
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 10 )]
