@@ -6,8 +6,6 @@
 [node name="ExitButton" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Label" parent="." index="0"]
-text = "Save & Exit
-"
-align = 1
+[node name="GenericMedLabel" parent="." index="0"]
+text = "Save and Exit"
 [connection signal="pressed" from="." to="." method="_on_ExitButton_pressed"]

@@ -10,10 +10,6 @@ bg_color = Color( 0, 0.52549, 0.231373, 1 )
 custom_styles/focus = SubResource( 1 )
 script = ExtResource( 2 )
 
-[node name="Label" parent="." index="0"]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1680.0
-margin_bottom = 125.0
+[node name="GenericMedLabel" parent="." index="0"]
 text = "Return to Main Menu"
 [connection signal="pressed" from="." to="." method="_on_MainMenuButton_pressed"]

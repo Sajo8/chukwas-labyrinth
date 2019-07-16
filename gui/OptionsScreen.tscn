@@ -2,7 +2,7 @@
 
 [ext_resource path="res://gui/OptionsScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/optionsscreen_bg.png" type="Texture" id=2]
-[ext_resource path="res://gui/fonts/norse_b_30.tres" type="DynamicFont" id=3]
+[ext_resource path="res://gui/GenericSmallLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/buttons/MainMenuButton.tscn" type="PackedScene" id=4]
 
 [node name="OptionsScreen" type="Control"]
@@ -33,15 +33,13 @@ size_flags_vertical = 3
 custom_constants/separation = 20
 alignment = 2
 
-[node name="Label" type="Label" parent="Menu/CenterRow/Buttons"]
+[node name="Label" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 744.0
 margin_right = 838.0
 margin_bottom = 775.0
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
-custom_constants/shadow_as_outline = 3
 text = "Use arrow keys and enter to select"
-align = 1
 
 [node name="MainMenuButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_top = 795.0

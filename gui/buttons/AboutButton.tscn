@@ -6,7 +6,6 @@
 [node name="AboutButton" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Label" parent="." index="0"]
-text = "About"
-align = 1
+[node name="GenericMedLabel" parent="." index="0"]
+text = "ABout"
 [connection signal="pressed" from="." to="." method="_on_AboutButton_pressed"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://gui/LevelPassedMenu.gd" type="Script" id=1]
-[ext_resource path="res://gui/fonts/norse_b_50.tres" type="DynamicFont" id=2]
+[ext_resource path="res://gui/GenericBigLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gui/buttons/NextLevelPauseButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/buttons/MainMenuPauseButton.tscn" type="PackedScene" id=4]
 
@@ -37,14 +37,11 @@ margin_bottom = 1080.0
 custom_constants/separation = 50
 alignment = 1
 
-[node name="Label" type="Label" parent="Popup/MarginContainer/Buttons"]
+[node name="Label" parent="Popup/MarginContainer/Buttons" instance=ExtResource( 2 )]
 margin_top = 427.0
 margin_right = 1920.0
 margin_bottom = 478.0
-custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
-custom_constants/shadow_as_outline = 4
-text = "Level Passed"
+text = "level passed"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Popup/MarginContainer/Buttons"]

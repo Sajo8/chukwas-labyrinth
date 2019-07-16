@@ -44,6 +44,7 @@ limit_bottom = 540
 editor_draw_limits = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
