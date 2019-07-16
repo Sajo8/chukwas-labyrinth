@@ -53,11 +53,11 @@ text = "ANd squashers too"
 autowrap = true
 
 [node name="Watermelon" parent="Instructions" instance=ExtResource( 5 )]
-margin_left = 402.863
+margin_left = 401.198
 margin_top = 335.269
-margin_right = 491.863
-margin_bottom = 447.269
-text = "Watermelons will make you immune to spikes and squashers"
+margin_right = 490.198
+margin_bottom = 470.269
+text = "Watermelons will make you immune to spikes and squashers (For 2 Mins)"
 autowrap = true
 
 [node name="Glhf" parent="Instructions" instance=ExtResource( 5 )]
