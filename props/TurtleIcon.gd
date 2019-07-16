@@ -16,8 +16,8 @@ func _on_TurtleIcon_body_entered(body):
 	if body.get_name() == "Player":
 		# Remove the collision shapes to prevent extra collisions during the time the effect is taking place.
 		shape_owner_clear_shapes(get_shape_owners()[0])
-		emit_signal("powerup_grabbed", 'turtleicon')
 		$Effect.start()
 
 func _on_Effect_tween_completed(object, key):
 	queue_free()
+	emit_signal("powerup_grabbed", 'turtleicon')

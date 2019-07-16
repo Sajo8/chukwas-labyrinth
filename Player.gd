@@ -78,7 +78,7 @@ func _on_game_over():
 	
 	SceneChanger.go_to_scene("res://gui/LevelFailedMenu.tscn")
 
-func _on_exit_entered():
+func _on_level_passed():
 	# Stop movement and animation
 	set_physics_process(false)
 	$AnimationPlayer.stop(true)
@@ -87,14 +87,13 @@ func _on_exit_entered():
 	Globals.save_next_level()
 	SceneChanger.go_to_scene("res://gui/LevelPassedMenu.tscn")
 
+func _on_exit_entered():
+	emit_signal("level_passed")
+
 func _on_powerup_grabbed(type):
 	
 	if type == 'turtleicon':
-		# Stop movement and animation
-		set_physics_process(false)
-		$AnimationPlayer.stop(true)
-		# emit_signal("level_passed")
-		_on_exit_entered()
+		emit_signal("level_passed")
 	elif type == 'apple':
 		# Increase speed to 250 for 2 minutes
 		speed = 250
@@ -136,3 +135,5 @@ func _ready():
 	if traps:
 		for trap in traps:
 			trap.connect("game_over", self, "_on_game_over")
+	
+	self.connect("level_passed", self, "_on_level_passed")
