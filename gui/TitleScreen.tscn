@@ -44,6 +44,7 @@ margin_bottom = 340.0
 custom_fonts/font = ExtResource( 3 )
 custom_constants/shadow_as_outline = 3
 text = "Use arrow keys and enter to select"
+align = 1
 
 [node name="PlayButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_top = 360.0

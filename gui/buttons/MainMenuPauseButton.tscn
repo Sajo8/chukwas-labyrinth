@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://gui/buttons/GenericPauseButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gui/buttons/MainMenuPauseButton.gd" type="Script" id=2]
 
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0.52549, 0.231373, 1 )
+
 [node name="MainMenuPauseButton" index="0" instance=ExtResource( 1 )]
+custom_styles/focus = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Label" parent="." index="0"]

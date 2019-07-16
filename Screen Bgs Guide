@@ -1,0 +1,19 @@
+Making screen backgrounds guide
+
+
+1. Duplicate the main text
+2. Click on it with the text tool (big A) and change what it says
+3. View -> Show Grid and Snap to Grid
+4. Right click main text layer, click alpha to selection
+5. Select -> Grow -> 2 px -> ok
+6. New layer (transparency)
+7. Fill it with white with the bucket tool
+8. Put it under the main text layer
+9. Duplicate main text
+10. MOve it to the left for a black offset
+11. Show the original pre-existing text layer
+12. Set the foreground and background colors at the top and bottom with the eyedropper tool
+13. Select main text layer
+14. Select gradient tool
+15. Click on top of any letter and click again on the bottom  to make gradient
+16. Done!
