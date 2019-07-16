@@ -10,7 +10,7 @@ Making screen backgrounds guide
 7. Fill it with white with the bucket tool
 8. Put it under the main text layer
 9. Duplicate main text
-10. MOve it to the left for a black offset
+10. Move it to the left for a black offset, set opacity to 74.1
 11. Show the original pre-existing text layer
 12. Set the foreground and background colors at the top and bottom with the eyedropper tool
 13. Select main text layer
