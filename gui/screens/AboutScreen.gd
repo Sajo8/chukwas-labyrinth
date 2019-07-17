@@ -1,4 +1,4 @@
 extends Control
 
 func _ready():
-	$Menu/CenterRow/Buttons/MainMenuButton.grab_focus()
+	$MarginContainer/VBoxContainer/HBoxContainer/MainMenuButton.grab_focus()

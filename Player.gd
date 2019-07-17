@@ -76,7 +76,7 @@ func _on_game_over():
 	# Wait for 1s
 	yield(get_tree().create_timer(1), "timeout")
 
-	SceneChanger.go_to_scene("res://gui/LevelFailedMenu.tscn")
+	SceneChanger.go_to_scene("res://gui/menus/LevelFailedMenu.tscn")
 
 func _on_level_passed():
 	# Stop movement and animation
@@ -85,7 +85,7 @@ func _on_level_passed():
 
 	# Save it now in case the player decides to quit to main menu
 	Globals.save_next_level()
-	SceneChanger.go_to_scene("res://gui/LevelPassedMenu.tscn")
+	SceneChanger.go_to_scene("res://gui/menus/LevelPassedMenu.tscn")
 
 func _on_exit_entered():
 	emit_signal("level_passed")
