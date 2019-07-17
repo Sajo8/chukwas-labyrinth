@@ -5,16 +5,15 @@
 [ext_resource path="res://gui/labels/GenericSmallLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/buttons/MainMenuButton.tscn" type="PackedScene" id=4]
 
-
-
 [node name="OptionsScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
 texture = ExtResource( 2 )
-centered = false
 
 [node name="Menu" type="VBoxContainer" parent="."]
 margin_left = 120.0
