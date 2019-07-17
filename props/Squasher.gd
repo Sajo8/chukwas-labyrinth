@@ -97,7 +97,7 @@ func shrink_squasher():
 
 func maximise_squasher():
 
-	var idle_duration = 2
+	var idle_duration = 1
 	var duration = 0.2
 
 	# Increase size of column
