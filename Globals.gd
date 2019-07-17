@@ -1,5 +1,7 @@
 extends Node
 
+var player_dead = false
+
 func save_current_level():
 	save_game(SceneChanger.current_level)
 

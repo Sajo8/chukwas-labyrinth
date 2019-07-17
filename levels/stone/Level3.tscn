@@ -12,7 +12,6 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=11]
 
-
 [node name="Node2D" type="Node2D"]
 
 [node name="BgTiles" type="TileMap" parent="."]
