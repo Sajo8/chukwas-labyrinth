@@ -1,7 +1,5 @@
 extends Node
 
-var player_dead = false
-
 func save_current_level():
 	save_game(SceneChanger.current_level)
 
@@ -45,10 +43,3 @@ func load_save():
 	SceneChanger.current_level = saved_level
 
 	save_game.close()
-	
-# pwerup idea
-# :marine:
-# removes all walll tiles
-# would be fun
-
-# have power downs not power ups! :t_devilish:  player gets twice as big for 10 seconds can't fit through gaps. Slow down for 10 seconds. Super vision lights up the whole map.

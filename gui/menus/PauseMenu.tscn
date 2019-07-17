@@ -1,14 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://gui/LevelPassedMenu.gd" type="Script" id=1]
-[ext_resource path="res://gui/GenericBigLabel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://gui/buttons/NextLevelPauseButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/menus/PauseMenu.gd" type="Script" id=1]
+[ext_resource path="res://gui/labels/GenericBigLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/buttons/ResumePauseButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/buttons/MainMenuPauseButton.tscn" type="PackedScene" id=4]
+
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
 
-[node name="LevelPassedMenu" type="Control"]
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0.52549, 0.231373, 1 )
+
+[node name="PauseMenu" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="CanvasModulate" type="PanelContainer" parent="Popup"]
-self_modulate = Color( 1, 1, 1, 0.843137 )
+self_modulate = Color( 1, 1, 1, 0.494118 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -34,6 +39,8 @@ margin_bottom = 1080.0
 [node name="Buttons" type="VBoxContainer" parent="Popup/MarginContainer"]
 margin_right = 1920.0
 margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/separation = 50
 alignment = 1
 
@@ -41,7 +48,7 @@ alignment = 1
 margin_top = 427.0
 margin_right = 1920.0
 margin_bottom = 478.0
-text = "level passed"
+text = "Paused"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Popup/MarginContainer/Buttons"]
@@ -50,12 +57,14 @@ margin_right = 1920.0
 margin_bottom = 653.0
 alignment = 1
 
-[node name="NextLevelButton" parent="Popup/MarginContainer/Buttons/HBoxContainer" instance=ExtResource( 3 )]
+[node name="ResumeButton" parent="Popup/MarginContainer/Buttons/HBoxContainer" instance=ExtResource( 3 )]
 margin_left = 558.0
 margin_right = 958.0
 margin_bottom = 125.0
+custom_styles/focus = SubResource( 2 )
 
 [node name="MainMenuButton" parent="Popup/MarginContainer/Buttons/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 962.0
 margin_right = 1362.0
 margin_bottom = 125.0
+custom_styles/focus = SubResource( 2 )

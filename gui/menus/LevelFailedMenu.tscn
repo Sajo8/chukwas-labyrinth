@@ -1,9 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://gui/LevelFailedMenu.gd" type="Script" id=1]
-[ext_resource path="res://gui/GenericBigLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/menus/LevelFailedMenu.gd" type="Script" id=1]
+[ext_resource path="res://gui/labels/GenericBigLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gui/buttons/RetryPauseButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/buttons/MainMenuPauseButton.tscn" type="PackedScene" id=4]
+
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )

@@ -1,12 +1,14 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://gui/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://gui/screens/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/titlescreen_bg.png" type="Texture" id=2]
-[ext_resource path="res://gui/GenericSmallLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/labels/GenericSmallLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/buttons/PlayButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/buttons/OptionsButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gui/buttons/AboutButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gui/buttons/ExitButton.tscn" type="PackedScene" id=7]
+
+
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0

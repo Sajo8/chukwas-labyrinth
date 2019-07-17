@@ -58,24 +58,24 @@ func _physics_process(delta):
 			emit_signal("hit_squasher", collision)
 
 func _on_game_over():
-	
+
 	if player_is_immune:
 		return
-	
+
 	set_physics_process(false)
 	Globals.set("player_dead", true)
-	
+
 	# Squash the player into the void
 	$AnimationPlayer.play("squash")
-	
+
 	# wait for animation to finish
 	yield($AnimationPlayer, "animation_finished")
 
 	$AnimationPlayer.stop(true)
-	
+
 	# Wait for 1s
 	yield(get_tree().create_timer(1), "timeout")
-	
+
 	SceneChanger.go_to_scene("res://gui/LevelFailedMenu.tscn")
 
 func _on_level_passed():
@@ -91,7 +91,7 @@ func _on_exit_entered():
 	emit_signal("level_passed")
 
 func _on_powerup_grabbed(type):
-	
+
 	if type == 'turtleicon':
 		emit_signal("level_passed")
 	elif type == 'apple':
@@ -129,11 +129,11 @@ func _ready():
 	if powerups:
 		for powerup in powerups:
 			powerup.connect("powerup_grabbed", self, "_on_powerup_grabbed")
-		
+
 	# Connect signals for traps
 	var traps = get_tree().get_nodes_in_group("traps")
 	if traps:
 		for trap in traps:
 			trap.connect("game_over", self, "_on_game_over")
-	
+
 	self.connect("level_passed", self, "_on_level_passed")

@@ -19,9 +19,19 @@ Currently not accepted; ideas are though! Ping me @Sajo8#2953 on the [TurtleCoin
 - GT3000 for helping me get started
 - Kenney for his amazing tileset which I used as the background and as walls
 
+## Future Ideas
+
+- Turtle Marine
+    - Removes all wall tiles
+    - Or lets the player phase through walls
+- Slow down for 10 seconds
+- Super vision lights up the whole map.
+
 ## Current Version Gif
 
 Whenever I make significant changes, I'll update this link to a gif of how the game currently looks.
+
+**Note:** This gif thing is essentially useless now; I don't want to show you how to solve a level in a preview gif and I won't make them very long. Best way to assess it now is to just download and play the game.
 
 July 15, 2019  
 https://i.imgur.com/VQigott.mp4
