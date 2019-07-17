@@ -22,4 +22,7 @@ region_rect = Rect2( 96, 0, 32, 32 )
 position = Vector2( 0, 3.027 )
 rotation = 1.5708
 shape = SubResource( 1 )
+
+[node name="Effect" type="Tween" parent="."]
 [connection signal="body_entered" from="." to="." method="_on_Watermelon_body_entered"]
+[connection signal="tween_completed" from="Effect" to="." method="_on_Effect_tween_completed"]

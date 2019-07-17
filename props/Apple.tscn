@@ -20,4 +20,7 @@ region_rect = Rect2( 64, 0, 32, 32 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.11908, 2.40492 )
 shape = SubResource( 1 )
+
+[node name="Effect" type="Tween" parent="."]
 [connection signal="body_entered" from="." to="." method="_on_Apple_body_entered"]
+[connection signal="tween_completed" from="Effect" to="." method="_on_Effect_tween_completed"]
