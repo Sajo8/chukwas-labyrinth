@@ -13,12 +13,6 @@ func save_next_level():
 		save_game(SceneChanger.current_level + 1)
 
 func save_game(level_to_save):
-	# saves in
-	# /home/sajo/.local/share/godot/app_userdata/maze
-	# i installed thru steam so may be different
-
-	# windows: (untested)
-	# %APPDATA%\Godot\app_userdata\maze
 	var save_dict = {
 		"level": level_to_save
 	}
@@ -33,7 +27,7 @@ func save_game(level_to_save):
 func load_save():
 	var save_game = File.new()
 
-	# Set level to 1 and quit
+	# Set level to 1 and quit if no save file exists
 	if not save_game.file_exists("user://savegame.trtl"):
 		SceneChanger.current_level = 1
 		save_game.close()
