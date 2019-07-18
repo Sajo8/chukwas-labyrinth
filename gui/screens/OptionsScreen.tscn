@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gui/screens/OptionsScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/optionsscreen_bg.png" type="Texture" id=2]
-[ext_resource path="res://gui/buttons/MainMenuButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/buttons/ResetProgressButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/buttons/MainMenuButton.tscn" type="PackedScene" id=4]
 
 [node name="OptionsScreen" type="Control"]
 anchor_right = 1.0
@@ -33,7 +34,22 @@ size_flags_vertical = 3
 custom_constants/separation = 20
 alignment = 2
 
-[node name="MainMenuButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/CenterRow/Buttons"]
+margin_right = 838.0
+margin_bottom = 775.0
+rect_min_size = Vector2( 400, 125 )
+focus_mode = 2
+mouse_filter = 0
+size_flags_vertical = 3
+
+[node name="ResetProgressButton" parent="Menu/CenterRow/Buttons/HBoxContainer" instance=ExtResource( 3 )]
+margin_top = 650.0
+margin_right = 838.0
+margin_bottom = 775.0
+size_flags_horizontal = 3
+size_flags_vertical = 10
+
+[node name="MainMenuButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_top = 795.0
 margin_right = 838.0
 margin_bottom = 920.0

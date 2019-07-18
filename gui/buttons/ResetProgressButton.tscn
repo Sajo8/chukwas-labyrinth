@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://gui/buttons/GenericButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gui/buttons/ResetProgressButton.gd" type="Script" id=2]
+[ext_resource path="res://gui/labels/GenericMedLabel.tscn" type="PackedScene" id=3]
+
+[node name="ResetProgressButton" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="GenericMedLabel" parent="." index="0"]
+text = "Reset all progress and start at level 1"
+
+[node name="AcceptDialog" type="AcceptDialog" parent="." index="1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -112.0
+margin_top = -42.0
+margin_right = 112.0
+margin_bottom = 42.0
+
+[node name="GenericMedLabel" parent="AcceptDialog" index="3" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -104.0
+margin_top = -29.9724
+margin_right = 104.0
+margin_bottom = 10.0276
+custom_constants/shadow_as_outline = 3
+text = "Progress reset!"
+[connection signal="pressed" from="." to="." method="_on_ResetProgressButton_pressed"]
+[connection signal="confirmed" from="AcceptDialog" to="." method="_on_AcceptDialog_confirmed"]
