@@ -72,6 +72,7 @@ scale = Vector2( 1, 0.75 )
 position = Vector2( 558.716, 73.0372 )
 rotation = 3.14159
 scale = Vector2( 1, 0.75 )
+squash_side = "down"
 
 [node name="Spikes" type="Node2D" parent="Props"]
 editor/display_folded = true

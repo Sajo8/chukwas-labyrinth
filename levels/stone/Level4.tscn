@@ -140,8 +140,10 @@ editor/display_folded = true
 position = Vector2( 618.575, 692.199 )
 rotation = 1.5708
 scale = Vector2( 0.8, 0.8 )
+squash_side = "right"
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
+editor/display_folded = true
 position = Vector2( 1304.09, 781.86 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
