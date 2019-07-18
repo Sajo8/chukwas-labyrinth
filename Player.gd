@@ -7,6 +7,7 @@ signal level_passed
 
 var velocity
 var player_is_immune = false
+var player_has_powerup = false
 
 func get_input():
 	# Detect up/down/left/right keystate and only move when pressed
@@ -33,13 +34,21 @@ func animate_player(velocity):
 	# If we're moving, change rotation
 	if velocity.length() >= 1:
 		$Sprite.rotation_degrees = velocity_angle
-
-	if velocity_length >= 1:
-		# If moving in any direction, play walk animation.
-		$AnimationPlayer.play("walk")
+	
+	if player_has_powerup:
+		if velocity_length >= 1:
+			# If moving in any direction, play walk animation.
+			$AnimationPlayer.play("powerup_walk")
+		else:
+			# Not moving, idle anim
+			$AnimationPlayer.play("powerup_idle")
 	else:
-		# Not moving, idle anim
-		$AnimationPlayer.play("idle")
+		if velocity_length >= 1:
+			# If moving in any direction, play walk animation.
+			$AnimationPlayer.play("walk")
+		else:
+			# Not moving, idle anim
+			$AnimationPlayer.play("idle")
 
 func _physics_process(delta):
 
@@ -93,16 +102,23 @@ func _on_exit_entered():
 func _on_powerup_grabbed(type):
 
 	if type == 'turtleicon':
+		player_has_powerup = true
 		emit_signal("level_passed")
+	
 	elif type == 'apple':
 		# Increase speed to 250 for 2 minutes
 		speed = 250
+		player_has_powerup = true
 		yield(get_tree().create_timer(120.0, false), "timeout")
 		speed = 150
+		player_has_powerup = false
+	
 	elif type == 'watermelon':
 		player_is_immune = true
+		player_has_powerup = true
 		yield(get_tree().create_timer(120.0, false), "timeout")
 		player_is_immune = false
+		player_has_powerup = false
 	else:
 		pass
 
