@@ -38,7 +38,7 @@ tile_data = PoolIntArray( 65537, 1, 0, 65538, 3, 2, 65539, 3, 2, 65540, 3, 2, 65
 
 [node name="InvisibleWalls" type="Node2D" parent="."]
 editor/display_folded = true
-modulate = Color( 1, 1, 1, 0.0196078 )
+modulate = Color( 1, 1, 1, 0.0980392 )
 
 [node name="WallTiles" type="TileMap" parent="InvisibleWalls"]
 tile_set = ExtResource( 3 )
@@ -129,7 +129,7 @@ position = Vector2( 1003.34, 210.857 )
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
 editor/display_folded = true
-position = Vector2( 1611.43, 105.004 )
+position = Vector2( 1555.2, 129.641 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
 position = Vector2( -211.585, -146.843 )
@@ -142,8 +142,10 @@ limit_bottom = 950
 editor_draw_limits = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 12 )]
+visible = false
