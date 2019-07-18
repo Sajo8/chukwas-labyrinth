@@ -13,6 +13,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Tiles" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="BgTiles" type="TileMap" parent="Tiles"]
 tile_set = ExtResource( 1 )
@@ -36,6 +37,7 @@ tile_data = PoolIntArray( 65537, 1, 0, 65538, 3, 2, 65539, 3, 2, 65540, 3, 2, 65
 position = Vector2( 176.652, 696.154 )
 
 [node name="Props" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Spikes" type="Node2D" parent="Props"]
 editor/display_folded = true
@@ -140,7 +142,6 @@ rotation = 1.5708
 scale = Vector2( 0.8, 0.8 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
-editor/display_folded = true
 position = Vector2( 1304.09, 781.86 )
 
 [node name="Camera" type="Camera2D" parent="Player"]

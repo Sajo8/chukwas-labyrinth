@@ -66,6 +66,5 @@ editor_draw_limits = true
 color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 9 )]

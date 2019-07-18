@@ -7,6 +7,7 @@ var levels = {
 	2: "dirt/Level2",
 	3: "stone/Level3",
 	4: "stone/Level4",
+	5: "stone/Level5",
 }
 
 var current_level = 1
