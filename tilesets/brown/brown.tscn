@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://tilesets/diamond/dd_bg_tiles.tres" type="TileSet" id=1]
-[ext_resource path="res://tilesets/diamond/dd_rock_tiles.tres" type="TileSet" id=2]
-[ext_resource path="res://tilesets/diamond/dd_wall_tiles.tres" type="TileSet" id=3]
+[ext_resource path="res://tilesets/brown/b_bg_tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://tilesets/brown/b_rock_tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://tilesets/brown/b_wall_tiles.tres" type="TileSet" id=3]
 
-[node name="diamond" type="Node2D"]
+[node name="brown" type="Node2D"]
 
 [node name="bg" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -18,4 +18,5 @@ format = 1
 
 [node name="wall" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
 format = 1
