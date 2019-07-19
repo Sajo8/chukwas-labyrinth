@@ -35,7 +35,7 @@ hframes = 3
 frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.0580711, -0.564466 )
+position = Vector2( 0.058, -0.5 )
 shape = SubResource( 1 )
 
 [node name="Effect" type="Tween" parent="."]
