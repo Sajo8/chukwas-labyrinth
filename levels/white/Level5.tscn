@@ -38,7 +38,7 @@ tile_data = PoolIntArray( 65537, 1, 0, 65538, 3, 2, 65539, 3, 2, 65540, 3, 2, 65
 
 [node name="InvisibleWalls" type="Node2D" parent="."]
 editor/display_folded = true
-modulate = Color( 1, 1, 1, 0.0980392 )
+modulate = Color( 1, 1, 1, 0.0588235 )
 
 [node name="WallTiles" type="TileMap" parent="InvisibleWalls"]
 tile_set = ExtResource( 3 )

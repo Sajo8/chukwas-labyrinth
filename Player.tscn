@@ -24,7 +24,7 @@ tracks/0/keys = {
 "values": [ 0, 5, 0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "powerup_idle"
 step = 0.05
 tracks/0/type = "value"
@@ -40,7 +40,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 12 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 resource_name = "powerup_walk"
 loop = true
 step = 0.05
@@ -81,7 +81,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 3.03494 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -96,7 +96,7 @@ tracks/0/keys = {
 "values": [ 0, 11, 0, 11 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -111,7 +111,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 loop = true
 step = 0.05
 tracks/0/type = "value"
@@ -174,8 +174,8 @@ mode = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/idle = SubResource( 2 )
-anims/powerup_idle = SubResource( 6 )
-anims/powerup_walk = SubResource( 7 )
-anims/respawn = SubResource( 3 )
-anims/squash = SubResource( 4 )
-anims/walk = SubResource( 5 )
+anims/powerup_idle = SubResource( 3 )
+anims/powerup_walk = SubResource( 4 )
+anims/respawn = SubResource( 5 )
+anims/squash = SubResource( 6 )
+anims/walk = SubResource( 7 )
