@@ -3,7 +3,6 @@
 [ext_resource path="res://gui/LevelHUD.gd" type="Script" id=1]
 [ext_resource path="res://gui/labels/GenericSmallLabel.tscn" type="PackedScene" id=2]
 
-
 [node name="LevelHUD" type="Control"]
 anchor_right = 1.0
 margin_bottom = 100.0

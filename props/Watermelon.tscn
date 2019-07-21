@@ -8,7 +8,7 @@ radius = 8.33141
 height = 5.86961
 
 [node name="Watermelon" type="Area2D" groups=[
-"powerup",
+"powerups",
 ]]
 script = ExtResource( 1 )
 

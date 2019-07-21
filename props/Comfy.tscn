@@ -7,7 +7,7 @@
 extents = Vector2( 9.66758, 9.51654 )
 
 [node name="Comfy" type="Area2D" groups=[
-"powerup",
+"powerups",
 ]]
 scale = Vector2( 1.25, 1.25 )
 script = ExtResource( 1 )

@@ -146,7 +146,7 @@ func _ready():
 			exit.connect("exit_entered", self, "_on_exit_entered")
 
 	# Connect signal for powerup
-	var powerups = get_tree().get_nodes_in_group("powerup")
+	var powerups = get_tree().get_nodes_in_group("powerups")
 	if powerups:
 		for powerup in powerups:
 			powerup.connect("powerup_grabbed", self, "_on_powerup_grabbed")
@@ -156,5 +156,10 @@ func _ready():
 	if traps:
 		for trap in traps:
 			trap.connect("game_over", self, "_on_game_over")
+	
+	var timer = get_tree().get_nodes_in_group("timers")
+	if timer:
+		timer = timer[0]
+		timer.connect("game_over", self, "_on_game_over")
 
 	self.connect("level_passed", self, "_on_level_passed")
