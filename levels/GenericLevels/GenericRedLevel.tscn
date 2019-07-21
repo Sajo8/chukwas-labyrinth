@@ -1,18 +1,20 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://tilesets/red/r_bg_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/red/r_rock_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/red/r_wall_tiles.tres" type="TileSet" id=3]
 [ext_resource path="res://exits/Stairs.tscn" type="PackedScene" id=4]
-[ext_resource path="res://props/TurtleIcon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://props/Comfy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=6]
 [ext_resource path="res://props/Squasher.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=9]
+[ext_resource path="res://LevelTimer.tscn" type="PackedScene" id=10]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Tiles" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="BgTiles" type="TileMap" parent="Tiles"]
 tile_set = ExtResource( 1 )
@@ -38,8 +40,8 @@ position = Vector2( 15, 616 )
 [node name="Props" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="Powerup" parent="Props" instance=ExtResource( 5 )]
-position = Vector2( 331.911, 99.788 )
+[node name="Comfy" parent="Props" instance=ExtResource( 5 )]
+position = Vector2( 334.742, 85.1435 )
 
 [node name="Spikes" parent="Props" instance=ExtResource( 6 )]
 position = Vector2( 333.741, 47.747 )
@@ -67,3 +69,5 @@ color = Color( 0, 0, 0, 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 9 )]
+
+[node name="LevelTimer" parent="CanvasLayer" instance=ExtResource( 10 )]

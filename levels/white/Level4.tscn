@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://tilesets/white/w_bg_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/white/w_rock_tiles.tres" type="TileSet" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://props/Squasher.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=9]
+[ext_resource path="res://LevelTimer.tscn" type="PackedScene" id=10]
 
 [node name="Node2D" type="Node2D"]
 
@@ -162,3 +163,5 @@ color = Color( 0, 0, 0, 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 9 )]
+
+[node name="LevelTimer" parent="CanvasLayer" instance=ExtResource( 10 )]

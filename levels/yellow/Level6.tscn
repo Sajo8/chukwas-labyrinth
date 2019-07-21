@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://tilesets/yellow/y_bg_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/yellow/y_rock_tiles.tres" type="TileSet" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://props/Squasher.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=10]
+[ext_resource path="res://LevelTimer.tscn" type="PackedScene" id=11]
 
 [node name="Node2D" type="Node2D"]
 
@@ -140,6 +141,7 @@ rotation = 1.5708
 squash_side = "right"
 
 [node name="Player" parent="." instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( 145.388, 608.248 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
@@ -158,3 +160,6 @@ color = Color( 0, 0, 0, 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 10 )]
+
+[node name="LevelTimer" parent="CanvasLayer" instance=ExtResource( 11 )]
+timer_duration = 360
