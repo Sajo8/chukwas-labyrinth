@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://props/TurtleIcon.gd" type="Script" id=1]
-[ext_resource path="res://assets/powerup_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/turtleicon_spritesheet.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.093, 7.541 )
@@ -22,9 +22,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 3, 4, 5 ]
 }
 
-[node name="TurtleIcon" type="Area2D" groups=[
-"powerup",
-]]
+[node name="TurtleIcon" type="Area2D"]
 scale = Vector2( 1.25, 1.25 )
 script = ExtResource( 1 )
 
@@ -32,7 +30,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 3
-frame = 4
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.058, -0.5 )

@@ -6,15 +6,11 @@
 [ext_resource path="res://exits/Stairs.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/labels/GenericTinyLabel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://props/Apple.tscn" type="PackedScene" id=6]
-[ext_resource path="res://props/TurtleIcon.tscn" type="PackedScene" id=7]
+[ext_resource path="res://props/Comfy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://props/Squasher.tscn" type="PackedScene" id=8]
 [ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=11]
-
-
-
-
 
 [node name="Node2D" type="Node2D"]
 
@@ -46,10 +42,10 @@ position = Vector2( 1179.64, 665.168 )
 editor/display_folded = true
 
 [node name="Hmm" parent="Text" instance=ExtResource( 5 )]
-margin_left = 33.3393
-margin_top = 154.149
-margin_right = 71.3393
-margin_bottom = 174.149
+margin_left = 28.7289
+margin_top = 159.989
+margin_right = 66.729
+margin_bottom = 179.989
 text = "Hmm..."
 
 [node name="Props" type="Node2D" parent="."]
@@ -58,7 +54,7 @@ editor/display_folded = true
 [node name="Apple" parent="Props" instance=ExtResource( 6 )]
 position = Vector2( 885.897, 142.468 )
 
-[node name="TurtleIcon" parent="Props" instance=ExtResource( 7 )]
+[node name="Comfy" parent="Props" instance=ExtResource( 7 )]
 position = Vector2( 41.737, 143.333 )
 
 [node name="Squashers" type="Node2D" parent="Props"]

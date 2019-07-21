@@ -101,7 +101,7 @@ func _on_exit_entered():
 
 func _on_powerup_grabbed(type):
 
-	if type == 'turtleicon':
+	if type == 'comfy':
 		emit_signal("level_passed")
 	
 	elif type == 'apple':
