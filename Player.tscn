@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/turtle_spritesheet.png" type="Texture" id=2]
-[ext_resource path="res://assets/lightmask.png" type="Texture" id=3]
+[ext_resource path="res://assets/lightcircle.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10.0304, 11.511 )
