@@ -66,6 +66,17 @@ func _physics_process(delta):
 		if collision.collider.name == "Squasher":
 			emit_signal("hit_squasher", collision)
 
+func blink_player():
+	
+	set_physics_process(false)
+	
+	# Show blinking animation
+	$AnimationPlayer.play("respawn")
+	# Wait for animation to finish playing
+	yield($AnimationPlayer, "animation_finished")
+	
+	set_physics_process(true)
+
 func _on_game_over():
 
 	if player_is_immune:
@@ -86,6 +97,16 @@ func _on_game_over():
 	yield(get_tree().create_timer(1), "timeout")
 
 	SceneChanger.go_to_scene("res://gui/menus/LevelFailedMenu.tscn")
+
+func _on_timer_timeout():
+	var small_light = preload("res://assets/tinylightcircle.png")
+
+	if player_is_immune:
+		return
+	
+	blink_player()
+	
+	$Light2D.set_texture(small_light)
 
 func _on_level_passed():
 	# Stop movement and animation
@@ -130,12 +151,8 @@ func _on_powerup_grabbed(type):
 func _ready():
 
 	if Globals.player_dead: # Just respawned after dying
-
-		# Show blinking animation
-		$AnimationPlayer.play("respawn")
-		# Wait for animation to finish playing
-		yield($AnimationPlayer, "animation_finished")
-
+	
+		blink_player()
 		# No longer dead
 		Globals.set("player_dead", false)
 
@@ -160,6 +177,6 @@ func _ready():
 	var timer = get_tree().get_nodes_in_group("timers")
 	if timer:
 		timer = timer[0]
-		timer.connect("game_over", self, "_on_game_over")
+		timer.connect("timer_timeout", self, "_on_timer_timeout")
 
 	self.connect("level_passed", self, "_on_level_passed")

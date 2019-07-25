@@ -7,7 +7,7 @@ onready var label = $GenericSmallLabel
 
 export var timer_duration = 300 setget set_timer_duration, get_timer_duration
 
-signal game_over
+signal timer_timeout
 
 func _ready():
 	timer.set_wait_time(timer_duration)
@@ -36,7 +36,7 @@ func _process(delta):
 	label.text = label_text
 
 func _on_Timer_timeout():
-	emit_signal("game_over")
+	emit_signal("timer_timeout")
 	
 func set_timer_duration(new_duration):
 	timer_duration = new_duration
