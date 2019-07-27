@@ -23,7 +23,7 @@ tracks/0/keys = {
 }
 
 [node name="Coin" type="Area2D" groups=[
-"coin",
+"coins",
 ]]
 scale = Vector2( 1.25, 1.25 )
 script = ExtResource( 1 )
@@ -43,4 +43,3 @@ shape = SubResource( 1 )
 autoplay = "rotate"
 anims/rotate = SubResource( 2 )
 [connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]
-[connection signal="tween_completed" from="Effect" to="." method="_on_Effect_tween_completed"]

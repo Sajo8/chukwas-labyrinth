@@ -17,7 +17,9 @@ func _on_Coin_body_entered(body):
 		# Remove the collision shapes to prevent extra collisions during the time the effect is taking place.
 		shape_owner_clear_shapes(get_shape_owners()[0])
 		$Effect.start()
-
-func _on_Effect_tween_completed(object, key):
-	queue_free()
-	emit_signal("coin_grabbed")
+		# Wait for effect to finish
+		yield($Effect, "tween_completed")
+		# Emit signal and get rid of coin
+		queue_free()
+		emit_signal("coin_grabbed")
+		print(Globals.number_of_coins)

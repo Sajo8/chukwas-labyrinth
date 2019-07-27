@@ -148,6 +148,9 @@ func _on_powerup_grabbed(type):
 	else:
 		pass
 
+func _on_coin_grabbed():
+	Globals.number_of_coins += 1
+
 func _ready():
 
 	if Globals.player_dead: # Just respawned after dying
@@ -162,11 +165,16 @@ func _ready():
 		for exit in exits:
 			exit.connect("exit_entered", self, "_on_exit_entered")
 
-	# Connect signal for powerup
+	# Connect signal for powerups
 	var powerups = get_tree().get_nodes_in_group("powerups")
 	if powerups:
 		for powerup in powerups:
 			powerup.connect("powerup_grabbed", self, "_on_powerup_grabbed")
+	
+	var coin = get_tree().get_nodes_in_group("coins")
+	if coin:
+		coin = coin[0]
+		coin.connect("coin_grabbed", self, "_on_coin_grabbed")
 
 	# Connect signals for traps
 	var traps = get_tree().get_nodes_in_group("traps")
