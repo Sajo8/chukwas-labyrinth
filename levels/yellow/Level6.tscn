@@ -48,12 +48,20 @@ tile_data = PoolIntArray( 1835095, 2, 1, 1835096, 2, 2, 1835097, 2, 2, 1835098, 
 
 [node name="Instructions" type="Node2D" parent="."]
 
-[node name="GenericTinyLabel" parent="Instructions" instance=ExtResource( 4 )]
+[node name="FlameLimit" parent="Instructions" instance=ExtResource( 4 )]
 margin_left = 626.278
 margin_top = 125.309
 margin_right = 776.278
 margin_bottom = 214.309
 text = "Watch out! Your flame can only last so long before it sputters out"
+autowrap = true
+
+[node name="FlameLimit2" parent="Instructions" instance=ExtResource( 4 )]
+margin_left = 906.0
+margin_top = 84.0
+margin_right = 1152.0
+margin_bottom = 127.0
+text = "Check the top right of your screen to see how much time you have left"
 autowrap = true
 
 [node name="Stairs" parent="." instance=ExtResource( 5 )]
@@ -173,4 +181,3 @@ color = Color( 0, 0, 0, 1 )
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 11 )]
 
 [node name="LevelTimer" parent="CanvasLayer" instance=ExtResource( 12 )]
-timer_duration = 360
