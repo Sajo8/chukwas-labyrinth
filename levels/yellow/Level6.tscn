@@ -1,16 +1,17 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://tilesets/yellow/y_bg_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/yellow/y_rock_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/yellow/y_wall_tiles.tres" type="TileSet" id=3]
-[ext_resource path="res://exits/Stairs.tscn" type="PackedScene" id=4]
-[ext_resource path="res://props/Watermelon.tscn" type="PackedScene" id=5]
-[ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=6]
-[ext_resource path="res://props/Apple.tscn" type="PackedScene" id=7]
-[ext_resource path="res://props/Squasher.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=10]
-[ext_resource path="res://LevelTimer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://gui/labels/GenericTinyLabel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://exits/Stairs.tscn" type="PackedScene" id=5]
+[ext_resource path="res://props/Watermelon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=7]
+[ext_resource path="res://props/Apple.tscn" type="PackedScene" id=8]
+[ext_resource path="res://props/Squasher.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=11]
+[ext_resource path="res://LevelTimer.tscn" type="PackedScene" id=12]
 
 [node name="Node2D" type="Node2D"]
 
@@ -45,102 +46,112 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 1835095, 2, 1, 1835096, 2, 2, 1835097, 2, 2, 1835098, 2, 2, 1835099, 2, 2, 1835100, 2, 3, 2293762, 2, 1, 2293763, 2, 2, 2293764, 2, 2, 2293765, 1, 1, 2359301, 2, 65539, 2424837, 2, 65539, 2490373, 2, 65539, 2555909, 2, 65539, 2621445, 2, 65536, 3539015, 2, 1, 3539016, 2, 3, 3604522, 2, 1, 3604523, 2, 2, 3604524, 2, 2, 3604525, 2, 2, 3604526, 2, 2, 3604527, 2, 3, 3735626, 2, 0, 3801162, 2, 65539, 3866698, 2, 65536 )
 
-[node name="Stairs" parent="." instance=ExtResource( 4 )]
+[node name="Instructions" type="Node2D" parent="."]
+
+[node name="GenericTinyLabel" parent="Instructions" instance=ExtResource( 4 )]
+margin_left = 626.278
+margin_top = 125.309
+margin_right = 776.278
+margin_bottom = 214.309
+text = "Watch out! Your flame can only last so long before it sputters out"
+autowrap = true
+
+[node name="Stairs" parent="." instance=ExtResource( 5 )]
 position = Vector2( 15, 616 )
 
 [node name="Props" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="Watermelon" parent="Props" instance=ExtResource( 5 )]
+[node name="Watermelon" parent="Props" instance=ExtResource( 6 )]
 position = Vector2( 1465.32, 946.549 )
 
 [node name="Spikes" type="Node2D" parent="Props"]
 editor/display_folded = true
 
-[node name="Spikes" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 83.005, 958.883 )
 
-[node name="Spikes2" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes2" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 63.3125, 145.612 )
 rotation = 3.14159
 
-[node name="Spikes3" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes3" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 385.978, 209.062 )
 rotation = 3.14159
 
-[node name="Spikes4" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes4" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 385.204, 352.985 )
 rotation = 3.14159
 
-[node name="Spikes9" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes9" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 575.176, 882.354 )
 rotation = 3.14159
 
-[node name="Spikes10" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes10" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 607.699, 527.655 )
 rotation = 3.14159
 
-[node name="Spikes11" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes11" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 493.18, 625.151 )
 rotation = 3.14159
 
-[node name="Spikes12" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes12" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 715.255, 418.553 )
 rotation = 3.14159
 
-[node name="Spikes14" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes14" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 1168.02, 258.152 )
 rotation = 3.14159
 
-[node name="Spikes13" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes13" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 747.753, 594.2 )
 rotation = 3.14159
 
-[node name="Spikes16" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes16" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 1251.02, 592.875 )
 rotation = 1.5708
 
-[node name="Spikes15" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes15" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 816.343, 847.982 )
 rotation = 3.14159
 
-[node name="Spikes5" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes5" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 1487.49, 352.873 )
 rotation = 3.14159
 
-[node name="Spikes7" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes7" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 1727.86, 337.436 )
 rotation = 3.14159
 
-[node name="Spikes8" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes8" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 1421.82, 751.03 )
 
-[node name="Spikes6" parent="Props/Spikes" instance=ExtResource( 6 )]
+[node name="Spikes6" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 1438.39, 431.906 )
 rotation = 4.71239
 
-[node name="Apple" parent="Props" instance=ExtResource( 7 )]
+[node name="Apple" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 63.697, 106.59 )
 
 [node name="Squashers" type="Node2D" parent="Props"]
 editor/display_folded = true
 
-[node name="Squasher" parent="Props/Squashers" instance=ExtResource( 8 )]
+[node name="Squasher" parent="Props/Squashers" instance=ExtResource( 9 )]
 position = Vector2( 1573.95, 513.108 )
 rotation = 1.5708
 squash_side = "right"
 
-[node name="Squasher3" parent="Props/Squashers" instance=ExtResource( 8 )]
+[node name="Squasher3" parent="Props/Squashers" instance=ExtResource( 9 )]
 position = Vector2( 916.198, 537.065 )
 rotation = 3.14159
 squash_side = "down"
 
-[node name="Squasher2" parent="Props/Squashers" instance=ExtResource( 8 )]
+[node name="Squasher2" parent="Props/Squashers" instance=ExtResource( 9 )]
 position = Vector2( 1604.9, 784.476 )
 rotation = 1.5708
 squash_side = "right"
 
-[node name="Player" parent="." instance=ExtResource( 9 )]
+[node name="Player" parent="." instance=ExtResource( 10 )]
 editor/display_folded = true
 position = Vector2( 145.388, 608.248 )
 
@@ -159,7 +170,7 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="CanvasLayer" instance=ExtResource( 10 )]
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 11 )]
 
-[node name="LevelTimer" parent="CanvasLayer" instance=ExtResource( 11 )]
+[node name="LevelTimer" parent="CanvasLayer" instance=ExtResource( 12 )]
 timer_duration = 360
