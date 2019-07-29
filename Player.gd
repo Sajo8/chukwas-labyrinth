@@ -4,6 +4,7 @@ export var speed = 150
 
 signal hit_squasher(collision)
 signal level_passed
+signal fish_placed(position)
 
 var velocity
 var player_is_immune = false
@@ -24,10 +25,7 @@ func get_input():
 	if Input.is_action_pressed('ui_up'):
 		velocity.y -= 1
 	if Input.is_action_just_pressed("ui_select"):
-		# Add node and global position to a dict to be used later
-		var fish_node = fish_scene.instance()
-		fish_nodes[fish_node] = get_global_position()
-		add_child(fish_node)
+		emit_signal("fish_placed", get_global_position())
 
 	return velocity
 
@@ -165,6 +163,19 @@ func _on_powerup_grabbed(type):
 func _on_coin_grabbed():
 	Globals.number_of_coins += 1
 
+func _on_fish_placed(position):
+	# Don't do anything if no more fish left
+	if Globals.fish_available < 1:
+		return
+	# Add node and global position to a dict to be used later
+	var fish_node = fish_scene.instance()
+	fish_nodes[fish_node] = position
+	add_child(fish_node)
+
+	Globals.fish_available -= 1
+	Globals.fish_used += 1
+	Globals.total_fish += 1
+
 func _ready():
 
 	if Globals.player_dead: # Just respawned after dying
@@ -202,3 +213,5 @@ func _ready():
 		timer.connect("timer_timeout", self, "_on_timer_timeout")
 
 	self.connect("level_passed", self, "_on_level_passed")
+
+	self.connect("fish_placed", self, "_on_fish_placed")
