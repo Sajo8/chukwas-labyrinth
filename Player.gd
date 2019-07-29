@@ -34,7 +34,7 @@ func animate_player(velocity):
 	# If we're moving, change rotation
 	if velocity_length >= 1:
 		$Sprite.rotation_degrees = velocity_angle
-	
+
 	if player_powerups.size() >= 1:
 		if velocity_length >= 1:
 			# If moving in any direction, play walk animation.
@@ -67,14 +67,14 @@ func _physics_process(delta):
 			emit_signal("hit_squasher", collision)
 
 func blink_player():
-	
+
 	set_physics_process(false)
-	
+
 	# Show blinking animation
 	$AnimationPlayer.play("respawn")
 	# Wait for animation to finish playing
 	yield($AnimationPlayer, "animation_finished")
-	
+
 	set_physics_process(true)
 
 func _on_game_over():
@@ -103,9 +103,9 @@ func _on_timer_timeout():
 
 	if player_is_immune:
 		return
-	
+
 	blink_player()
-	
+
 	$Light2D.set_texture(small_light)
 
 func _on_level_passed():
@@ -124,24 +124,24 @@ func _on_powerup_grabbed(type):
 
 	if type == 'comfy':
 		emit_signal("level_passed")
-	
+
 	elif type == 'apple':
 		# Increase speed to 250 for 2 minutes
 		speed = 250
 		player_powerups.append("apple")
-		
+
 		yield(get_tree().create_timer(120.0, false), "timeout")
-		
+
 		speed = 150
 		var list_index = player_powerups.find("apple")
 		player_powerups.remove(list_index)
-	
+
 	elif type == 'watermelon':
 		player_is_immune = true
 		player_powerups.append("watermelon")
-		
+
 		yield(get_tree().create_timer(120.0, false), "timeout")
-		
+
 		player_is_immune = false
 		var list_index = player_powerups.find("watermelon")
 		player_powerups.remove(list_index)
@@ -154,7 +154,7 @@ func _on_coin_grabbed():
 func _ready():
 
 	if Globals.player_dead: # Just respawned after dying
-	
+
 		blink_player()
 		# No longer dead
 		Globals.set("player_dead", false)
@@ -170,7 +170,7 @@ func _ready():
 	if powerups:
 		for powerup in powerups:
 			powerup.connect("powerup_grabbed", self, "_on_powerup_grabbed")
-	
+
 	var coin = get_tree().get_nodes_in_group("coins")
 	if coin:
 		coin = coin[0]
@@ -181,7 +181,7 @@ func _ready():
 	if traps:
 		for trap in traps:
 			trap.connect("game_over", self, "_on_game_over")
-	
+
 	var timer = get_tree().get_nodes_in_group("timers")
 	if timer:
 		timer = timer[0]

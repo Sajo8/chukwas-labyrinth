@@ -54,7 +54,7 @@ func _ready():
 
 	set_squash_side()
 
-	var player = get_tree().get_nodes_in_group("player")[0]
+	var player = get_tree().get_nodes_in_group("players")[0]
 	player.connect("hit_squasher", self, "_on_hit_squasher")
 
 	shrink_squasher()
