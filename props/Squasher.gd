@@ -134,6 +134,6 @@ func _on_hit_squasher(collision):
 		return
 	var current_tween_time = tween.tell()
 
-	if current_tween_time >= 2 and current_tween_time <= 3.2: # Only check when it's fully extended
+	if current_tween_time >= 1 and current_tween_time <= 3: # Only check when it's fully extended
 		yield(tween, "tween_completed") # Wait for animation to finish
 		emit_signal("game_over")
