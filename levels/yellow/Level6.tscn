@@ -11,7 +11,7 @@
 [ext_resource path="res://props/Squasher.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=11]
-[ext_resource path="res://LevelTimer.tscn" type="PackedScene" id=12]
+[ext_resource path="res://gui/LevelTimer.tscn" type="PackedScene" id=12]
 
 [node name="Node2D" type="Node2D"]
 
@@ -49,11 +49,11 @@ tile_data = PoolIntArray( 1835095, 2, 1, 1835096, 2, 2, 1835097, 2, 2, 1835098, 
 [node name="Instructions" type="Node2D" parent="."]
 
 [node name="FlameLimit" parent="Instructions" instance=ExtResource( 4 )]
-margin_left = 626.278
-margin_top = 125.309
-margin_right = 776.278
-margin_bottom = 214.309
-text = "Watch out! Your flame can only last so long before it sputters out"
+margin_left = 626.292
+margin_top = 130.548
+margin_right = 779.292
+margin_bottom = 211.548
+text = "Watch out! Your light can only last so long before it runs out	"
 autowrap = true
 
 [node name="FlameLimit2" parent="Instructions" instance=ExtResource( 4 )]
