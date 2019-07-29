@@ -9,6 +9,9 @@ var velocity
 var player_is_immune = false
 var player_powerups = []
 
+var fish_scene = preload("res://props/Fish.tscn")
+var fish_nodes = {}
+
 func get_input():
 	# Detect up/down/left/right keystate and only move when pressed
 	var velocity = Vector2(0,0)
@@ -20,8 +23,14 @@ func get_input():
 		velocity.y += 1
 	if Input.is_action_pressed('ui_up'):
 		velocity.y -= 1
+	if Input.is_action_just_pressed("ui_select"):
+		# Add node and global position to a dict to be used later
+		var fish_node = fish_scene.instance()
+		fish_nodes[fish_node] = get_global_position()
+		add_child(fish_node)
 
 	return velocity
+
 
 func animate_player(velocity):
 	var velocity_length = velocity.length()
@@ -65,6 +74,11 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		if collision.collider.name == "Squasher":
 			emit_signal("hit_squasher", collision)
+
+	# Set the position of each fish every frame so that they don't move around with the player
+	for node in fish_nodes:
+		var global_pos = fish_nodes.get(node)
+		node.set_global_position(global_pos)
 
 func blink_player():
 
