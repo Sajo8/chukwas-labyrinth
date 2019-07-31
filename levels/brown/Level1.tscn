@@ -7,7 +7,8 @@
 [ext_resource path="res://gui/labels/GenericTinyLabel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://props/Apple.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gui/HUD/HUD.tscn" type="PackedScene" id=8]
+
 
 [node name="Node2D" type="Node2D"]
 

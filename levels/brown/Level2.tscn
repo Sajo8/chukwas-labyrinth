@@ -9,7 +9,8 @@
 [ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://props/Squasher.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=10]
+[ext_resource path="res://gui/HUD/HUD.tscn" type="PackedScene" id=10]
+
 
 [node name="Node2D" type="Node2D"]
 
