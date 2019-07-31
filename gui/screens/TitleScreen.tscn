@@ -29,44 +29,48 @@ margin_right = 1680.0
 margin_bottom = 920.0
 size_flags_vertical = 3
 
-[node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
-margin_right = 838.0
+[node name="LeftRow" type="HBoxContainer" parent="Menu/CenterRow"]
+margin_right = 400.0
+margin_bottom = 920.0
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow/LeftRow"]
+margin_right = 400.0
 margin_bottom = 920.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
 alignment = 2
 
-[node name="Label" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
+[node name="Label" parent="Menu/CenterRow/LeftRow/Buttons" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 309.0
-margin_right = 838.0
+margin_right = 400.0
 margin_bottom = 340.0
 text = "Use arrow keys and enter to select"
 
-[node name="PlayButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
+[node name="PlayButton" parent="Menu/CenterRow/LeftRow/Buttons" instance=ExtResource( 4 )]
 margin_top = 360.0
-margin_right = 838.0
+margin_right = 400.0
 margin_bottom = 485.0
 
-[node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
+[node name="OptionsButton" parent="Menu/CenterRow/LeftRow/Buttons" instance=ExtResource( 5 )]
 margin_top = 505.0
-margin_right = 838.0
+margin_right = 400.0
 margin_bottom = 630.0
 
-[node name="AboutButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 6 )]
+[node name="AboutButton" parent="Menu/CenterRow/LeftRow/Buttons" instance=ExtResource( 6 )]
 margin_top = 650.0
-margin_right = 838.0
+margin_right = 400.0
 margin_bottom = 775.0
 
-[node name="ExitButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 7 )]
+[node name="ExitButton" parent="Menu/CenterRow/LeftRow/Buttons" instance=ExtResource( 7 )]
 margin_top = 795.0
-margin_right = 838.0
+margin_right = 400.0
 margin_bottom = 920.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
-margin_left = 842.0
+margin_left = 404.0
 margin_right = 1680.0
 margin_bottom = 920.0
 size_flags_horizontal = 3
