@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://tilesets/yellow/y_bg_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/yellow/y_rock_tiles.tres" type="TileSet" id=2]
@@ -180,5 +180,3 @@ color = Color( 0, 0, 0, 1 )
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 11 )]
 
 [node name="LevelTimer" parent="CanvasLayer" instance=ExtResource( 12 )]
-
-[node name="FishInfo" parent="CanvasLayer" instance=ExtResource( 13 )]
