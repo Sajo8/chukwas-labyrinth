@@ -24,6 +24,7 @@ func get_input():
 		velocity.y += 1
 	if Input.is_action_pressed('ui_up'):
 		velocity.y -= 1
+
 	if Input.is_action_just_pressed("ui_select"):
 		emit_signal("fish_placed", get_global_position())
 
