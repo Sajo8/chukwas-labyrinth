@@ -13,6 +13,9 @@ var player_powerups = []
 var fish_scene = preload("res://props/Fish.tscn")
 var fish_nodes = {}
 
+var coins_grabbed_in_level = 0
+var new_fish_available = 0
+
 func get_input():
 	# Detect up/down/left/right keystate and only move when pressed
 	var velocity = Vector2(0,0)
@@ -126,6 +129,9 @@ func _on_level_passed():
 	set_physics_process(false)
 	$AnimationPlayer.stop(true)
 
+	Globals.number_of_coins += coins_grabbed_in_level
+	Globals.fish_available += new_fish_available
+
 	# Save it now in case the player decides to quit to main menu
 	Globals.save_next_level()
 	SceneChanger.go_to_scene("res://gui/menus/LevelPassedMenu.tscn")
@@ -162,7 +168,12 @@ func _on_powerup_grabbed(type):
 		pass
 
 func _on_coin_grabbed():
-	Globals.number_of_coins += 1
+
+	coins_grabbed_in_level += 1
+
+	if coins_grabbed_in_level % 5 == 0:
+		new_fish_available += 1
+		coins_grabbed_in_level -= 3
 
 func _on_fish_placed(position):
 	# Don't do anything if no more fish left
@@ -197,10 +208,10 @@ func _ready():
 		for powerup in powerups:
 			powerup.connect("powerup_grabbed", self, "_on_powerup_grabbed")
 
-	var coin = get_tree().get_nodes_in_group("coins")
-	if coin:
-		coin = coin[0]
-		coin.connect("coin_grabbed", self, "_on_coin_grabbed")
+	var coins = get_tree().get_nodes_in_group("coins")
+	if coins:
+		for coin in coins:
+			coin.connect("coin_grabbed", self, "_on_coin_grabbed")
 
 	# Connect signals for traps
 	var traps = get_tree().get_nodes_in_group("traps")

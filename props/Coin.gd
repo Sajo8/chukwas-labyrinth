@@ -22,4 +22,3 @@ func _on_Coin_body_entered(body):
 		# Emit signal and get rid of coin
 		queue_free()
 		emit_signal("coin_grabbed")
-		print(Globals.number_of_coins)
