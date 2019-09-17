@@ -169,9 +169,11 @@ func _on_powerup_grabbed(type):
 
 func _on_coin_grabbed():
 
+	# Every 3 coins is one fish
+
 	coins_grabbed_in_level += 1
 
-	if coins_grabbed_in_level % 5 == 0:
+	if coins_grabbed_in_level % 3 == 0:
 		new_fish_available += 1
 		coins_grabbed_in_level -= 3
 
