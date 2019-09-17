@@ -46,6 +46,7 @@ format = 1
 tile_data = PoolIntArray( 1835095, 2, 1, 1835096, 2, 2, 1835097, 2, 2, 1835098, 2, 2, 1835099, 2, 2, 1835100, 2, 3, 2293762, 2, 1, 2293763, 2, 2, 2293764, 2, 2, 2293765, 1, 1, 2359301, 2, 65539, 2424837, 2, 65539, 2490373, 2, 65539, 2555909, 2, 65539, 2621445, 2, 65536, 3539015, 2, 1, 3539016, 2, 3, 3604522, 2, 1, 3604523, 2, 2, 3604524, 2, 2, 3604525, 2, 2, 3604526, 2, 2, 3604527, 2, 3, 3735626, 2, 0, 3801162, 2, 65539, 3866698, 2, 65536 )
 
 [node name="Instructions" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="FlameLimit" parent="Instructions" instance=ExtResource( 4 )]
 margin_left = 626.292
@@ -173,6 +174,7 @@ limit_bottom = 1000
 editor_draw_limits = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

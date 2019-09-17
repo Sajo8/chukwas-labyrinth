@@ -11,8 +11,6 @@
 [ext_resource path="res://gui/HUD/HUD.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gui/HUD/LevelTimer.tscn" type="PackedScene" id=10]
 
-
-
 [node name="Node2D" type="Node2D"]
 
 [node name="Tiles" type="Node2D" parent="."]

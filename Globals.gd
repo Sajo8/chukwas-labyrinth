@@ -40,6 +40,9 @@ func load_save():
 	if not save_game.file_exists("user://savegame.trtl"):
 		SceneChanger.current_level = 1
 		number_of_coins = 0
+		fish_available = 5
+		fish_used = 0
+		total_fish = 5
 		save_game.close()
 		return
 

@@ -9,7 +9,6 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gui/HUD/HUD.tscn" type="PackedScene" id=8]
 
-
 [node name="Node2D" type="Node2D"]
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -56,18 +55,18 @@ text = "You've embarked on a quest for a treasure rumored in tales..."
 autowrap = true
 
 [node name="Mission2" parent="Instructions" instance=ExtResource( 5 )]
-margin_left = 246.66
-margin_top = 110.472
-margin_right = 344.66
-margin_bottom = 245.472
-text = "But you must go through a labyrinth "
+margin_left = 245.0
+margin_top = 114.0
+margin_right = 348.0
+margin_bottom = 249.0
+text = "But you must go through a labyrinth"
 autowrap = true
 
 [node name="Mission3" parent="Instructions" instance=ExtResource( 5 )]
-margin_left = 246.906
-margin_top = 175.42
-margin_right = 309.906
-margin_bottom = 310.42
+margin_left = 245.227
+margin_top = 182.996
+margin_right = 308.227
+margin_bottom = 317.996
 text = "to reach it first"
 autowrap = true
 
