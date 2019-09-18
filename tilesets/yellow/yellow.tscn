@@ -20,3 +20,6 @@ format = 1
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
+__meta__ = {
+"_edit_bone_": true
+}
