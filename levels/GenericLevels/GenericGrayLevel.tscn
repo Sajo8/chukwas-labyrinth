@@ -14,7 +14,6 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Tiles" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="BgTiles" type="TileMap" parent="Tiles"]
 tile_set = ExtResource( 1 )
