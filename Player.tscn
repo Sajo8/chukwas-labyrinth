@@ -1,11 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/turtle_spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://assets/lightcircle.png" type="Texture" id=3]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10.0304, 11.511 )
 
 [sub_resource type="Animation" id=2]
 loop = true
@@ -118,9 +115,8 @@ vframes = 4
 hframes = 4
 frame = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 3.03494 )
-shape = SubResource( 1 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -4.38203, -7.96875, 4.45667, -7.96875, 7.05521, -5.4617, 8.99969, -0.928919, 9.03305, 5.9794, 7.97212, 8.98905, 3.50592, 13.4884, -3.50251, 13.4615, -7.95815, 8.95052, -8.97077, 6.03089, -8.97243, -0.986707, -6.96227, -5.4434 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 3 )

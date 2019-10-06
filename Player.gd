@@ -33,7 +33,6 @@ func get_input():
 
 	return velocity
 
-
 func animate_player(velocity):
 	var velocity_length = velocity.length()
 	var velocity_angle = velocity.angle()
@@ -45,6 +44,7 @@ func animate_player(velocity):
 	# If we're moving, change rotation
 	if velocity_length >= 1:
 		$Sprite.rotation_degrees = velocity_angle
+		$CollisionPolygon2D.rotation_degrees = velocity_angle
 
 	if player_powerups.size() >= 1:
 		if velocity_length >= 1:
