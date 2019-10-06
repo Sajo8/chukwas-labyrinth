@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gray_tileset.png-277df3e734f7ce12cf8fcf618c222a78.stex"
+path="res://.import/white_tileset.png-5979a724586615e3d16cc82940afb577.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gray_tileset.png"
-dest_files=[ "res://.import/gray_tileset.png-277df3e734f7ce12cf8fcf618c222a78.stex" ]
+source_file="res://assets/white_tileset.png"
+dest_files=[ "res://.import/white_tileset.png-5979a724586615e3d16cc82940afb577.stex" ]
 
 [params]
 

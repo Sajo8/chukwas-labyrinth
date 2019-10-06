@@ -42,7 +42,7 @@ func load_save():
 		number_of_coins = 0
 		fish_available = 5
 		fish_used = 0
-		total_fish = 5
+		total_fish = fish_available + fish_used
 		save_game.close()
 		return
 
