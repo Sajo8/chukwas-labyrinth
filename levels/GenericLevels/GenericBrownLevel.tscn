@@ -63,10 +63,12 @@ limit_bottom = 1080
 editor_draw_limits = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 9 )]
+visible = false
 
 [node name="LevelTimer" parent="CanvasLayer" instance=ExtResource( 10 )]
