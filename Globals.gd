@@ -3,7 +3,7 @@ extends Node
 var player_dead = false
 var number_of_coins = 0
 
-var fish_available = 0
+var fish_available = 5
 var fish_used = 0
 var total_fish = fish_available + fish_used
 
