@@ -19,7 +19,7 @@ var fish_used_in_level # used so that we can reset stats if they die
 
 func get_input():
 	# Detect up/down/left/right keystate and only move when pressed
-	var velocity = Vector2(0,0)
+	velocity = Vector2(0,0)
 	if Input.is_action_pressed('ui_right'):
 		velocity.x += 1
 	if Input.is_action_pressed('ui_left'):
