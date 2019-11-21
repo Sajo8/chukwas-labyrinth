@@ -9,6 +9,7 @@ var levels = {
 	4: "white/Level4",
 	5: "white/Level5",
 	6: "yellow/Level6",
+	7: "yellow/Level7",
 }
 
 var current_level = 1
