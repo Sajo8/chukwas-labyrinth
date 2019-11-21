@@ -13,8 +13,9 @@ var player_powerups = []
 var fish_scene = preload("res://props/Fish.tscn")
 var fish_nodes = {}
 
-var coins_grabbed_in_level = 0
-var new_fish_available = 0
+var coins_grabbed_in_level
+var new_fish_available
+var fish_used_in_level # used so that we can reset stats if they die
 
 func get_input():
 	# Detect up/down/left/right keystate and only move when pressed
@@ -97,6 +98,12 @@ func _on_game_over():
 
 	if player_is_immune:
 		return
+
+	# reset stats
+	Globals.fish_available += fish_used_in_level
+	Globals.fish_used -= fish_used_in_level
+	Globals.total_fish -= fish_used_in_level
+
 
 	set_physics_process(false)
 	Globals.set("player_dead", true)
@@ -181,6 +188,9 @@ func _on_fish_placed(position):
 	# Don't do anything if no more fish left
 	if Globals.fish_available < 1:
 		return
+
+	fish_used_in_level += 1 #increment counter
+
 	# Add node and global position to a dict to be used later
 	var fish_node = fish_scene.instance()
 	fish_nodes[fish_node] = position
@@ -192,8 +202,11 @@ func _on_fish_placed(position):
 
 func _ready():
 
-	if Globals.player_dead: # Just respawned after dying
+	coins_grabbed_in_level = 0
+	new_fish_available = 0
+	fish_used_in_level = 0
 
+	if Globals.player_dead: # Just respawned after dying
 		blink_player()
 		# No longer dead
 		Globals.set("player_dead", false)

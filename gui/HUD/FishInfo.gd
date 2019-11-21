@@ -1,7 +1,7 @@
 extends Control
 
-var label_text
-onready var label = $GenericSmallLabel
+var label_content
+onready var text_label = $GenericSmallLabel
 
 func _ready() -> void:
 	var player = get_tree().get_nodes_in_group("players")
@@ -9,13 +9,13 @@ func _ready() -> void:
 		player = player[0]
 		player.connect("fish_placed", self, "_on_fish_placed")
 
-	label_text = "Remaining Fish: " + str(Globals.fish_available)
+	label_content = "Remaining Fish: " + str(Globals.fish_available)
 	# Assign new text
-	label.text = label_text
+	text_label.set_text(label_content)
 
 func _on_fish_placed(position):
 	# Make full text
-	label_text = "Remaining Fish: " + str(Globals.fish_available)
+	label_content = "Remaining Fish: " + str(Globals.fish_available)
 
 	# Assign new text
-	label.text = label_text
+	text_label.set_text(label_content)
