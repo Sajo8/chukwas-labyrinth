@@ -68,10 +68,10 @@ can't pick them back up again,
  though"
 
 [node name="FishLimit" parent="Instructions" instance=ExtResource( 4 )]
-margin_left = 1590.82
-margin_top = 979.95
-margin_right = 1801.82
-margin_bottom = 1000.95
+margin_left = 1310.85
+margin_top = 863.855
+margin_right = 1521.85
+margin_bottom = 884.855
 text = "You only have so many..."
 
 [node name="FishLimit2" parent="Instructions" instance=ExtResource( 4 )]
@@ -90,10 +90,10 @@ margin_bottom = 1027.2
 text = "We've started you off with 5"
 
 [node name="FishLimit4" parent="Instructions" instance=ExtResource( 4 )]
-margin_left = 724.432
-margin_top = 927.097
-margin_right = 830.432
-margin_bottom = 948.097
+margin_left = 674.432
+margin_top = 1022.1
+margin_right = 780.432
+margin_bottom = 1043.1
 text = "Use them wisely"
 
 [node name="Coins" parent="Instructions" instance=ExtResource( 4 )]
