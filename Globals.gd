@@ -7,15 +7,14 @@ var fish_available = 5
 var fish_used = 0
 var total_fish = fish_available + fish_used
 
+var new_level;
+
 func save_current_level():
 	save_game(SceneChanger.current_level)
 
 func save_next_level():
-	var next_level = SceneChanger.current_level + 1
-	if next_level >  SceneChanger.levels.size(): # Don't save if they just finished the max level
-		return
-	else:
-		save_game(SceneChanger.current_level + 1)
+	new_level = SceneChanger.current_level + 1
+	save_game(new_level)
 
 func save_game(level_to_save):
 	var save_dict = {
@@ -49,9 +48,6 @@ func load_save():
 	save_game.open("user://savegame.trtl", File.READ)
 	var save_file = parse_json(save_game.get_line())
 
-	var saved_level = int(save_file['level'])
-	SceneChanger.current_level = saved_level
-
 	var saved_coins = int(save_file['coins'])
 	number_of_coins = saved_coins
 
@@ -64,4 +60,11 @@ func load_save():
 	var saved_total_fish = int(save_file['total_fish'])
 	total_fish = saved_total_fish
 
+	var saved_level = int(save_file['level'])
+	SceneChanger.current_level = saved_level
+#	if saved_level > SceneChanger.current_level:
+#		save_game.close()
+#		SceneChanger.go_to_end_screen()
 	save_game.close()
+
+

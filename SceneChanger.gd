@@ -32,6 +32,7 @@ func go_to_level(new_level):
 	# If we finish the last level, go to end scene
 	if new_level > max_levels:
 		go_to_end_screen()
+		return
 	fade_out()
 	# Make new path for scene to be switched
 	var new_level_path = "res://levels/" + levels[new_level] + ".tscn"
