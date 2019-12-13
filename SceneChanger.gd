@@ -29,9 +29,9 @@ func fade_in():
 	yield(animation_player, "animation_finished")
 
 func go_to_level(new_level):
-	# Prevent going any further if we're already at the highest level there is
+	# If we finish the last level, go to end scene
 	if new_level > max_levels:
-		return
+		go_to_end_screen()
 	fade_out()
 	# Make new path for scene to be switched
 	var new_level_path = "res://levels/" + levels[new_level] + ".tscn"
@@ -57,3 +57,6 @@ func restart_level():
 	var failed_level_path = "res://levels/" + levels[current_level] + ".tscn"
 	get_tree().change_scene(failed_level_path)
 	fade_in()
+
+func go_to_end_screen():
+	go_to_scene("res://levels/EndScreen.tscn")
