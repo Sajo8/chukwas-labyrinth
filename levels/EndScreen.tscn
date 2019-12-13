@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/endscreen_bg.png" type="Texture" id=1]
 [ext_resource path="res://levels/EndScreen.gd" type="Script" id=2]
+[ext_resource path="res://gui/labels/GenericBigLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/fonts/Norse-Bold.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 255
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 255
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 255
+font_data = ExtResource( 4 )
 
 [node name="EndScreen" type="TextureRect"]
 anchor_right = 1.0
@@ -18,3 +32,30 @@ limit_top = 0
 limit_right = 7680
 limit_bottom = 4320
 limit_smoothed = true
+
+[node name="CongratsText" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_left = 3060.41
+margin_top = 604.586
+margin_right = 4590.41
+margin_bottom = 860.586
+custom_fonts/font = SubResource( 1 )
+text = "Congratulations!"
+
+[node name="CongratsText2" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_left = 327.235
+margin_top = 1661.46
+margin_right = 4261.24
+margin_bottom = 1917.46
+custom_fonts/font = SubResource( 2 )
+text = "Against all odds, you've found the treasure!"
+
+[node name="CongratsText3" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_left = 4275.21
+margin_top = 3757.97
+margin_right = 7466.21
+margin_bottom = 4013.97
+custom_fonts/font = SubResource( 3 )
+text = "ALT + F4 to get out!"

@@ -5,3 +5,7 @@ func _process(delta: float) -> void:
 	if $Camera2D.zoom.x < 4:
 		$Camera2D.zoom.x += 0.01
 		$Camera2D.zoom.y += 0.01
+	else:
+		$CongratsText.show();
+		$CongratsText2.show();
+		$CongratsText3.show();
