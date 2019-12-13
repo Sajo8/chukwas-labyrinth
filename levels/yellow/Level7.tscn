@@ -97,25 +97,25 @@ margin_bottom = 1043.1
 text = "Use them wisely"
 
 [node name="Coins" parent="Instructions" instance=ExtResource( 4 )]
-margin_left = 309.913
-margin_top = 581.502
-margin_right = 440.913
-margin_bottom = 602.502
+margin_left = 59.4545
+margin_top = 383.836
+margin_right = 190.454
+margin_bottom = 404.836
 text = "Collect these coins!"
 
 [node name="Coins2" parent="Instructions" instance=ExtResource( 4 )]
-margin_left = 33.7045
-margin_top = 325.803
-margin_right = 195.704
-margin_bottom = 346.803
+margin_left = 141.055
+margin_top = 189.003
+margin_right = 303.054
+margin_bottom = 232.003
 text = "Every 3 coins
 is one fish"
 
 [node name="Coins3" parent="Instructions" instance=ExtResource( 4 )]
-margin_left = 146.587
-margin_top = 166.4
-margin_right = 308.587
-margin_bottom = 235.4
+margin_left = 220.587
+margin_top = 85.4
+margin_right = 382.587
+margin_bottom = 154.4
 text = "but any fish you get
 can only be used on 
 the next level!"
