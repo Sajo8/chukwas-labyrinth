@@ -45,7 +45,7 @@ func animate_player(velocity):
 	# If we're moving, change rotation
 	if velocity_length >= 1:
 		$Sprite.rotation_degrees = velocity_angle
-		$CollisionPolygon2D.rotation_degrees = velocity_angle
+		$CollisionShape2D.rotation_degrees = velocity_angle
 
 	if player_powerups.size() >= 1:
 		if velocity_length >= 1:
@@ -123,9 +123,6 @@ func _on_game_over():
 
 func _on_timer_timeout():
 	var small_light = preload("res://assets/tinylightcircle.png")
-
-	if player_is_immune:
-		return
 
 	blink_player()
 

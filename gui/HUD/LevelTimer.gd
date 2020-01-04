@@ -40,7 +40,6 @@ func _on_Timer_timeout():
 
 func set_timer_duration(new_duration):
 	timer_duration = new_duration
-#	timer.set_wait_time(timer_duration)
 
 func get_timer_duration():
 	return timer_duration

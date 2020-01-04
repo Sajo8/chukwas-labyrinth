@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/turtle_spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://assets/lightcircle.png" type="Texture" id=3]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 11.5237 )
+
+[sub_resource type="Animation" id=2]
 loop = true
 step = 0.05
 tracks/0/type = "value"
@@ -20,8 +23,7 @@ tracks/0/keys = {
 "values": [ 0, 5, 0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "powerup_idle"
+[sub_resource type="Animation" id=3]
 length = 0.6
 loop = true
 step = 0.05
@@ -38,8 +40,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 12 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "powerup_walk"
+[sub_resource type="Animation" id=4]
 length = 0.65
 loop = true
 step = 0.01
@@ -56,7 +57,7 @@ tracks/0/keys = {
 "values": [ 12, 14, 12, 15 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -71,7 +72,7 @@ tracks/0/keys = {
 "values": [ 0, 11, 0, 11 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -86,7 +87,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.8
 loop = true
 step = 0.05
@@ -115,8 +116,9 @@ vframes = 4
 hframes = 4
 frame = 5
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -4.38203, -7.96875, 4.45667, -7.96875, 7.05521, -5.4617, 8.99969, -0.928919, 9.03305, 5.9794, 7.97212, 8.98905, 3.0143, 14.006, -2.98296, 14.0051, -7.95815, 8.95052, -8.97077, 6.03089, -8.97243, -0.986707, -6.96227, -5.4434 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3 )
+shape = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 3 )
@@ -124,9 +126,9 @@ mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/idle = SubResource( 1 )
-anims/powerup_idle = SubResource( 2 )
-anims/powerup_walk = SubResource( 3 )
-anims/respawn = SubResource( 4 )
-anims/squash = SubResource( 5 )
-anims/walk = SubResource( 6 )
+anims/idle = SubResource( 2 )
+anims/powerup_idle = SubResource( 3 )
+anims/powerup_walk = SubResource( 4 )
+anims/respawn = SubResource( 5 )
+anims/squash = SubResource( 6 )
+anims/walk = SubResource( 7 )
