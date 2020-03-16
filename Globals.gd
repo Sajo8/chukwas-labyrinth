@@ -7,7 +7,7 @@ var fish_available = 5
 var fish_used = 0
 var total_fish = fish_available + fish_used
 
-var new_level;
+var new_level := 1
 
 func save_current_level():
 	save_game(SceneChanger.current_level)
@@ -37,12 +37,7 @@ func load_save():
 
 	# Set level to 1 and quit if no save file exists
 	if not save_game.file_exists("user://savegame.trtl"):
-		SceneChanger.current_level = 1
-		number_of_coins = 0
-		fish_available = 5
-		fish_used = 0
-		total_fish = fish_available + fish_used
-		save_game.close()
+		reset_save(save_game)
 		return
 
 	save_game.open("user://savegame.trtl", File.READ)
@@ -67,4 +62,11 @@ func load_save():
 #		SceneChanger.go_to_end_screen()
 	save_game.close()
 
-
+func reset_save(save_game):
+	SceneChanger.current_level = 1
+	number_of_coins = 0
+	fish_available = 5
+	fish_used = 0
+	total_fish = fish_available + fish_used
+	save_game.close();
+	save_game(1)

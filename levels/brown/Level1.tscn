@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://tilesets/brown/b_bg_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/brown/b_rock_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/brown/b_wall_tiles.tres" type="TileSet" id=3]
 [ext_resource path="res://exits/Stairs.tscn" type="PackedScene" id=4]
-[ext_resource path="res://gui/labels/GenericTinyLabel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gui/themes/TinyLabel.tres" type="Theme" id=5]
 [ext_resource path="res://props/Apple.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gui/HUD/HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gui/fonts/norse_b_20.tres" type="DynamicFont" id=9]
 
 [node name="Node2D" type="Node2D"]
 
@@ -35,88 +36,175 @@ tile_data = PoolIntArray( 65537, 4, 6, 65538, 4, 196609, 65539, 4, 196609, 65540
 position = Vector2( 381.762, 373.528 )
 
 [node name="Instructions" type="Node2D" parent="."]
-editor/display_folded = true
 
-[node name="Movement" parent="Instructions" instance=ExtResource( 5 )]
+[node name="Label" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 62.2334
 margin_top = 148.784
 margin_right = 225.233
-margin_bottom = 191.784
+margin_bottom = 193.784
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "Use WASD or arrow keys to move around"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="Mission" parent="Instructions" instance=ExtResource( 5 )]
+[node name="Label2" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 245.0
 margin_top = 44.0
 margin_right = 408.0
-margin_bottom = 111.0
+margin_bottom = 113.0
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "You've embarked on a quest for a treasure rumored in tales..."
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="Mission2" parent="Instructions" instance=ExtResource( 5 )]
+[node name="Label3" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 245.0
 margin_top = 114.0
 margin_right = 348.0
 margin_bottom = 249.0
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "But you must go through a labyrinth"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="Mission3" parent="Instructions" instance=ExtResource( 5 )]
+[node name="Label4" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 245.227
 margin_top = 182.996
 margin_right = 308.227
 margin_bottom = 317.996
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "to reach it first"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="FindStairs" parent="Instructions" instance=ExtResource( 5 )]
+[node name="Label5" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 565.54
 margin_top = 40.7395
 margin_right = 728.54
 margin_bottom = 129.739
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "Stairs. YOu need to find stairs."
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="Congratulations" parent="Instructions" instance=ExtResource( 5 )]
+[node name="Label6" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 355.554
 margin_top = 418.392
 margin_right = 476.554
 margin_bottom = 507.392
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "Congratulations! NOw keep going.."
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="DeadEnd" parent="Instructions" instance=ExtResource( 5 )]
+[node name="Label7" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 124.637
 margin_top = 446.987
 margin_right = 257.637
-margin_bottom = 489.987
+margin_bottom = 491.987
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "YOu'll find plenty of dead ends.."
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="Apples" parent="Instructions" instance=ExtResource( 5 )]
+[node name="Label8" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 450.0
 margin_top = 172.0
 margin_right = 555.0
-margin_bottom = 215.0
+margin_bottom = 217.0
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "Apples make you go faster"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="ApplesTimeLimit" parent="Instructions" instance=ExtResource( 5 )]
+[node name="Label9" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 321.089
 margin_top = 214.898
 margin_right = 426.089
-margin_bottom = 257.898
+margin_bottom = 259.898
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "BUt they only last for 2 mins"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
 [node name="Props" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Apple" parent="Props" instance=ExtResource( 6 )]
 position = Vector2( 508.997, 221.999 )
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
-editor/display_folded = true
 position = Vector2( 144, 128 )
 
 [node name="Camera" type="Camera2D" parent="Player"]

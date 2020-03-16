@@ -3,7 +3,7 @@ extends Control
 var label_text = "Remaining Time: "
 
 onready var timer = $Timer
-onready var label = $GenericSmallLabel
+onready var label = $Label
 
 export var timer_duration = 300 setget set_timer_duration, get_timer_duration
 
@@ -13,7 +13,7 @@ func _ready():
 	timer.set_wait_time(timer_duration)
 	timer.start()
 
-func _process(delta):
+func _process(_delta):
 	# Get time left in seconds and round it to an int
 	var time_left = timer.get_time_left()
 	time_left = round(time_left)

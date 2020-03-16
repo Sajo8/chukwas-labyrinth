@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://tilesets/yellow/y_bg_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/yellow/y_rock_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/yellow/y_wall_tiles.tres" type="TileSet" id=3]
-[ext_resource path="res://gui/labels/GenericTinyLabel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/themes/TinyLabel.tres" type="Theme" id=4]
 [ext_resource path="res://exits/Stairs.tscn" type="PackedScene" id=5]
 [ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=6]
 [ext_resource path="res://props/Watermelon.tscn" type="PackedScene" id=7]
@@ -13,6 +13,7 @@
 [ext_resource path="res://gui/HUD/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://gui/HUD/LevelTimer.tscn" type="PackedScene" id=12]
 [ext_resource path="res://gui/HUD/FishInfo.tscn" type="PackedScene" id=13]
+[ext_resource path="res://gui/fonts/norse_b_20.tres" type="DynamicFont" id=14]
 
 [node name="Node2D" type="Node2D"]
 __meta__ = {
@@ -49,82 +50,168 @@ format = 1
 tile_data = PoolIntArray( 327791, 3, 5, 393327, 3, 65541, 458863, 3, 65541, 524399, 3, 65541, 589935, 3, 131077, 655461, 3, 196608, 655462, 3, 7, 720998, 3, 65541, 786534, 3, 131077, 852078, 3, 196608, 852079, 3, 196609, 852080, 3, 196610, 1048616, 3, 5, 1114152, 3, 65541, 1179688, 3, 65541, 1245224, 3, 65541, 1310760, 3, 65541, 1376296, 3, 131077, 1966168, 3, 5, 2031703, 3, 6, 2031704, 3, 65543, 2097239, 3, 131077, 2097247, 3, 196608, 2097248, 3, 196609, 2097249, 3, 196609, 2097250, 3, 196610, 2293797, 3, 5, 2293802, 3, 5, 2359333, 3, 65541, 2359338, 3, 65541, 2424866, 3, 196608, 2424867, 3, 196609, 2424868, 3, 196609, 2424869, 3, 65543, 2424874, 3, 65541, 2424884, 3, 5, 2490410, 3, 65541, 2490420, 3, 65541, 2555946, 3, 131077, 2555956, 3, 65541, 2621492, 3, 65542, 2621493, 3, 196609, 2621494, 3, 196609, 2621495, 3, 196609, 2621496, 3, 196610, 3080224, 3, 5, 3145751, 3, 196608, 3145752, 3, 196609, 3145753, 3, 196610, 3145760, 3, 65541, 3211291, 3, 196608, 3211292, 3, 196609, 3211293, 3, 7, 3211295, 3, 6, 3211296, 3, 65543, 3276829, 3, 131077, 3276831, 3, 131077, 3473501, 3, 5, 3539037, 3, 65541, 3604573, 3, 65541, 3670109, 3, 131077 )
 
 [node name="Instructions" type="Node2D" parent="."]
-editor/display_folded = true
 
-[node name="Fish" parent="Instructions" instance=ExtResource( 4 )]
+[node name="Label" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 1348.34
 margin_top = 690.76
 margin_right = 1612.34
 margin_bottom = 711.76
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "Press space to use fish as breadcrumbs!"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="Fish2" parent="Instructions" instance=ExtResource( 4 )]
-margin_left = 1526.88
-margin_top = 791.319
-margin_right = 1984.88
-margin_bottom = 860.319
-text = "When you put them down, you 
-can't pick them back up again,
- though"
+[node name="Label2" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1348.34
+margin_top = 690.76
+margin_right = 1612.34
+margin_bottom = 711.76
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
+text = "Press space to use fish as breadcrumbs!"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="FishLimit" parent="Instructions" instance=ExtResource( 4 )]
+[node name="Label3" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 1310.85
 margin_top = 863.855
 margin_right = 1521.85
 margin_bottom = 884.855
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "You only have so many..."
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="FishLimit2" parent="Instructions" instance=ExtResource( 4 )]
+[node name="Label4" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 1055.94
 margin_top = 804.989
 margin_right = 1397.94
-margin_bottom = 825.989
+margin_bottom = 849.989
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "Check the top right to 
 see how many you have now"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="FishLimit3" parent="Instructions" instance=ExtResource( 4 )]
-margin_left = 870.13
-margin_top = 1006.2
-margin_right = 1063.13
-margin_bottom = 1027.2
+[node name="Label5" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 860.377
+margin_top = 1006.69
+margin_right = 1053.38
+margin_bottom = 1027.69
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "We've started you off with 5"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="FishLimit4" parent="Instructions" instance=ExtResource( 4 )]
+[node name="Label6" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 674.432
 margin_top = 1022.1
 margin_right = 780.432
 margin_bottom = 1043.1
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "Use them wisely"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="Coins" parent="Instructions" instance=ExtResource( 4 )]
+[node name="Label7" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 59.4545
 margin_top = 383.836
 margin_right = 190.454
 margin_bottom = 404.836
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "Collect these coins!"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="Coins2" parent="Instructions" instance=ExtResource( 4 )]
+[node name="Label8" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 141.055
 margin_top = 189.003
 margin_right = 303.054
-margin_bottom = 232.003
+margin_bottom = 234.003
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "Every 3 coins
 is one fish"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="Coins3" parent="Instructions" instance=ExtResource( 4 )]
+[node name="Label9" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 220.587
 margin_top = 85.4
 margin_right = 382.587
 margin_bottom = 154.4
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "but any fish you get
 can only be used on 
 the next level!"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
 [node name="Stairs" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1714.29, 182.301 )
 
 [node name="Props" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Spikes" parent="Props" instance=ExtResource( 6 )]
 position = Vector2( 1760.25, 135.932 )
@@ -175,7 +262,6 @@ position = Vector2( 1333.9, 45.4672 )
 position = Vector2( 805.367, 475.384 )
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
-editor/display_folded = true
 position = Vector2( 1311.66, 702.033 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
@@ -196,5 +282,7 @@ color = Color( 0, 0, 0, 1 )
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 11 )]
 
 [node name="LevelTimer" parent="CanvasLayer" instance=ExtResource( 12 )]
+margin_left = 1660.61
+margin_right = 1660.61
 
 [node name="FishInfo" parent="CanvasLayer" instance=ExtResource( 13 )]

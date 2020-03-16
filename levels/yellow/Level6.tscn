@@ -3,7 +3,7 @@
 [ext_resource path="res://tilesets/yellow/y_bg_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/yellow/y_rock_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/yellow/y_wall_tiles.tres" type="TileSet" id=3]
-[ext_resource path="res://gui/labels/GenericTinyLabel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/themes/TinyLabel.tres" type="Theme" id=4]
 [ext_resource path="res://exits/Stairs.tscn" type="PackedScene" id=5]
 [ext_resource path="res://props/Watermelon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=7]
@@ -45,35 +45,46 @@ format = 1
 tile_data = PoolIntArray( 1835095, 3, 196608, 1835096, 3, 196609, 1835097, 3, 196609, 1835098, 3, 196609, 1835099, 3, 196609, 1835100, 3, 196610, 2359298, 3, 196608, 2359299, 3, 196609, 2359300, 3, 7, 2424836, 3, 65541, 2490372, 3, 65541, 2555908, 3, 65541, 2621444, 3, 131077, 3539015, 3, 196608, 3539016, 3, 196610, 3604522, 3, 196608, 3604523, 3, 196609, 3604524, 3, 196609, 3604525, 3, 196609, 3604526, 3, 196609, 3604527, 3, 196610, 3735626, 3, 5, 3801162, 3, 65541, 3866698, 3, 131077 )
 
 [node name="Instructions" type="Node2D" parent="."]
-editor/display_folded = true
 
-[node name="FlameLimit" parent="Instructions" instance=ExtResource( 4 )]
-margin_left = 626.292
-margin_top = 130.548
-margin_right = 779.292
-margin_bottom = 211.548
+[node name="Label" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 632.424
+margin_top = 133.293
+margin_right = 785.424
+margin_bottom = 214.293
+theme = ExtResource( 4 )
 text = "Watch out! Your light can only last so long before it runs out	"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="FlameLimit2" parent="Instructions" instance=ExtResource( 4 )]
-margin_left = 906.0
-margin_top = 84.0
-margin_right = 1152.0
-margin_bottom = 127.0
+[node name="Label2" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 914.382
+margin_top = 82.2622
+margin_right = 1160.38
+margin_bottom = 151.262
+theme = ExtResource( 4 )
 text = "Check the top right of your screen to see how much time you have left"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
 [node name="Stairs" parent="." instance=ExtResource( 5 )]
 position = Vector2( 15, 616 )
 
 [node name="Props" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Watermelon" parent="Props" instance=ExtResource( 6 )]
 position = Vector2( 1465.32, 946.549 )
 
 [node name="Spikes" type="Node2D" parent="Props"]
-editor/display_folded = true
 
 [node name="Spikes" parent="Props/Spikes" instance=ExtResource( 7 )]
 position = Vector2( 83.005, 958.883 )
@@ -149,7 +160,6 @@ rotation = 4.71239
 position = Vector2( 63.697, 106.59 )
 
 [node name="Squashers" type="Node2D" parent="Props"]
-editor/display_folded = true
 
 [node name="Squasher" parent="Props/Squashers" instance=ExtResource( 9 )]
 position = Vector2( 1573.95, 513.108 )
@@ -169,7 +179,6 @@ scale = Vector2( 1, 0.9 )
 squash_side = "right"
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
-editor/display_folded = true
 position = Vector2( 145.388, 608.248 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
@@ -190,4 +199,8 @@ color = Color( 0, 0, 0, 1 )
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 11 )]
 
 [node name="LevelTimer" parent="CanvasLayer" instance=ExtResource( 12 )]
+margin_left = 1669.39
+margin_top = 0.384918
+margin_right = 1669.39
+margin_bottom = 0.384918
 timer_duration = 210

@@ -3,7 +3,6 @@
 [ext_resource path="res://tilesets/white/w_bg_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/white/w_rock_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/white/w_wall_tiles.tres" type="TileSet" id=3]
-[ext_resource path="res://gui/labels/GenericTinyLabel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://exits/Stairs.tscn" type="PackedScene" id=5]
 [ext_resource path="res://props/Watermelon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://props/Apple.tscn" type="PackedScene" id=7]
@@ -12,6 +11,7 @@
 [ext_resource path="res://props/Squasher.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=11]
 [ext_resource path="res://gui/HUD/HUD.tscn" type="PackedScene" id=12]
+[ext_resource path="res://gui/themes/TinyLabel.tres" type="Theme" id=13]
 
 [node name="Node2D" type="Node2D"]
 
@@ -45,21 +45,26 @@ format = 1
 tile_data = PoolIntArray( 327774, 5, 5, 393310, 5, 65541, 458846, 5, 65541, 524382, 5, 65541, 589918, 5, 65541, 655454, 5, 65542, 655455, 5, 196609, 655456, 5, 196609, 655457, 5, 196609, 655458, 5, 196609, 655459, 5, 196609, 655460, 5, 196609, 655461, 5, 196609, 655462, 5, 196609, 655463, 5, 196609, 655464, 5, 196610, 1245243, 5, 1, 1245244, 5, 2, 1310726, 5, 1, 1310727, 5, 2, 1310779, 5, 131073, 1310780, 5, 131074, 1376262, 5, 131073, 1376263, 5, 131074, 1376315, 5, 131073, 1376316, 5, 131074, 1441798, 5, 131073, 1441799, 5, 131074, 1441851, 5, 65537, 1441852, 5, 65538, 1507334, 5, 131073, 1507335, 5, 131074, 1572870, 5, 65537, 1572871, 5, 65538, 1572921, 5, 5, 1572960, 5, 5, 1638457, 5, 65541, 1638496, 5, 65541, 1703993, 5, 65541, 1704032, 5, 131077, 1769529, 5, 65541, 1835065, 5, 131077, 2031679, 5, 6, 2031680, 5, 196609, 2031681, 5, 7, 2097215, 5, 65541, 2097217, 5, 65541, 2162751, 5, 65542, 2162752, 5, 196609, 2162753, 5, 65543, 2228233, 5, 1, 2228234, 5, 2, 2293769, 5, 65537, 2293770, 5, 65538, 2555978, 5, 1, 2555979, 5, 2, 2621514, 5, 131073, 2621515, 5, 131074, 2687050, 5, 131073, 2687051, 5, 131074, 2752586, 5, 131073, 2752587, 5, 131074, 2818122, 5, 131073, 2818123, 5, 131074, 2883658, 5, 65537, 2883659, 5, 65538, 3407929, 5, 1, 3407930, 5, 2, 3473410, 5, 1, 3473411, 5, 2, 3473465, 5, 131073, 3473466, 5, 131074, 3538946, 5, 65537, 3538947, 5, 65538, 3538951, 5, 1, 3538952, 5, 2, 3539001, 5, 65537, 3539002, 5, 65538, 3604487, 5, 65537, 3604488, 5, 65538, 3604580, 5, 6, 3604581, 5, 196609, 3604582, 5, 196610, 3670116, 5, 65541, 3735652, 5, 131077, 3932161, 3, 65539, 3997697, 3, 65539, 4063233, 3, 65539, 4128769, 3, 65539, 4194305, 3, 65539, 4259841, 3, 65539, 4325377, 1, 65536, 4325378, 3, 2, 4325379, 3, 2, 4325380, 3, 2, 4325381, 3, 2, 4325382, 3, 2, 4325383, 3, 2, 4325384, 3, 2, 4325385, 3, 2, 4325386, 3, 2, 4325387, 3, 2, 4325388, 3, 2, 4325389, 3, 2, 4325390, 3, 2, 4325391, 3, 2, 4325392, 3, 2, 4325393, 3, 2, 4325394, 3, 2, 4325395, 3, 2, 4325396, 3, 2, 4325397, 3, 2, 4325398, 3, 2, 4325399, 3, 2, 4325400, 3, 2, 4325401, 3, 2, 4325402, 3, 2, 4325403, 3, 2, 4325404, 3, 2, 4325405, 3, 2, 4325406, 3, 2, 4325407, 3, 2, 4325408, 3, 2, 4325409, 3, 2, 4325410, 3, 2, 4325411, 3, 2, 4325412, 3, 2, 4325413, 3, 2, 4325414, 3, 2, 4325415, 3, 2, 4325416, 3, 2, 4325417, 3, 2, 4325418, 3, 2, 4325419, 3, 2, 4325420, 3, 2, 4325421, 3, 2, 4325422, 3, 2, 4325423, 3, 2, 4325424, 3, 2, 4325425, 3, 2, 4325426, 3, 2, 4325427, 3, 2, 4325428, 3, 2, 4325429, 3, 2, 4325430, 3, 2, 4325431, 3, 2, 4325432, 3, 2, 4325433, 3, 2, 4325434, 3, 2, 4325435, 3, 2, 4325436, 3, 2, 4325437, 3, 2, 4325438, 3, 2, 4325439, 3, 2, 4325440, 3, 2, 4325441, 3, 2, 4325442, 3, 2, 4325443, 3, 2, 4325444, 3, 2, 4325445, 3, 2, 4325446, 3, 2, 4325447, 3, 2, 4325448, 3, 2, 4325449, 3, 2, 4325450, 3, 2, 4325451, 3, 2, 4325452, 3, 2, 4325453, 3, 2, 4325454, 3, 2, 4325455, 3, 2, 4325456, 3, 2, 4325457, 3, 2, 4325458, 3, 2, 4325459, 3, 2, 4325460, 3, 2, 4325461, 3, 2, 4325462, 3, 2, 4325463, 3, 2, 4325464, 3, 2, 4325465, 3, 2, 4325466, 3, 2, 4325467, 3, 2, 4325468, 3, 2, 4325469, 3, 2 )
 
 [node name="Instructions" type="Node2D" parent="."]
-editor/display_folded = true
 
-[node name="InvisibleWalls" parent="Instructions" instance=ExtResource( 4 )]
-margin_left = 1528.0
-margin_top = 84.0
-margin_right = 1675.0
-margin_bottom = 173.0
+[node name="Label" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1526.71
+margin_top = 74.6175
+margin_right = 1673.71
+margin_bottom = 167.618
+theme = ExtResource( 13 )
 text = "You may encounter invisible walls. Try Finding ways around them"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
 [node name="Stairs" parent="." instance=ExtResource( 5 )]
 position = Vector2( 66.889, 903.899 )
 
 [node name="Props" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Watermelon" parent="Props" instance=ExtResource( 6 )]
 position = Vector2( 1646.65, 527.499 )
@@ -72,7 +77,6 @@ position = Vector2( 1003.34, 210.857 )
 position = Vector2( 1635.52, 912.085 )
 
 [node name="Spikes" type="Node2D" parent="Props"]
-editor/display_folded = true
 
 [node name="Spikes" parent="Props/Spikes" instance=ExtResource( 9 )]
 position = Vector2( 112.681, 700 )
@@ -111,7 +115,6 @@ position = Vector2( 255.473, 450.05 )
 rotation = 3.14159
 
 [node name="Squashers" type="Node2D" parent="Props"]
-editor/display_folded = true
 
 [node name="Squasher" parent="Props/Squashers" instance=ExtResource( 10 )]
 position = Vector2( 160.511, 771.21 )
@@ -126,8 +129,7 @@ scale = Vector2( 1, 0.8 )
 squash_side = "right"
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
-editor/display_folded = true
-position = Vector2( 1676.61, 69.6055 )
+position = Vector2( 1653.96, 54.723 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
 position = Vector2( -211.585, -146.843 )

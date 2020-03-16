@@ -1,77 +1,90 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gui/screens/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/titlescreen_bg.png" type="Texture" id=2]
-[ext_resource path="res://gui/labels/GenericSmallLabel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gui/buttons/PlayButton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://gui/buttons/OptionsButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://gui/buttons/AboutButton.tscn" type="PackedScene" id=6]
-[ext_resource path="res://gui/buttons/ExitButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://gui/themes/SmallLabel.tres" type="Theme" id=3]
+[ext_resource path="res://gui/buttons/Button.tscn" type="PackedScene" id=8]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Menu" type="VBoxContainer" parent="."]
-margin_left = 120.0
-margin_top = 80.0
-margin_right = 1800.0
-margin_bottom = 1000.0
-
-[node name="CenterRow" type="HBoxContainer" parent="Menu"]
-margin_right = 1680.0
-margin_bottom = 920.0
-size_flags_vertical = 3
-
-[node name="LeftRow" type="HBoxContainer" parent="Menu/CenterRow"]
-margin_right = 400.0
-margin_bottom = 920.0
-
-[node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow/LeftRow"]
-margin_right = 400.0
-margin_bottom = 920.0
+[node name="Buttons" type="VBoxContainer" parent="."]
+margin_left = 83.0
+margin_top = 256.368
+margin_right = 538.0
+margin_bottom = 1047.37
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 20
-alignment = 2
+custom_constants/separation = 40
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" parent="Menu/CenterRow/LeftRow/Buttons" instance=ExtResource( 3 )]
+[node name="Label" type="Label" parent="Buttons"]
+margin_right = 455.0
+margin_bottom = 31.0
+mouse_filter = 0
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Use arrow keys and enter to select"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Play" parent="Buttons" instance=ExtResource( 8 )]
+anchor_left = 0.0
+anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 309.0
-margin_right = 400.0
-margin_bottom = 340.0
-text = "Use arrow keys and enter to select"
+margin_left = 0.0
+margin_top = 71.0
+margin_right = 455.0
+margin_bottom = 221.0
+button_mode = "play"
 
-[node name="PlayButton" parent="Menu/CenterRow/LeftRow/Buttons" instance=ExtResource( 4 )]
-margin_top = 360.0
-margin_right = 400.0
-margin_bottom = 485.0
+[node name="About" parent="Buttons" instance=ExtResource( 8 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 261.0
+margin_right = 455.0
+margin_bottom = 411.0
+button_mode = "about"
 
-[node name="OptionsButton" parent="Menu/CenterRow/LeftRow/Buttons" instance=ExtResource( 5 )]
-margin_top = 505.0
-margin_right = 400.0
-margin_bottom = 630.0
+[node name="Options" parent="Buttons" instance=ExtResource( 8 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 451.0
+margin_right = 455.0
+margin_bottom = 601.0
+button_mode = "options"
 
-[node name="AboutButton" parent="Menu/CenterRow/LeftRow/Buttons" instance=ExtResource( 6 )]
-margin_top = 650.0
-margin_right = 400.0
-margin_bottom = 775.0
-
-[node name="ExitButton" parent="Menu/CenterRow/LeftRow/Buttons" instance=ExtResource( 7 )]
-margin_top = 795.0
-margin_right = 400.0
-margin_bottom = 920.0
-
-[node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
-margin_left = 404.0
-margin_right = 1680.0
-margin_bottom = 920.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="Quit" parent="Buttons" instance=ExtResource( 8 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 641.0
+margin_right = 455.0
+margin_bottom = 791.0
+button_mode = "quit"

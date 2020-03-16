@@ -2,40 +2,32 @@
 
 [ext_resource path="res://gui/screens/AboutScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/aboutscreen_bg.png" type="Texture" id=2]
-[ext_resource path="res://gui/labels/GenericBigLabel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gui/buttons/MainMenuButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/themes/MedLabel.tres" type="Theme" id=3]
+[ext_resource path="res://gui/buttons/Button.tscn" type="PackedScene" id=4]
 
 [node name="AboutScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = -1.50734
+margin_right = 1918.49
+margin_bottom = 1080.0
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Menu" type="VBoxContainer" parent="."]
-margin_left = 120.0
-margin_top = 80.0
-margin_right = 1800.0
-margin_bottom = 1000.0
-
-[node name="CenterRow" type="HBoxContainer" parent="Menu"]
-margin_right = 1680.0
-margin_bottom = 920.0
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/CenterRow"]
-margin_right = 838.0
-margin_bottom = 920.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="GenericBigLabel" parent="Menu/CenterRow/VBoxContainer" instance=ExtResource( 3 )]
-margin_right = 838.0
-margin_bottom = 791.0
-size_flags_vertical = 3
+[node name="Label" type="Label" parent="."]
+margin_left = 123.507
+margin_top = 449.566
+margin_right = 447.507
+margin_bottom = 809.566
+theme = ExtResource( 3 )
 text = "Version 0.1
 Sajo8
 
@@ -45,16 +37,19 @@ Credits:
 - Kenny at kenny.nl
 
 Made with Godot Engine"
-valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="MainMenuButton" parent="Menu/CenterRow/VBoxContainer" instance=ExtResource( 4 )]
-margin_top = 795.0
-margin_right = 838.0
-margin_bottom = 920.0
+[node name="MainMenu" parent="." instance=ExtResource( 4 )]
+margin_left = -843.56
+margin_top = 354.141
+margin_right = -423.56
+margin_bottom = 504.141
+button_mode = "main menu"
 
-[node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
-margin_left = 842.0
-margin_right = 1680.0
-margin_bottom = 920.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2( 154.643, 854.833 )
+scale = Vector2( 0.85059, 1 )
+points = PoolVector2Array( -40.3843, 0, 416.811, 0 )
+default_color = Color( 0.262745, 0.266667, 0.298039, 1 )

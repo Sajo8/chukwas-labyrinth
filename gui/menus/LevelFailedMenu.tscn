@@ -1,21 +1,21 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://gui/menus/LevelFailedMenu.gd" type="Script" id=1]
-[ext_resource path="res://gui/labels/GenericBigLabel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://gui/buttons/RetryPauseButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gui/buttons/MainMenuPauseButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/fonts/norse_b_50.tres" type="DynamicFont" id=3]
+[ext_resource path="res://gui/themes/BigLabel.tres" type="Theme" id=4]
+[ext_resource path="res://gui/buttons/Button.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0, 0.52549, 0.231373, 1 )
 
 [node name="LevelFailedMenu" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Popup" type="Popup" parent="."]
 visible = true
@@ -30,37 +30,51 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 1 )
 
-[node name="MarginContainer" type="MarginContainer" parent="Popup"]
+[node name="Label" type="Label" parent="Popup"]
+margin_top = 400.0
 margin_right = 1920.0
-margin_bottom = 1080.0
-
-[node name="Buttons" type="VBoxContainer" parent="Popup/MarginContainer"]
-margin_right = 1920.0
-margin_bottom = 1080.0
-custom_constants/separation = 50
-alignment = 1
-
-[node name="Label" parent="Popup/MarginContainer/Buttons" instance=ExtResource( 2 )]
-margin_top = 427.0
-margin_right = 1920.0
-margin_bottom = 478.0
+margin_bottom = 451.0
+rect_pivot_offset = Vector2( 599.664, 316.414 )
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 4
 text = "Level failed"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Popup/MarginContainer/Buttons"]
-margin_top = 528.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup"]
+margin_top = 530.0
 margin_right = 1920.0
-margin_bottom = 653.0
+margin_bottom = 680.0
+custom_constants/separation = 100
 alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="RetryPauseButton" parent="Popup/MarginContainer/Buttons/HBoxContainer" instance=ExtResource( 3 )]
-margin_left = 558.0
-margin_right = 958.0
-margin_bottom = 125.0
-custom_styles/focus = SubResource( 2 )
+[node name="Retry" parent="Popup/HBoxContainer" instance=ExtResource( 5 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 490.0
+margin_top = 0.0
+margin_right = 910.0
+margin_bottom = 150.0
+button_mode = "retry"
 
-[node name="MainMenuButton" parent="Popup/MarginContainer/Buttons/HBoxContainer" instance=ExtResource( 4 )]
-margin_left = 962.0
-margin_right = 1362.0
-margin_bottom = 125.0
-custom_styles/focus = SubResource( 2 )
+[node name="Button" parent="Popup/HBoxContainer" instance=ExtResource( 5 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1010.0
+margin_top = 0.0
+margin_right = 1430.0
+margin_bottom = 150.0
+button_mode = "main menu pause"

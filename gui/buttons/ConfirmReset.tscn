@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gui/fonts/norse_b_20.tres" type="DynamicFont" id=1]
+[ext_resource path="res://gui/themes/SmallLabel.tres" type="Theme" id=2]
+[ext_resource path="res://gui/buttons/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/buttons/ConfirmReset.gd" type="Script" id=4]
+
+
+
+[node name="ConfirmReset" type="WindowDialog"]
+visible = true
+margin_left = 550.0
+margin_top = 305.0
+margin_right = 1125.0
+margin_bottom = 482.0
+custom_fonts/title_font = ExtResource( 1 )
+window_title = "Confirm Reset"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 114.885
+margin_top = 16.2208
+margin_right = 497.885
+margin_bottom = 78.2208
+theme = ExtResource( 2 )
+text = "Are you sure you want to reset your progress and start at level 1?"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 37.8241
+margin_top = 91.3241
+margin_right = 1037.82
+margin_bottom = 241.324
+rect_scale = Vector2( 0.5, 0.5 )
+custom_constants/separation = 200
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" parent="HBoxContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 400.0
+margin_bottom = 150.0
+button_mode = "cancel reset"
+
+[node name="Confirm" parent="HBoxContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 600.0
+margin_top = 0.0
+margin_right = 1000.0
+margin_bottom = 150.0
+button_mode = "confirm reset"
+[connection signal="visibility_changed" from="." to="." method="_on_ConfirmReset_visibility_changed"]

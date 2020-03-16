@@ -4,13 +4,13 @@
 [ext_resource path="res://tilesets/white/w_rock_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/white/w_wall_tiles.tres" type="TileSet" id=3]
 [ext_resource path="res://exits/Stairs.tscn" type="PackedScene" id=4]
-[ext_resource path="res://gui/labels/GenericTinyLabel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://props/Apple.tscn" type="PackedScene" id=6]
 [ext_resource path="res://props/Comfy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://props/Squasher.tscn" type="PackedScene" id=8]
 [ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gui/HUD/HUD.tscn" type="PackedScene" id=11]
+[ext_resource path="res://gui/themes/TinyLabel.tres" type="Theme" id=12]
 
 [node name="Node2D" type="Node2D"]
 
@@ -39,17 +39,22 @@ tile_data = PoolIntArray( 65537, 5, 6, 65538, 5, 196609, 65539, 5, 196609, 65540
 position = Vector2( 1160.23, 664.197 )
 
 [node name="Text" type="Node2D" parent="."]
-editor/display_folded = true
 
-[node name="Hmm" parent="Text" instance=ExtResource( 5 )]
-margin_left = 28.7289
+[node name="Label" type="Label" parent="Text"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 29.3436
 margin_top = 159.989
-margin_right = 66.729
-margin_bottom = 179.989
+margin_right = 67.3437
+margin_bottom = 180.989
+theme = ExtResource( 12 )
 text = "Hmm..."
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
 [node name="Props" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Apple" parent="Props" instance=ExtResource( 6 )]
 position = Vector2( 885.897, 142.468 )
@@ -58,7 +63,6 @@ position = Vector2( 885.897, 142.468 )
 position = Vector2( 41.737, 143.333 )
 
 [node name="Squashers" type="Node2D" parent="Props"]
-editor/display_folded = true
 
 [node name="Squasher" parent="Props/Squashers" instance=ExtResource( 8 )]
 position = Vector2( 637.318, 128.991 )
@@ -75,7 +79,6 @@ scale = Vector2( 1, 0.75 )
 squash_side = "down"
 
 [node name="Spikes" type="Node2D" parent="Props"]
-editor/display_folded = true
 
 [node name="Spikes" parent="Props/Spikes" instance=ExtResource( 9 )]
 position = Vector2( 621.839, 47.5658 )
@@ -98,7 +101,6 @@ position = Vector2( 541.313, 143.903 )
 rotation = 3.14159
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
-editor/display_folded = true
 position = Vector2( 760.327, 390.737 )
 
 [node name="Camera" type="Camera2D" parent="Player"]

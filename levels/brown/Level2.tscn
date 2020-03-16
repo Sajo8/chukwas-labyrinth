@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://tilesets/brown/b_bg_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/brown/b_rock_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://tilesets/brown/b_wall_tiles.tres" type="TileSet" id=3]
 [ext_resource path="res://exits/Stairs.tscn" type="PackedScene" id=4]
-[ext_resource path="res://gui/labels/GenericTinyLabel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gui/themes/TinyLabel.tres" type="Theme" id=5]
 [ext_resource path="res://props/Watermelon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://props/Squasher.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gui/HUD/HUD.tscn" type="PackedScene" id=10]
+[ext_resource path="res://gui/fonts/norse_b_20.tres" type="DynamicFont" id=11]
 
 [node name="Node2D" type="Node2D"]
 
@@ -37,42 +38,77 @@ tile_data = PoolIntArray( 65537, 4, 6, 65538, 4, 196609, 65539, 4, 196609, 65540
 position = Vector2( 894.959, 53.9983 )
 
 [node name="Instructions" type="Node2D" parent="."]
-editor/display_folded = true
 
-[node name="Spikes" parent="Instructions" instance=ExtResource( 5 )]
+[node name="Label" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 167.019
 margin_top = 182.49
 margin_right = 231.019
 margin_bottom = 264.49
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "Watch out for spikes!"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="Squashers" parent="Instructions" instance=ExtResource( 5 )]
-margin_left = 243.634
-margin_top = 415.893
-margin_right = 299.634
-margin_bottom = 481.893
+[node name="Label2" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 244.0
+margin_top = 416.0
+margin_right = 314.0
+margin_bottom = 485.0
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "ANd squashers too"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="Watermelon" parent="Instructions" instance=ExtResource( 5 )]
-margin_left = 401.198
-margin_top = 335.269
-margin_right = 490.198
-margin_bottom = 470.269
+[node name="Label3" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 402.33
+margin_top = 336.043
+margin_right = 491.33
+margin_bottom = 477.043
+theme = ExtResource( 5 )
 text = "Watermelons will make you immune to spikes and squashers (For 2 Mins)"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="Glhf" parent="Instructions" instance=ExtResource( 5 )]
+[node name="Label4" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 925.0
 margin_top = 36.0
 margin_right = 959.0
-margin_bottom = 56.0
+margin_bottom = 57.0
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
 text = "glhf"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
 [node name="Props" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Watermelon" parent="Props" instance=ExtResource( 6 )]
 position = Vector2( 510.13, 366.188 )
@@ -89,7 +125,6 @@ rotation = 3.14159
 position = Vector2( 208.022, 486.994 )
 
 [node name="EndSpikes" type="Node2D" parent="Props"]
-editor/display_folded = true
 
 [node name="Spikes" parent="Props/EndSpikes" instance=ExtResource( 7 )]
 position = Vector2( 959.921, 543.461 )
@@ -112,7 +147,6 @@ position = Vector2( 959.694, 507.497 )
 rotation = 1.5708
 
 [node name="Player" parent="." instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 120.411, 111.258 )
 
 [node name="Camera" type="Camera2D" parent="Player"]

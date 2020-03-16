@@ -1,16 +1,15 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://gui/HUD/FishInfo.gd" type="Script" id=1]
-[ext_resource path="res://gui/labels/GenericSmallLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/themes/SmallLabel.tres" type="Theme" id=3]
 
 [node name="FishInfo" type="Control" groups=[
 "timers",
 ]]
 script = ExtResource( 1 )
 
-[node name="GenericSmallLabel" parent="." instance=ExtResource( 2 )]
-margin_left = 1650.0
-margin_top = 40.0
-margin_right = 1814.0
-margin_bottom = 71.0
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+theme = ExtResource( 3 )
 text = "Remaining fish:"

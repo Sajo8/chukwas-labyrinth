@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://gui/menus/LevelPassedMenu.gd" type="Script" id=1]
-[ext_resource path="res://gui/labels/GenericBigLabel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://gui/buttons/NextLevelPauseButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gui/buttons/MainMenuPauseButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/fonts/norse_b_50.tres" type="DynamicFont" id=2]
+[ext_resource path="res://gui/buttons/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/themes/BigLabel.tres" type="Theme" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -13,6 +13,9 @@ pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Popup" type="Popup" parent="."]
 visible = true
@@ -20,42 +23,60 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="CanvasModulate" type="PanelContainer" parent="Popup"]
-self_modulate = Color( 1, 1, 1, 0.843137 )
+self_modulate = Color( 1, 1, 1, 0.84 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 1 )
 
-[node name="MarginContainer" type="MarginContainer" parent="Popup"]
+[node name="Label" type="Label" parent="Popup"]
+margin_top = 400.0
 margin_right = 1920.0
-margin_bottom = 1080.0
-
-[node name="Buttons" type="VBoxContainer" parent="Popup/MarginContainer"]
-margin_right = 1920.0
-margin_bottom = 1080.0
-custom_constants/separation = 50
-alignment = 1
-
-[node name="Label" parent="Popup/MarginContainer/Buttons" instance=ExtResource( 2 )]
-margin_top = 427.0
-margin_right = 1920.0
-margin_bottom = 478.0
+margin_bottom = 451.0
+rect_pivot_offset = Vector2( 599.664, 316.414 )
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 4
 text = "level passed"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Popup/MarginContainer/Buttons"]
-margin_top = 528.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup"]
+margin_top = 530.0
 margin_right = 1920.0
-margin_bottom = 653.0
+margin_bottom = 680.0
+custom_constants/separation = 100
 alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
-[node name="NextLevelButton" parent="Popup/MarginContainer/Buttons/HBoxContainer" instance=ExtResource( 3 )]
-margin_left = 558.0
-margin_right = 958.0
-margin_bottom = 125.0
+[node name="NextLevel" parent="Popup/HBoxContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 490.0
+margin_top = 0.0
+margin_right = 910.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 420, 150 )
+button_mode = "next level"
 
-[node name="MainMenuButton" parent="Popup/MarginContainer/Buttons/HBoxContainer" instance=ExtResource( 4 )]
-margin_left = 962.0
-margin_right = 1362.0
-margin_bottom = 125.0
+[node name="MainMenu" parent="Popup/HBoxContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1010.0
+margin_top = 0.0
+margin_right = 1430.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 420, 150 )
+button_mode = "main menu pause"

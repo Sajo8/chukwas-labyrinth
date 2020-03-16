@@ -1,0 +1,41 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+		"files.autoSave": "afterDelay",
+		"window.zoomLevel": 0,
+		"workbench.iconTheme": "material-icon-theme",
+		"workbench.colorCustomizations": {
+			"activityBarBadge.background": "#388E3C",
+			"activityBar.activeBorder": "#388E3C",
+			"list.activeSelectionForeground": "#388E3C",
+			"list.inactiveSelectionForeground": "#388E3C",
+			"list.highlightForeground": "#388E3C",
+			"scrollbarSlider.activeBackground": "#388E3C50",
+			"editorSuggestWidget.highlightForeground": "#388E3C",
+			"textLink.foreground": "#388E3C",
+			"progressBar.background": "#388E3C",
+			"pickerGroup.foreground": "#388E3C",
+			"tab.activeBorder": "#388E3C",
+			"notificationLink.foreground": "#388E3C",
+			"editorWidget.resizeBorder": "#388E3C",
+			"editorWidget.border": "#388E3C",
+			"settings.modifiedItemIndicator": "#388E3C",
+			"settings.headerForeground": "#388E3C",
+			"panelTitle.activeBorder": "#388E3C",
+			"breadcrumb.activeSelectionForeground": "#388E3C",
+			"menu.selectionForeground": "#388E3C",
+			"menubar.selectionForeground": "#388E3C",
+			"editor.findMatchBorder": "#388E3C",
+			"selection.background": "#388E3C40"
+		},
+		"gitlens.hovers.currentLine.over": "line",
+		"files.autoSaveDelay": 100,
+		"workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+		"godot_tools.editor_path": "C:\\Users\\Sajo\\Desktop\\saj\\godot\\Godot_v3.2-stable_win64.exe"
+	}
+}

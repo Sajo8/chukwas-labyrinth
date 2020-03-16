@@ -36,10 +36,8 @@ tile_data = PoolIntArray( 65537, 5, 6, 65538, 5, 196609, 65539, 5, 10, 65540, 5,
 position = Vector2( 176.652, 696.154 )
 
 [node name="Props" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Spikes" type="Node2D" parent="Props"]
-editor/display_folded = true
 
 [node name="Spikes" parent="Props/Spikes" instance=ExtResource( 5 )]
 position = Vector2( 63.7409, 676.551 )
@@ -133,7 +131,6 @@ rotation = 1.5708
 position = Vector2( 63.132, 455.473 )
 
 [node name="Squashers" type="Node2D" parent="Props"]
-editor/display_folded = true
 
 [node name="Squasher" parent="Props/Squashers" instance=ExtResource( 7 )]
 position = Vector2( 618.575, 692.199 )
@@ -142,7 +139,6 @@ scale = Vector2( 0.8, 0.8 )
 squash_side = "right"
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
-editor/display_folded = true
 position = Vector2( 1304.09, 781.86 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
