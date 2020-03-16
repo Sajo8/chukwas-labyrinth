@@ -8,4 +8,4 @@ func _process(_delta: float) -> void:
 	else:
 		$Congrats.show();
 		$Congrats2.show();
-		$Congrats3.show();
+		$Button.grab_focus()

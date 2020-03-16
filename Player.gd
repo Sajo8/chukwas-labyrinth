@@ -34,7 +34,7 @@ func get_input():
 
 	return velocity
 
-func animate_player(velocity):
+func animate_player():
 	var velocity_length = velocity.length()
 	var velocity_angle = velocity.angle()
 	# Convert it to degrees
@@ -70,7 +70,7 @@ func _physics_process(delta):
 
 	velocity = get_input()
 	velocity = velocity.normalized() * speed
-	animate_player(velocity)
+	animate_player()
 	move_and_slide(velocity)
 
 	for i in get_slide_count():

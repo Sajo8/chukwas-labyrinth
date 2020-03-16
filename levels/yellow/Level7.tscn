@@ -262,7 +262,7 @@ position = Vector2( 1333.9, 45.4672 )
 position = Vector2( 805.367, 475.384 )
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1311.66, 702.033 )
+position = Vector2( 1310, 700 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
 position = Vector2( -211.585, -146.843 )
@@ -286,3 +286,5 @@ margin_left = 1660.61
 margin_right = 1660.61
 
 [node name="FishInfo" parent="CanvasLayer" instance=ExtResource( 13 )]
+margin_left = 1456.52
+margin_right = 1456.52

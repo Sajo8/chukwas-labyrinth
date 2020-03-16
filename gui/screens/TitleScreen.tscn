@@ -23,11 +23,11 @@ __meta__ = {
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 margin_left = 83.0
-margin_top = 256.368
-margin_right = 538.0
-margin_bottom = 1047.37
-size_flags_horizontal = 3
-size_flags_vertical = 3
+margin_top = 256.0
+margin_right = 503.0
+margin_bottom = 1047.0
+grow_horizontal = 0
+grow_vertical = 0
 custom_constants/separation = 40
 alignment = 1
 __meta__ = {
@@ -35,12 +35,13 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Buttons"]
-margin_right = 455.0
+margin_right = 420.0
 margin_bottom = 31.0
 mouse_filter = 0
 size_flags_vertical = 1
 theme = ExtResource( 3 )
 text = "Use arrow keys and enter to select"
+autowrap = true
 __meta__ = {
 "_editor_description_": ""
 }
@@ -52,7 +53,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 71.0
-margin_right = 455.0
+margin_right = 420.0
 margin_bottom = 221.0
 button_mode = "play"
 
@@ -63,7 +64,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 261.0
-margin_right = 455.0
+margin_right = 420.0
 margin_bottom = 411.0
 button_mode = "about"
 
@@ -74,7 +75,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 451.0
-margin_right = 455.0
+margin_right = 420.0
 margin_bottom = 601.0
 button_mode = "options"
 
@@ -85,6 +86,6 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 641.0
-margin_right = 455.0
+margin_right = 420.0
 margin_bottom = 791.0
 button_mode = "quit"

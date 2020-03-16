@@ -66,7 +66,6 @@ margin_left = 490.0
 margin_top = 0.0
 margin_right = 910.0
 margin_bottom = 150.0
-rect_min_size = Vector2( 420, 150 )
 button_mode = "next level"
 
 [node name="MainMenu" parent="Popup/HBoxContainer" instance=ExtResource( 3 )]
@@ -78,5 +77,4 @@ margin_left = 1010.0
 margin_top = 0.0
 margin_right = 1430.0
 margin_bottom = 150.0
-rect_min_size = Vector2( 420, 150 )
 button_mode = "main menu pause"
