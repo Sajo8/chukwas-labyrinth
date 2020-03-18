@@ -1,4 +1,7 @@
-extends WindowDialog
+extends Control
 
-func _on_ConfirmReset_visibility_changed():
-	$HBoxContainer/Cancel.grab_focus()
+func _ready() -> void:
+	$Reset.visible = false
+
+func _on_Confirm_visibility_changed() -> void:
+	$Confirm/HBoxContainer/Cancel.grab_focus()

@@ -36,11 +36,12 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Buttons"]
 margin_right = 420.0
-margin_bottom = 31.0
+margin_bottom = 62.0
 mouse_filter = 0
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Use arrow keys and enter to select"
+text = "Use arrow keys and enter or mouse
+ to select"
 autowrap = true
 __meta__ = {
 "_editor_description_": ""
@@ -52,9 +53,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 66.0
+margin_top = 97.0
 margin_right = 420.0
-margin_bottom = 216.0
+margin_bottom = 247.0
 button_mode = "play"
 
 [node name="About" parent="Buttons" instance=ExtResource( 8 )]
@@ -63,9 +64,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 251.0
+margin_top = 282.0
 margin_right = 420.0
-margin_bottom = 401.0
+margin_bottom = 432.0
 button_mode = "about"
 
 [node name="Options" parent="Buttons" instance=ExtResource( 8 )]
@@ -74,9 +75,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 436.0
+margin_top = 467.0
 margin_right = 420.0
-margin_bottom = 586.0
+margin_bottom = 617.0
 button_mode = "options"
 
 [node name="Quit" parent="Buttons" instance=ExtResource( 8 )]
@@ -85,7 +86,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 621.0
+margin_top = 652.0
 margin_right = 420.0
-margin_bottom = 771.0
+margin_bottom = 802.0
 button_mode = "quit"

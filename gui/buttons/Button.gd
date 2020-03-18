@@ -1,8 +1,8 @@
 extends Button
 
 export(String, "EXCEPTION", "about", "quit", "main menu", "main menu pause",
-	"next level", "options", "play", "reset progress", "cancel reset", "confirm reset",
-	"resume pause", "retry") var button_mode = "EXCEPTION"
+	"next level", "options", "play", "reset progress", "cancel reset",
+	"confirm reset", "ok reset", "resume pause", "retry") var button_mode = "EXCEPTION"
 
 func _ready() -> void:
 	if button_mode == "EXCEPTION":
@@ -57,6 +57,9 @@ func set_button_text() -> void:
 		"confirm reset":
 			text = "Confirm"
 
+		"ok reset":
+			text = "Ok"
+
 		"resume pause":
 			text = "Resume game"
 
@@ -90,16 +93,23 @@ func _on_Control_pressed() -> void:
 			SceneChanger.go_to_level(SceneChanger.current_level)
 
 		"reset progress":
-			$ConfirmReset.show()
+			$ConfirmReset/Confirm.show()
 
 		"cancel reset":
 			get_node("../../").visible = false
-			get_node("../../../").grab_focus()
+			get_node("../../../../").grab_focus()
 
 		"confirm reset":
 			var save_game = File.new()
 			Globals.reset_save(save_game)
+
 			get_node("../../").visible = false
+
+			get_node("../../../Reset").visible = true
+			get_node("../../../Reset/Ok").grab_focus()
+
+		"ok reset":
+			get_node("../").visible = false
 			get_node("../../../").grab_focus()
 
 		"resume pause":
