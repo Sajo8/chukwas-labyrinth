@@ -23,12 +23,12 @@ __meta__ = {
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 margin_left = 83.0
-margin_top = 256.0
+margin_top = 276.0
 margin_right = 503.0
 margin_bottom = 1047.0
 grow_horizontal = 0
 grow_vertical = 0
-custom_constants/separation = 40
+custom_constants/separation = 35
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,9 +52,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 71.0
+margin_top = 66.0
 margin_right = 420.0
-margin_bottom = 221.0
+margin_bottom = 216.0
 button_mode = "play"
 
 [node name="About" parent="Buttons" instance=ExtResource( 8 )]
@@ -63,9 +63,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 261.0
+margin_top = 251.0
 margin_right = 420.0
-margin_bottom = 411.0
+margin_bottom = 401.0
 button_mode = "about"
 
 [node name="Options" parent="Buttons" instance=ExtResource( 8 )]
@@ -74,9 +74,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 451.0
+margin_top = 436.0
 margin_right = 420.0
-margin_bottom = 601.0
+margin_bottom = 586.0
 button_mode = "options"
 
 [node name="Quit" parent="Buttons" instance=ExtResource( 8 )]
@@ -85,7 +85,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 641.0
+margin_top = 621.0
 margin_right = 420.0
-margin_bottom = 791.0
+margin_bottom = 771.0
 button_mode = "quit"
