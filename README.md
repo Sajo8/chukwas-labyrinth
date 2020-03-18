@@ -29,6 +29,13 @@ Ping me @Sajo8#2953 on the [TurtleCoin discord](http://chat.turtlecoin.lol) in #
 
 ## Future Ideas
 
+- Integrating TRTL
+  - trtl services or trtlapps
+  - sell skins/cosmetic stuff
+  - or sell extra levels
+
+---
+
 - Powerup which removes all wall tiles
     - Or lets the player phase through walls
 - Slow down for 10 seconds
@@ -49,49 +56,49 @@ Whenever I make significant changes, I'll update this link to a gif of how the g
 
 **Note:** This gif thing is essentially useless now; I don't want to show you how to solve a level in a preview gif and I won't make them very long. Best way to assess it now is to just download and play the game.
 
-July 15, 2019  
+July 15, 2019
 https://i.imgur.com/VQigott.mp4
 
 ### All Version Gifs
 
-July 15, 2019  
+July 15, 2019
 https://i.imgur.com/VQigott.mp4
 
-July 15, 2019  
+July 15, 2019
 https://i.imgur.com/tmF0XWv.mp4
 
-July 13, 2019  
+July 13, 2019
 https://i.imgur.com/IQBkAEZ.mp4
 
-July 12, 2019  
+July 12, 2019
 https://i.imgur.com/bZJg0HZ.gifv
 
-July 12, 2019  
+July 12, 2019
 https://i.imgur.com/EnvFiWt.gifv
 
-July 11, 2019  
+July 11, 2019
 https://i.imgur.com/OgPzvz0.gifv
 
-July 11, 2019  
+July 11, 2019
 https://i.imgur.com/ft1sMLg.gifv
 
-July 9, 2019  
+July 9, 2019
 https://i.imgur.com/pO0P0D6.gifv
 
-July 3, 2019  
+July 3, 2019
 https://i.imgur.com/dMh0zL3.gif
 
-July 3, 2019  
+July 3, 2019
 https://i.imgur.com/U3nPazf.gif
 
-June 26, 2019  
+June 26, 2019
 https://i.imgur.com/FZNQjJ1.gif
 
-June 26, 2019  
+June 26, 2019
 https://i.imgur.com/Nv4PjOg.gif
 
-June 24, 2019  
+June 24, 2019
 https://i.imgur.com/8sfFOak.gif
 
-June 24, 2019  
+June 24, 2019
 https://i.imgur.com/8fockzl.gif
