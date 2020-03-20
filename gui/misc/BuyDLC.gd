@@ -23,12 +23,13 @@ var check_balance = false
 var timed_out = false
 
 func _ready() -> void:
-	$Level/TextEdit.visible = false
-	$Level/Label3.visible = false
-	$Level/Timer.visible = false
+	$Level/TextEdit.hide()
+	$Level/Label3.hide()
+	$Level/Timer.hide()
+	$Level/MainMenu.hide()
 
 	######################### TEMP
-	accId = "ORHHntz3KLG5NW1u8DxL"
+	accId = "zPnQGKNmagxSXfm8i83A"
 
 func _process(delta: float) -> void:
 	if not check_balance:
@@ -94,7 +95,9 @@ func _on_First_HTTPRequest_request_completed(result: int, response_code: int, he
 	var address = json_result['address']
 
 	$Level/Label3.rect_position.y += 150
-	$Level/Label3.text = "Status: Waiting for deposit, checking periodically"
+	$Level/Label3.text = """Note: after you send the deposit, it may take a while for it to register here!
+
+	STATUS: Waiting for deposit, checking periodically..."""
 
 	$Level/TextEdit.visible = true
 	$Level/TextEdit.text = address
@@ -133,16 +136,35 @@ func _on_http_request_completed(result: int, response_code: int, headers: PoolSt
 	print(typeof(json_body))
 	var json_result = JSON.parse(json_body)
 	json_result = json_result.result
+	print(json_result)
 	var txReceivedResult = json_result['result']
+	var txLocked = json_result['locked']
 	if (txReceivedResult):
-		received_transaction()
-	else:
-		print("not yet")
-		check_if_done()
+		if (txLocked):
+			$Level/Label3.text = """Note: after you send the deposit, it may take a while for it to register here!
+
+			Status: Deposit received! Waiting for network confirmation.."""
+		else:
+			received_transaction()
+	check_if_done() # either we havent received the deposit or it's not confirmed
 
 func received_transaction():
+	$Level/TextEdit.hide()
+	$Level/Label3.hide()
+	$Level/Timer.hide()
 	$ThirtyMinTimer.stop()
-	print("heck yeah man lets go")
+	$Level/Label2.align = $Level/Label2.ALIGN_CENTER
+	$Level/Label2.text = """
+	
+	
+	deposit received and confirmed!
+	
+	your dlc has been unlocked!
+	
+	enjoy!
+	"""
+	$Level/MainMenu.show()
+	$Level/MainMenu.grab_focus()
 
 func _on_30MinTimer_timeout() -> void:
 	$Level/Label2.visible = false

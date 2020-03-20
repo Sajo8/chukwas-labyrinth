@@ -186,7 +186,9 @@ margin_top = 555.854
 margin_right = 1516.0
 margin_bottom = 601.854
 theme = ExtResource( 5 )
-text = "STATUS: WAITING FOR DEPOSIT, CHECKING PERIODICALLY"
+text = "Note: after you send the deposit, it may take a while for it to register here!
+
+STATUS: Waiting for deposit, checking periodically..."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -194,9 +196,9 @@ __meta__ = {
 
 [node name="Timer" type="Label" parent="Level"]
 margin_left = 44.0
-margin_top = 659.712
+margin_top = 719.178
 margin_right = 1516.0
-margin_bottom = 705.712
+margin_bottom = 765.178
 theme = ExtResource( 5 )
 text = "remaining time b like"
 autowrap = true
@@ -235,6 +237,13 @@ margin_top = 0.0
 margin_right = 993.0
 margin_bottom = 150.0
 button_mode = "continue level dlc"
+
+[node name="MainMenu" parent="Level" instance=ExtResource( 2 )]
+margin_left = -197.197
+margin_top = 224.853
+margin_right = 222.803
+margin_bottom = 374.853
+button_mode = "main menu"
 
 [node name="ThirtyMinTimer" type="Timer" parent="."]
 wait_time = 1800.0
