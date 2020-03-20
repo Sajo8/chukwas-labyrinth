@@ -2,7 +2,7 @@ extends Button
 
 export(String, "EXCEPTION", "about", "quit", "main menu", "main menu pause",
 	"next level", "options", "play", "reset progress", "cancel reset",
-	"confirm reset", "ok reset", "resume pause", "retry") var button_mode = "EXCEPTION"
+	"confirm reset", "ok reset", "resume pause", "retry", "buy dlc", "cancel dlc", "level dlc", "skin dlc", "cancel level skin dlc", "continue level dlc") var button_mode = "EXCEPTION"
 
 func _ready() -> void:
 	if button_mode == "EXCEPTION":
@@ -66,6 +66,24 @@ func set_button_text() -> void:
 		"retry":
 			text = "Retry level"
 
+		"buy dlc":
+			text = "Buy DLC"
+
+		"level dlc":
+			text = "Level DLC"
+
+		"skin dlc":
+			text = "Skin DLC"
+
+		"cancel dlc":
+			text = "Cancel"
+
+		"cancel level skin dlc":
+			text = "Cancel"
+
+		"continue level dlc":
+			text = "Continue"
+
 func _on_Control_pressed() -> void:
 	match button_mode:
 		"about":
@@ -118,3 +136,30 @@ func _on_Control_pressed() -> void:
 
 		"retry":
 			SceneChanger.restart_level()
+
+		"buy dlc":
+			$BuyDLC/Buy.show()
+			$BuyDLC/Buy/HBoxContainer/cancel.grab_focus()
+
+		"cancel dlc":
+			get_node("../../").hide()
+			get_node("../../../../").grab_focus()
+
+		"level dlc":
+			get_node("../../").hide()
+			get_node("../../../Level").popup()
+
+		"skin dlc":
+			pass
+
+		"cancel level skin dlc":
+			get_node("../../").hide()
+			get_node("../../../Buy").popup()
+
+		"continue level dlc":
+			get_node("../../Label2").text = """Price:
+			7,500 TRTL
+
+			Please make your deposit to:
+			"""
+			# additional functionality with this button is in BuyDLC.gd

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://gui/screens/OptionsScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/optionsscreen_bg.png" type="Texture" id=2]
-[ext_resource path="res://gui/buttons/ConfirmReset.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/misc/ConfirmReset.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/misc/BuyDLC.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/buttons/Button.tscn" type="PackedScene" id=5]
 
 [node name="OptionsScreen" type="Control"]
@@ -24,16 +25,30 @@ __meta__ = {
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 margin_left = 120.0
-margin_top = 203.0
-margin_right = 520.0
-margin_bottom = 657.0
-custom_constants/separation = 20
+margin_top = 277.979
+margin_right = 540.0
+margin_bottom = 731.979
+custom_constants/separation = 35
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" parent="Buttons" instance=ExtResource( 5 )]
+[node name="DLC" parent="Buttons" instance=ExtResource( 5 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 119.0
+margin_right = 420.0
+margin_bottom = 269.0
+button_mode = "buy dlc"
+
+[node name="BuyDLC" parent="Buttons/DLC" instance=ExtResource( 4 )]
+visible = false
+
+[node name="Reset" parent="Buttons" instance=ExtResource( 5 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -42,11 +57,10 @@ margin_left = 0.0
 margin_top = 304.0
 margin_right = 420.0
 margin_bottom = 454.0
-size_flags_horizontal = 3
-size_flags_vertical = 10
 button_mode = "reset progress"
 
-[node name="ConfirmReset" parent="Buttons/Button" instance=ExtResource( 3 )]
+[node name="ConfirmReset" parent="Buttons/Reset" instance=ExtResource( 3 )]
+visible = false
 
 [node name="MainMenu" parent="." instance=ExtResource( 5 )]
 anchor_left = 0.0
@@ -60,7 +74,7 @@ margin_bottom = 1000.0
 button_mode = "main menu"
 
 [node name="Line2D" type="Line2D" parent="."]
-position = Vector2( 156.639, 756.116 )
+position = Vector2( 158.639, 808.374 )
 scale = Vector2( 0.85059, 1 )
-points = PoolVector2Array( -40.3843, 0, 416.811, 0 )
+points = PoolVector2Array( -40.3843, 0, 443.647, 0 )
 default_color = Color( 0.262745, 0.266667, 0.298039, 1 )

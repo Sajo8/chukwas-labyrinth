@@ -12,6 +12,8 @@
 [ext_resource path="res://gui/HUD/HUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gui/fonts/norse_b_20.tres" type="DynamicFont" id=11]
 
+
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Tiles" type="Node2D" parent="."]

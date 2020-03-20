@@ -11,6 +11,7 @@
 [ext_resource path="res://gui/HUD/HUD.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gui/HUD/LevelTimer.tscn" type="PackedScene" id=10]
 
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -40,7 +41,6 @@ __meta__ = {
 position = Vector2( 15, 616 )
 
 [node name="Props" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Comfy" parent="Props" instance=ExtResource( 5 )]
 position = Vector2( 334.742, 85.1435 )
@@ -52,7 +52,6 @@ position = Vector2( 333.741, 47.747 )
 position = Vector2( 335.082, 136.501 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
-editor/display_folded = true
 position = Vector2( 145.621, 134.484 )
 
 [node name="Camera" type="Camera2D" parent="Player"]

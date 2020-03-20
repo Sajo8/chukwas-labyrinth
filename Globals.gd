@@ -9,6 +9,9 @@ var total_fish = fish_available + fish_used
 
 var new_level := 1
 
+var has_level_dlc := false
+var has_skin_dlc := false
+
 func save_current_level():
 	save_game(SceneChanger.current_level)
 

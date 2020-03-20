@@ -74,6 +74,7 @@ rotation = 1.5708
 position = Vector2( 1003.34, 210.857 )
 
 [node name="Comfy" parent="Props" instance=ExtResource( 8 )]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 1635.52, 912.085 )
 
 [node name="Spikes" type="Node2D" parent="Props"]

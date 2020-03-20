@@ -1,0 +1,244 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://gui/misc/BuyDLC.gd" type="Script" id=1]
+[ext_resource path="res://gui/buttons/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/fonts/norse_b_20.tres" type="DynamicFont" id=3]
+[ext_resource path="res://gui/themes/BigLabel.tres" type="Theme" id=4]
+[ext_resource path="res://gui/themes/MedBigLabel.tres" type="Theme" id=5]
+[ext_resource path="res://gui/fonts/norse_b_45.tres" type="DynamicFont" id=6]
+
+[node name="BuyDLC" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.58667
+margin_bottom = -1.58667
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buy" type="WindowDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -770.313
+margin_top = -390.0
+margin_right = 764.687
+margin_bottom = 420.0
+custom_fonts/title_font = ExtResource( 3 )
+window_title = "Buy DLC"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buy"]
+margin_left = 527.268
+margin_top = 28.06
+margin_right = 998.268
+margin_bottom = 79.06
+theme = ExtResource( 4 )
+text = "BUY CHUKWA'S LABYRINTH DLC"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="Buy"]
+position = Vector2( 388.064, 91.2919 )
+points = PoolVector2Array( -301.951, 0, 1049.97, 0 )
+default_color = Color( 0.00784314, 0.521569, 0.196078, 1 )
+
+[node name="Label2" type="Label" parent="Buy"]
+margin_left = 44.0
+margin_top = 110.0
+margin_right = 1516.0
+margin_bottom = 722.0
+theme = ExtResource( 5 )
+text = "Hey there! thanks for showing interest in buying some dlc! You have two options:
+
+1. The level dlc
+
+Continue exploring with 5 new levels! Bigger AND BETTER, with exciting new powerups!
+
+
+2. the skin dlc
+
+go around in style! GRAB SOME SWEET SKINS AND LOOK GOOD WHEN FINDING THE TREASURE!
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Buy"]
+margin_left = 92.7512
+margin_top = 625.408
+margin_right = 1432.75
+margin_bottom = 775.408
+custom_constants/separation = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cancel" parent="Buy/HBoxContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 420.0
+margin_bottom = 150.0
+button_mode = "cancel dlc"
+
+[node name="level" parent="Buy/HBoxContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 460.0
+margin_top = 0.0
+margin_right = 880.0
+margin_bottom = 150.0
+button_mode = "level dlc"
+
+[node name="skin" parent="Buy/HBoxContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 920.0
+margin_top = 0.0
+margin_right = 1340.0
+margin_bottom = 150.0
+button_mode = "skin dlc"
+
+[node name="Level" type="WindowDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -770.313
+margin_top = -390.0
+margin_right = 764.687
+margin_bottom = 420.0
+custom_fonts/title_font = ExtResource( 3 )
+window_title = "Buy DLC"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Level"]
+margin_left = 527.268
+margin_top = 28.06
+margin_right = 998.268
+margin_bottom = 79.06
+theme = ExtResource( 4 )
+text = "BUY CHUKWA'S LABYRINTH DLC"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="Level"]
+position = Vector2( 388.064, 91.2919 )
+points = PoolVector2Array( -301.951, 0, 1049.97, 0 )
+default_color = Color( 0.00784314, 0.521569, 0.196078, 1 )
+
+[node name="Label2" type="Label" parent="Level"]
+margin_left = 44.0
+margin_top = 130.449
+margin_right = 1516.0
+margin_bottom = 742.449
+theme = ExtResource( 5 )
+text = "Let's confirm before we continue:
+
+you will have to pay:
+
+7,500 TRTL
+
+Press \"Continue\" to get the address to deposit to
+---
+Note: Please only do this if you plan to buy the dlc"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="Level"]
+margin_left = 44.0
+margin_top = 340.0
+margin_right = 1516.0
+margin_bottom = 508.0
+custom_fonts/font = ExtResource( 6 )
+readonly = true
+shortcut_keys_enabled = false
+smooth_scrolling = true
+wrap_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Level"]
+margin_left = 44.0
+margin_top = 555.854
+margin_right = 1516.0
+margin_bottom = 601.854
+theme = ExtResource( 5 )
+text = "STATUS: WAITING FOR DEPOSIT, CHECKING PERIODICALLY"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Label" parent="Level"]
+margin_left = 44.0
+margin_top = 659.712
+margin_right = 1516.0
+margin_bottom = 705.712
+theme = ExtResource( 5 )
+text = "remaining time b like"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Level"]
+margin_left = 286.546
+margin_top = 631.475
+margin_right = 1279.55
+margin_bottom = 781.475
+custom_constants/separation = 153
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" parent="Level/HBoxContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 420.0
+margin_bottom = 150.0
+button_mode = "cancel level skin dlc"
+
+[node name="continue level" parent="Level/HBoxContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 573.0
+margin_top = 0.0
+margin_right = 993.0
+margin_bottom = 150.0
+button_mode = "continue level dlc"
+
+[node name="ThirtyMinTimer" type="Timer" parent="."]
+wait_time = 1800.0
+one_shot = true
+[connection signal="about_to_show" from="Buy" to="." method="_on_Buy_about_to_show"]
+[connection signal="pressed" from="Level/HBoxContainer/continue level" to="." method="_on_continue_level_pressed"]
+[connection signal="timeout" from="ThirtyMinTimer" to="." method="_on_30MinTimer_timeout"]

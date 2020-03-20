@@ -15,6 +15,7 @@
 [ext_resource path="res://gui/HUD/FishInfo.tscn" type="PackedScene" id=13]
 [ext_resource path="res://gui/fonts/norse_b_20.tres" type="DynamicFont" id=14]
 
+
 [node name="Node2D" type="Node2D"]
 __meta__ = {
 "_edit_vertical_guides_": [  ]

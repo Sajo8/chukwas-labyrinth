@@ -84,6 +84,10 @@ ui_down={
  ]
 }
 
+[network]
+
+ssl/certificates="res://ca-certificates.crt"
+
 [rendering]
 
 quality/2d/use_pixel_snap=true

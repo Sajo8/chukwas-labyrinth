@@ -10,8 +10,16 @@ var levels = {
 	7: "yellow/Level7",
 }
 
+var dlc_levels = {
+
+}
+
 var current_level = 1
 var max_levels = levels.size()
+
+func _ready() -> void:
+	if Globals.has_level_dlc:
+		max_levels += dlc_levels.size()
 
 func fade():
 	$AnimationPlayer.play("fade")
@@ -23,8 +31,7 @@ func go_to_level(new_level):
 		go_to_end_screen()
 		return
 
-	fade()
-	yield(get_tree().create_timer(0.55), "timeout")
+	yield(fade(), "completed")
 
 	# Make new path for scene to be switched
 	var new_level_path = "res://levels/" + levels[new_level] + ".tscn"
@@ -47,14 +54,12 @@ func go_to_scene(scene_path):
 	if SceneChanger.current_level > max_levels:
 		go_to_end_screen()
 
-	fade()
-	yield(get_tree().create_timer(0.55), "timeout")
+	yield(fade(), "completed")
 
 	get_tree().change_scene(scene_path)
 
 func restart_level():
-	fade()
-	yield(get_tree().create_timer(0.55), "timeout")
+	yield(fade(), "completed")
 
 	var failed_level_path = "res://levels/" + levels[current_level] + ".tscn"
 	get_tree().change_scene(failed_level_path)
