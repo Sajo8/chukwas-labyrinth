@@ -10,8 +10,6 @@
 [ext_resource path="res://gui/HUD/HUD.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/fonts/norse_b_20.tres" type="DynamicFont" id=9]
 
-
-
 [node name="Node2D" type="Node2D"]
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -114,15 +112,51 @@ __meta__ = {
 [node name="Label5" type="Label" parent="Instructions"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 565.54
-margin_top = 40.7395
-margin_right = 728.54
-margin_bottom = 129.739
+margin_left = 566.0
+margin_top = 41.0
+margin_right = 729.0
+margin_bottom = 83.0
 theme = ExtResource( 5 )
 custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
 custom_constants/shadow_as_outline = 3
 text = "Stairs. YOu need to find stairs."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label10" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 728.0
+margin_top = 241.0
+margin_right = 857.0
+margin_bottom = 304.0
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
+text = "Note: you can press ESC any time to pause the game"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label11" type="Label" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 609.682
+margin_top = 118.395
+margin_right = 738.682
+margin_bottom = 181.395
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
+custom_constants/shadow_as_outline = 3
+text = "hold down two keys to go diagonally!"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false,

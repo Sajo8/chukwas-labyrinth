@@ -29,19 +29,9 @@ Ping me @Sajo8#2953 on the [TurtleCoin discord](http://chat.turtlecoin.lol) in #
 
 ## Future Ideas
 
-- Integrating TRTL
-  - trtl services or trtlapps
-  - sell skins/cosmetic stuff
-  - or sell extra levels
-
----
-
-- Powerup which removes all wall tiles
-    - Or lets the player phase through walls
-- Slow down for 10 seconds
+- Slow down for 10 seconds (maybe green apple)
 - Super vision to increase Fov/lights up the whole map.
-- Coins and breadcrumbs
-  - every x coins is x breadcrumbs, so you explore the map to find them but also need to balance the time limit
+- minimizer, u can go through a 1-wide space
 - Key to go through a locked door
 
 Less certain:

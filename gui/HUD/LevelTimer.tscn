@@ -6,6 +6,8 @@
 [node name="LevelTimer" type="Control" groups=[
 "timers",
 ]]
+margin_left = 1675.0
+margin_right = 1675.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

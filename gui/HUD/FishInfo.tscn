@@ -6,7 +6,12 @@
 [node name="FishInfo" type="Control" groups=[
 "timers",
 ]]
+margin_left = 1464.0
+margin_right = 1464.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
 margin_right = 40.0

@@ -9,6 +9,7 @@ var total_fish = fish_available + fish_used
 
 var new_level := 1
 
+#signal successful_dlc_purchase
 var has_level_dlc := false
 var has_skin_dlc := false
 
@@ -25,7 +26,9 @@ func save_game(level_to_save):
 		"coins": number_of_coins,
 		"fish_available": fish_available,
 		"fish_used": fish_used,
-		"total_fish": total_fish
+		"total_fish": total_fish,
+		"level_dlc": has_level_dlc,
+		"skin_dlc": has_skin_dlc
 	}
 
 	var save_game = File.new()
@@ -58,11 +61,11 @@ func load_save():
 	var saved_total_fish = int(save_file['total_fish'])
 	total_fish = saved_total_fish
 
+	has_level_dlc = save_file['level_dlc']
+	has_skin_dlc = save_file['skin_dlc']
+
 	var saved_level = int(save_file['level'])
 	SceneChanger.current_level = saved_level
-#	if saved_level > SceneChanger.current_level:
-#		save_game.close()
-#		SceneChanger.go_to_end_screen()
 	save_game.close()
 
 func reset_save(save_game):
@@ -73,3 +76,12 @@ func reset_save(save_game):
 	total_fish = fish_available + fish_used
 	save_game.close();
 	save_game(1)
+
+func _on_successful_dlc_purchase(bought_level, bought_skin):
+	# only set the variables if we bought a dlc
+	# we dont want to overwrite dlc bought in the past
+	if bought_level:
+		has_level_dlc = bought_level
+	if bought_skin:
+		has_skin_dlc = bought_skin
+	save_current_level()

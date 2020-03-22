@@ -186,6 +186,9 @@ func _on_fish_placed(position):
 	if Globals.fish_available < 1:
 		return
 
+	if SceneChanger.current_level < 7:
+		return
+
 	fish_used_in_level += 1 #increment counter
 
 	# Add node and global position to a dict to be used later

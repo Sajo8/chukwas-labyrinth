@@ -18,7 +18,6 @@ __meta__ = {
 }
 
 [node name="Buy" type="WindowDialog" parent="."]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -114,8 +113,7 @@ margin_right = 1340.0
 margin_bottom = 150.0
 button_mode = "skin dlc"
 
-[node name="Level" type="WindowDialog" parent="."]
-visible = true
+[node name="PurchaseWindow" type="WindowDialog" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -130,7 +128,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Level"]
+[node name="Label" type="Label" parent="PurchaseWindow"]
 margin_left = 527.268
 margin_top = 28.06
 margin_right = 998.268
@@ -141,12 +139,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Line2D" type="Line2D" parent="Level"]
+[node name="Line2D" type="Line2D" parent="PurchaseWindow"]
 position = Vector2( 388.064, 91.2919 )
 points = PoolVector2Array( -301.951, 0, 1049.97, 0 )
 default_color = Color( 0.00784314, 0.521569, 0.196078, 1 )
 
-[node name="Label2" type="Label" parent="Level"]
+[node name="Label2" type="Label" parent="PurchaseWindow"]
 margin_left = 44.0
 margin_top = 130.449
 margin_right = 1516.0
@@ -166,11 +164,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextEdit" type="TextEdit" parent="Level"]
-margin_left = 44.0
-margin_top = 340.0
-margin_right = 1516.0
-margin_bottom = 508.0
+[node name="TextEdit" type="TextEdit" parent="PurchaseWindow"]
+margin_left = 46.1584
+margin_top = 374.536
+margin_right = 1518.16
+margin_bottom = 542.536
 custom_fonts/font = ExtResource( 6 )
 readonly = true
 shortcut_keys_enabled = false
@@ -180,7 +178,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="Level"]
+[node name="Label3" type="Label" parent="PurchaseWindow"]
 margin_left = 44.0
 margin_top = 555.854
 margin_right = 1516.0
@@ -194,7 +192,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Label" parent="Level"]
+[node name="Timer" type="Label" parent="PurchaseWindow"]
 margin_left = 44.0
 margin_top = 719.178
 margin_right = 1516.0
@@ -206,7 +204,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Level"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PurchaseWindow"]
 margin_left = 286.546
 margin_top = 631.475
 margin_right = 1279.55
@@ -216,7 +214,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Cancel" parent="Level/HBoxContainer" instance=ExtResource( 2 )]
+[node name="Cancel" parent="PurchaseWindow/HBoxContainer" instance=ExtResource( 2 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -227,7 +225,7 @@ margin_right = 420.0
 margin_bottom = 150.0
 button_mode = "cancel level skin dlc"
 
-[node name="continue level" parent="Level/HBoxContainer" instance=ExtResource( 2 )]
+[node name="continue buy" parent="PurchaseWindow/HBoxContainer" instance=ExtResource( 2 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -236,18 +234,32 @@ margin_left = 573.0
 margin_top = 0.0
 margin_right = 993.0
 margin_bottom = 150.0
-button_mode = "continue level dlc"
+button_mode = "continue buy dlc"
 
-[node name="MainMenu" parent="Level" instance=ExtResource( 2 )]
-margin_left = -197.197
+[node name="TextureRect" type="TextureRect" parent="PurchaseWindow"]
+margin_left = 1181.12
+margin_top = 107.891
+margin_right = 1437.12
+margin_bottom = 363.891
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" parent="PurchaseWindow" instance=ExtResource( 2 )]
+margin_left = -205.186
 margin_top = 224.853
-margin_right = 222.803
+margin_right = 214.814
 margin_bottom = 374.853
 button_mode = "main menu"
 
 [node name="ThirtyMinTimer" type="Timer" parent="."]
 wait_time = 1800.0
 one_shot = true
-[connection signal="about_to_show" from="Buy" to="." method="_on_Buy_about_to_show"]
-[connection signal="pressed" from="Level/HBoxContainer/continue level" to="." method="_on_continue_level_pressed"]
+
+[node name="MainHTTP" type="HTTPRequest" parent="."]
+[connection signal="pressed" from="Buy/HBoxContainer/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="Buy/HBoxContainer/level" to="." method="_on_level_pressed"]
+[connection signal="pressed" from="Buy/HBoxContainer/skin" to="." method="_on_skin_pressed"]
+[connection signal="pressed" from="PurchaseWindow/HBoxContainer/continue buy" to="." method="_on_continue_buy_pressed"]
 [connection signal="timeout" from="ThirtyMinTimer" to="." method="_on_30MinTimer_timeout"]
+[connection signal="request_completed" from="MainHTTP" to="." method="_on_MainHTTP_request_completed"]

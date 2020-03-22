@@ -2,7 +2,7 @@ extends Button
 
 export(String, "EXCEPTION", "about", "quit", "main menu", "main menu pause",
 	"next level", "options", "play", "reset progress", "cancel reset",
-	"confirm reset", "ok reset", "resume pause", "retry", "buy dlc", "cancel dlc", "level dlc", "skin dlc", "cancel level skin dlc", "continue level dlc") var button_mode = "EXCEPTION"
+	"confirm reset", "ok reset", "resume pause", "retry", "buy dlc", "cancel dlc", "level dlc", "skin dlc", "cancel level skin dlc", "continue buy dlc") var button_mode = "EXCEPTION"
 
 func _ready() -> void:
 	if button_mode == "EXCEPTION":
@@ -68,12 +68,21 @@ func set_button_text() -> void:
 
 		"buy dlc":
 			text = "Buy DLC"
+			if Globals.has_level_dlc and Globals.has_skin_dlc:
+				self.disabled = true
+				text = "You have all DLC!"
 
 		"level dlc":
 			text = "Level DLC"
+			if Globals.has_level_dlc:
+				self.disabled = true
+				text = "You have the level DLC!"
 
 		"skin dlc":
 			text = "Skin DLC"
+			if Globals.has_skin_dlc:
+				self.disabled = true
+				text = "You have the skin DLC!"
 
 		"cancel dlc":
 			text = "Cancel"
@@ -81,7 +90,7 @@ func set_button_text() -> void:
 		"cancel level skin dlc":
 			text = "Cancel"
 
-		"continue level dlc":
+		"continue buy dlc":
 			text = "Continue"
 
 func _on_Control_pressed() -> void:
@@ -147,16 +156,17 @@ func _on_Control_pressed() -> void:
 
 		"level dlc":
 			get_node("../../").hide()
-			get_node("../../../Level").popup()
+			get_node("../../../PurchaseWindow").popup()
 
 		"skin dlc":
-			pass
+			get_node("../../").hide()
+			get_node("../../../PurchaseWindow").popup()
 
 		"cancel level skin dlc":
 			get_node("../../").hide()
 			get_node("../../../Buy").popup()
 
-		"continue level dlc":
+		"continue buy dlc":
 			get_node("../../Label2").text = """Price:
 			7,500 TRTL
 

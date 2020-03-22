@@ -3,10 +3,8 @@
 [ext_resource path="res://exits/Stairs.gd" type="Script" id=1]
 [ext_resource path="res://assets/stairs.png" type="Texture" id=2]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.98812, 24.2271 )
+extents = Vector2( 7.98812, 21.9717 )
 
 [node name="Stairs" type="Area2D" groups=[
 "exits",
@@ -17,6 +15,6 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -7.93318, -0.440735 )
+position = Vector2( -7.93318, -1.49012e-07 )
 shape = SubResource( 1 )
 [connection signal="body_entered" from="." to="." method="_on_Stairs_body_entered"]

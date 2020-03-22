@@ -8,6 +8,7 @@ var levels = {
 	5: "white/Level5",
 	6: "yellow/Level6",
 	7: "yellow/Level7",
+	8: "gray/Level8",
 }
 
 var dlc_levels = {
@@ -52,7 +53,8 @@ func go_to_scene(scene_path):
 	# We saved the next level already, so current level is one more than the number of levels we have
 	# If that is so then end it!
 	if SceneChanger.current_level > max_levels:
-		go_to_end_screen()
+		if (scene_path.begins_with("res://levels/")):
+			go_to_end_screen()
 
 	yield(fade(), "completed")
 

@@ -8,6 +8,7 @@ The player clicks the continue button (goes to _on_continue_level_pressed())
 -> we show a label saying it's loading
 -> we make a HTTP request to create a new account (testing purposes: grab a known account) (calls get_account_info(), which in turn leads to _on_First_HTTPRequest_request_completed())
 -> we show the user the address to deposit to (w/ the labels hidden previously and stuff
+-> we also request the QR code and show that too
 
 Then, we check if the account we made has the required amount (some of this is done server-side) (done in check_if_done() and _on_http_request_completed())
 -> check_if_done() sleeps for x amt of seconds before checking each time
@@ -18,18 +19,35 @@ When the player clicked continue, we also started a 30 minute timer.
 If the tx is not received by then, then we stop checking periodically, tell them and show them the buttons again
 """
 
+var headers = PoolStringArray(["Content-Type: application/json"])
 var accId
 var check_balance = false
 var timed_out = false
 
+# in the initial step when the user chooses which dlc to go to
+var considering_level = false
+var considering_skin = false
+
+# when the user confirms that he wants to buy. var set to true according to which consdering_* var is true
+var buying_level = false
+var buying_skin = false
+
+signal successful_dlc_purchase(buying_level, buying_skin)
+
 func _ready() -> void:
-	$Level/TextEdit.hide()
-	$Level/Label3.hide()
-	$Level/Timer.hide()
-	$Level/MainMenu.hide()
+	$PurchaseWindow/TextEdit.hide()
+	$PurchaseWindow/Label3.hide()
+	$PurchaseWindow/Timer.hide()
+	$PurchaseWindow/MainMenu.hide()
+
+	self.connect(
+		"successful_dlc_purchase",
+		get_node("/root/Globals"),
+		"_on_successful_dlc_purchase"
+	)
 
 	######################### TEMP
-	accId = "zPnQGKNmagxSXfm8i83A"
+	accId = "ORHHntz3KLG5NW1u8DxL"
 
 func _process(delta: float) -> void:
 	if not check_balance:
@@ -53,18 +71,25 @@ func _process(delta: float) -> void:
 	var label_text = "Remaining Time: " + time_left_m_s
 
 	# Assign new text
-	$Level/Timer.text = label_text
+	$PurchaseWindow/Timer.text = label_text
 
-func _on_continue_level_pressed() -> void:
-	$Level/HBoxContainer.visible = false
-	$Level/Label2.visible = true
+func _on_continue_buy_pressed() -> void:
+	if considering_level:
+		buying_level = true
+	if considering_skin:
+		buying_skin = true
+	begin_purchase()
+
+func begin_purchase() -> void:
+	$PurchaseWindow/HBoxContainer.visible = false
+	$PurchaseWindow/Label2.visible = true
 	if timed_out: # reset the label to where it was if we timed out and moved it
-		$Level/Label3.rect_position.y += 250
+		$PurchaseWindow/Label3.rect_position.y += 250
 		timed_out = false
 
-	$Level/Label3.rect_position.y -= 150
-	$Level/Label3.text = "Loading, this may take a while"
-	$Level/Label3.visible = true
+	$PurchaseWindow/Label3.rect_position.y -= 150
+	$PurchaseWindow/Label3.text = "Loading, this may take a while"
+	$PurchaseWindow/Label3.visible = true
 
 	var first_http = HTTPRequest.new()
 	add_child(first_http)
@@ -72,8 +97,6 @@ func _on_continue_level_pressed() -> void:
 	get_account_info(first_http)
 
 func get_account_info(http_node):
-	var headers = ["Content-Type: application/json"]
-
 	################### temp
 	var data = JSON.print({
 		"accountId": accId
@@ -89,36 +112,57 @@ func get_account_info(http_node):
 	# https://testsajoeexpress.netlify.com/.netlify/functions/server/trtlapps/newAccount
 
 func _on_First_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
-
 	var json_result = JSON.parse(body.get_string_from_utf8()).result
+	var error = check_if_error(json_result)
+	if error:
+		return
 	accId = json_result['accountId']
 	var address = json_result['address']
+	var qrCodeUrl = json_result['qrCode']
 
-	$Level/Label3.rect_position.y += 150
-	$Level/Label3.text = """Note: after you send the deposit, it may take a while for it to register here!
+	$PurchaseWindow/TextEdit.text = address
+
+	var qr_http = HTTPRequest.new()
+	add_child(qr_http)
+	qr_http.connect("request_completed", self, "_on_qr_http_request_completed")
+	var err = qr_http.request(qrCodeUrl)
+	if err != OK:
+		show_error_message()
+		return
+
+func _on_qr_http_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
+	$PurchaseWindow/Label3.rect_position.y += 150
+	$PurchaseWindow/Label3.text = """Note: after you send the deposit, it may take a while for it to register here!
 
 	STATUS: Waiting for deposit, checking periodically..."""
 
-	$Level/TextEdit.visible = true
-	$Level/TextEdit.text = address
-
-	$Level/Label3.visible = true
+	$PurchaseWindow/TextEdit.visible = true
+	$PurchaseWindow/Label3.visible = true
 
 	$ThirtyMinTimer.start()
+	$PurchaseWindow/Timer.visible = true
+
+	var image = Image.new()
+	var error = image.load_png_from_buffer(body)
+	# ignore the qr code and begin requesting
+	if error != OK:
+		check_balance = true
+		check_if_done()
+		return
+
+	var texture = ImageTexture.new()
+	texture.create_from_image(image)
+	$PurchaseWindow/TextureRect.texture = texture
+
 	check_balance = true
-	$Level/Timer.visible = true
 	check_if_done()
 
 func check_if_done():
 	if not check_balance:
 		return
-	yield(get_tree().create_timer(10), "timeout")
-	var http = HTTPRequest.new()
-	add_child(http)
-	http.connect("request_completed", self,
-	"_on_http_request_completed")
+	yield(get_tree().create_timer(30), "timeout")
+	var http = $MainHTTP
 
-	var headers = ["Content-Type: application/json"]
 	var data = JSON.print({
 		"accountId": accId
 	})
@@ -131,17 +175,19 @@ func check_if_done():
 		data
 	)
 
-func _on_http_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray):
+func _on_MainHTTP_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray):
 	var json_body = body.get_string_from_utf8()
-	print(typeof(json_body))
-	var json_result = JSON.parse(json_body)
-	json_result = json_result.result
-	print(json_result)
+	var json_result = JSON.parse(json_body).result
+
+	# if error then just try again idk
+	if str(json_result['err']) != "":
+		check_if_done()
+
 	var txReceivedResult = json_result['result']
 	var txLocked = json_result['locked']
 	if (txReceivedResult):
 		if (txLocked):
-			$Level/Label3.text = """Note: after you send the deposit, it may take a while for it to register here!
+			$PurchaseWindow/Label3.text = """Note: after you send the deposit, it may take a while for it to register here!
 
 			Status: Deposit received! Waiting for network confirmation.."""
 		else:
@@ -149,34 +195,70 @@ func _on_http_request_completed(result: int, response_code: int, headers: PoolSt
 	check_if_done() # either we havent received the deposit or it's not confirmed
 
 func received_transaction():
-	$Level/TextEdit.hide()
-	$Level/Label3.hide()
-	$Level/Timer.hide()
+	check_balance = false
+	$PurchaseWindow/TextEdit.hide()
+	$PurchaseWindow/Label3.hide()
+	$PurchaseWindow/Timer.hide()
 	$ThirtyMinTimer.stop()
-	$Level/Label2.align = $Level/Label2.ALIGN_CENTER
-	$Level/Label2.text = """
-	
-	
+
+	$PurchaseWindow/Label2.align = $PurchaseWindow/Label2.ALIGN_CENTER
+	$PurchaseWindow/Label2.text = """
+
+
 	deposit received and confirmed!
-	
+
 	your dlc has been unlocked!
-	
+
 	enjoy!
 	"""
-	$Level/MainMenu.show()
-	$Level/MainMenu.grab_focus()
+	$PurchaseWindow/MainMenu.show()
+	$PurchaseWindow/MainMenu.grab_focus()
+
+	emit_signal("successful_dlc_purchase", buying_level, buying_skin)
 
 func _on_30MinTimer_timeout() -> void:
-	$Level/Label2.visible = false
-	$Level/TextEdit.visible = false
-	$Level/Label3.rect_position.y -= 250
-	$Level/Label3.text = "You've timed out! No deposit has been received in 30 minutes. Please click the \"Continue\" button to try again"
-	$Level/HBoxContainer.visible = true
+	$PurchaseWindow/Label2.visible = false
+	$PurchaseWindow/TextEdit.visible = false
+	$PurchaseWindow/Label3.rect_position.y -= 250
+	$PurchaseWindow/Label3.text = "You've timed out! No deposit has been received in 30 minutes. Please click the \"Continue\" button to try again"
+	$PurchaseWindow/HBoxContainer.visible = true
 	check_balance = false
 	timed_out = true
-	$Level/Timer.visible = false
+	$PurchaseWindow/Timer.visible = false
 
-# Unrelated to most logic in this file
-# This function simply grabs focus of a button when it turns visible
-func _on_Buy_about_to_show() -> void:
-	$Buy/HBoxContainer/cancel.grab_focus()
+func check_if_error(result) -> bool:
+	print(result)
+	if str(result['err']) != "":
+		show_error_message()
+		return true
+	return false
+
+# Only shown if the initial request fails. Other times, it just tries again
+func show_error_message() -> void:
+	$PurchaseWindow/TextEdit.hide()
+	$PurchaseWindow/Label3.hide()
+	$PurchaseWindow/Timer.hide()
+	$ThirtyMinTimer.stop()
+
+	$PurchaseWindow/Label2.text = "Hey!\n\nSorry, we seemed to have ran into an error. Please go back to the main menu and try again."
+	$PurchaseWindow/MainMenu.show()
+	$PurchaseWindow/MainMenu.grab_focus()
+
+########
+
+# These functions are unrelated to most logic in this file
+
+# set the considering_* vars based on which initial button the user clicks
+# under Buy/
+func _on_level_pressed() -> void:
+	considering_level = true
+	considering_skin = false
+
+func _on_skin_pressed() -> void:
+	considering_skin = true
+	considering_level = false
+
+# if they cancel all DLC stuff then reset the vars
+func _on_cancel_pressed() -> void:
+	considering_skin = false
+	considering_level = false
