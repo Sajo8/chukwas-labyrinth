@@ -180,7 +180,7 @@ func _on_MainHTTP_request_completed(result: int, response_code: int, headers: Po
 	var json_result = JSON.parse(json_body).result
 
 	# if error then just try again idk
-	if str(json_result['err']) != "":
+	if json_result['err']:
 		check_if_done()
 
 	var txReceivedResult = json_result['result']
@@ -199,6 +199,7 @@ func received_transaction():
 	$PurchaseWindow/TextEdit.hide()
 	$PurchaseWindow/Label3.hide()
 	$PurchaseWindow/Timer.hide()
+	$PurchaseWindow/TextureRect.hide()
 	$ThirtyMinTimer.stop()
 
 	$PurchaseWindow/Label2.align = $PurchaseWindow/Label2.ALIGN_CENTER
@@ -226,9 +227,13 @@ func _on_30MinTimer_timeout() -> void:
 	timed_out = true
 	$PurchaseWindow/Timer.visible = false
 
+# Note on error checking:
+# The server returns `false` if there is no error,
+# and the error if there is one
+# so we can just check if result['err'] is something
+# and that works
 func check_if_error(result) -> bool:
-	print(result)
-	if str(result['err']) != "":
+	if result['err']:
 		show_error_message()
 		return true
 	return false
@@ -238,6 +243,7 @@ func show_error_message() -> void:
 	$PurchaseWindow/TextEdit.hide()
 	$PurchaseWindow/Label3.hide()
 	$PurchaseWindow/Timer.hide()
+	$PurchaseWindow/TextureRect.hide()
 	$ThirtyMinTimer.stop()
 
 	$PurchaseWindow/Label2.text = "Hey!\n\nSorry, we seemed to have ran into an error. Please go back to the main menu and try again."
