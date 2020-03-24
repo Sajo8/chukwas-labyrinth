@@ -37,6 +37,7 @@ signal successful_dlc_purchase(buying_level, buying_skin)
 func _ready() -> void:
 	$PurchaseWindow/TextEdit.hide()
 	$PurchaseWindow/Label3.hide()
+	$PurchaseWindow/QRCode.hide()
 	$PurchaseWindow/Timer.hide()
 	$PurchaseWindow/MainMenu.hide()
 
@@ -97,9 +98,16 @@ func begin_purchase() -> void:
 	get_account_info(first_http)
 
 func get_account_info(http_node):
-	################### temp
+
+	var dlcType := ""
+	if buying_level:
+		dlcType = "level"
+	elif buying_skin:
+		dlcType = "skin"
+
 	var data = JSON.print({
-		"accountId": accId
+		"dlcType": dlcType,
+		"accountId": accId ################# TEMPORARY LINE
 	})
 
 	http_node.request(
@@ -119,16 +127,17 @@ func _on_First_HTTPRequest_request_completed(result: int, response_code: int, he
 	accId = json_result['accountId']
 	var address = json_result['address']
 	var qrCodeUrl = json_result['qrCode']
+	print(qrCodeUrl)
 
 	$PurchaseWindow/TextEdit.text = address
 
 	var qr_http = HTTPRequest.new()
 	add_child(qr_http)
 	qr_http.connect("request_completed", self, "_on_qr_http_request_completed")
+
 	var err = qr_http.request(qrCodeUrl)
 	if err != OK:
 		show_error_message()
-		return
 
 func _on_qr_http_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	$PurchaseWindow/Label3.rect_position.y += 150
@@ -138,6 +147,7 @@ func _on_qr_http_request_completed(result: int, response_code: int, headers: Poo
 
 	$PurchaseWindow/TextEdit.visible = true
 	$PurchaseWindow/Label3.visible = true
+	$PurchaseWindow/QRCode.show()
 
 	$ThirtyMinTimer.start()
 	$PurchaseWindow/Timer.visible = true
@@ -147,6 +157,11 @@ func _on_qr_http_request_completed(result: int, response_code: int, headers: Poo
 	# ignore the qr code and begin requesting
 	if error != OK:
 		check_balance = true
+
+		$PurchaseWindow/QRCode.rect_position.x += 260
+		$PurchaseWindow/QRCode.rect_position.y += 50
+		$PurchaseWindow/QRCode.text = "Failed to load QR code!"
+
 		check_if_done()
 		return
 
@@ -198,6 +213,7 @@ func received_transaction():
 	check_balance = false
 	$PurchaseWindow/TextEdit.hide()
 	$PurchaseWindow/Label3.hide()
+	$PurchaseWindow/QRCode.hide()
 	$PurchaseWindow/Timer.hide()
 	$PurchaseWindow/TextureRect.hide()
 	$ThirtyMinTimer.stop()
@@ -233,6 +249,7 @@ func _on_30MinTimer_timeout() -> void:
 # so we can just check if result['err'] is something
 # and that works
 func check_if_error(result) -> bool:
+	print(result)
 	if result['err']:
 		show_error_message()
 		return true
@@ -242,6 +259,7 @@ func check_if_error(result) -> bool:
 func show_error_message() -> void:
 	$PurchaseWindow/TextEdit.hide()
 	$PurchaseWindow/Label3.hide()
+	$PurchaseWindow/QRCode.hide()
 	$PurchaseWindow/Timer.hide()
 	$PurchaseWindow/TextureRect.hide()
 	$ThirtyMinTimer.stop()

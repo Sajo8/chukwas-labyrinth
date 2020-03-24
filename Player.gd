@@ -167,6 +167,13 @@ func _on_powerup_grabbed(type):
 
 		player_is_immune = false
 		var list_index = player_powerups.find("watermelon")
+		# if we got a watermelon remover then the index will be -1
+		# and we dont wanna crash
+		if list_index != -1:
+			player_powerups.remove(list_index)
+	elif type == 'watermelon_remover':
+		player_is_immune = false
+		var list_index = player_powerups.find("watermelon")
 		player_powerups.remove(list_index)
 	else:
 		pass

@@ -9,6 +9,7 @@ var levels = {
 	6: "yellow/Level6",
 	7: "yellow/Level7",
 	8: "gray/Level8",
+	9: "gray/Level9",
 }
 
 var dlc_levels = {

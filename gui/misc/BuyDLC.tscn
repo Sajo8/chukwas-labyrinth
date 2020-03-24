@@ -195,6 +195,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="QRCode" type="Label" parent="PurchaseWindow"]
+margin_left = 736.0
+margin_top = 150.0
+margin_right = 1167.0
+margin_bottom = 196.0
+theme = ExtResource( 5 )
+text = "Tonchan-compatible qrcode:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Timer" type="Label" parent="PurchaseWindow"]
 margin_left = 44.0
 margin_top = 719.178

@@ -90,24 +90,6 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Label4" type="Label" parent="Instructions"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 925.0
-margin_top = 36.0
-margin_right = 959.0
-margin_bottom = 57.0
-theme = ExtResource( 5 )
-custom_fonts/font = ExtResource( 11 )
-custom_colors/font_color_shadow = Color( 0, 0.52549, 0.231373, 1 )
-custom_constants/shadow_as_outline = 3
-text = "glhf"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false,
-"_editor_description_": ""
-}
-
 [node name="Props" type="Node2D" parent="."]
 
 [node name="Watermelon" parent="Props" instance=ExtResource( 6 )]
@@ -150,7 +132,6 @@ rotation = 1.5708
 position = Vector2( 120.411, 111.258 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
-position = Vector2( -211.585, -146.843 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 limit_left = 0

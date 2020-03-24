@@ -14,6 +14,10 @@ extends StaticBody2D
 signal game_over
 
 export(String, "top", "down", "left", "right") var squash_side = "top" #setget set_squash_side
+
+export var minimize_idle_duration := 3.0
+export var minimize_duration := 2.0
+
 var squash_side_vector : Vector2
 
 # Node refs
@@ -64,8 +68,8 @@ func _ready():
 
 func shrink_squasher():
 
-	var idle_duration = 3
-	var duration = 2
+	var idle_duration := minimize_idle_duration
+	var duration := minimize_duration
 
 	# Reduce size of column
 	tween.interpolate_property(squasher, "scale",
@@ -97,7 +101,7 @@ func shrink_squasher():
 
 func maximise_squasher():
 
-	var idle_duration = 1
+	var idle_duration = 1.0
 	var duration = 0.2
 
 	# Increase size of column

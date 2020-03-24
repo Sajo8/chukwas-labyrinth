@@ -5,7 +5,7 @@ signal powerup_grabbed(type)
 func _ready():
 	# Increase size
 	$Effect.interpolate_property($Sprite, 'scale',
-		$Sprite.get_scale(), Vector2(2, 2), 0.6,
+		$Sprite.get_scale(), Vector2(0, 0), 0.6,
 		Tween.TRANS_CUBIC, Tween.EASE_OUT)
 	# Fade out
 	$Effect.interpolate_property($Sprite, 'modulate',
@@ -20,4 +20,4 @@ func _on_Watermelon_body_entered(body):
 
 func _on_Effect_tween_completed(object, key):
 	queue_free()
-	emit_signal("powerup_grabbed", 'watermelon')
+	emit_signal("powerup_grabbed", 'watermelon_remover')

@@ -106,10 +106,9 @@ position = Vector2( 320.091, 543.686 )
 rotation = -4.71239
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1289.59, 1017.87 )
+position = Vector2( 1297.77, 1017.92 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
-position = Vector2( -211.585, -146.843 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 limit_left = 0

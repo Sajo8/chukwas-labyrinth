@@ -133,7 +133,6 @@ squash_side = "right"
 position = Vector2( 1653.96, 54.723 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
-position = Vector2( -211.585, -146.843 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 limit_left = 0
