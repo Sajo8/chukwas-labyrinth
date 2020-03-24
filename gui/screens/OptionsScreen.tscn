@@ -78,3 +78,6 @@ position = Vector2( 158.639, 808.374 )
 scale = Vector2( 0.85059, 1 )
 points = PoolVector2Array( -40.3843, 0, 443.647, 0 )
 default_color = Color( 0.262745, 0.266667, 0.298039, 1 )
+
+[node name="CheckDLCEnabled" type="HTTPRequest" parent="."]
+[connection signal="request_completed" from="CheckDLCEnabled" to="." method="_on_CheckDLCEnabled_request_completed"]
