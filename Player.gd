@@ -45,7 +45,7 @@ func animate_player():
 	# If we're moving, change rotation
 	if velocity_length >= 1:
 		$Sprite.rotation_degrees = velocity_angle
-		$CollisionShape2D.rotation_degrees = velocity_angle
+		$Collision.rotation_degrees = velocity_angle
 
 	if player_powerups.size() >= 1:
 		if velocity_length >= 1:
@@ -157,7 +157,10 @@ func _on_powerup_grabbed(type):
 
 		speed = 150
 		var list_index = player_powerups.find("apple")
-		player_powerups.remove(list_index)
+		# if we got a watermelon remover then the index will be -1
+		# and we dont wanna crash
+		if list_index != -1:
+			player_powerups.remove(list_index)
 
 	elif type == 'watermelon':
 		player_is_immune = true
@@ -171,9 +174,26 @@ func _on_powerup_grabbed(type):
 		# and we dont wanna crash
 		if list_index != -1:
 			player_powerups.remove(list_index)
+
 	elif type == 'watermelon_remover':
+		speed = 150
+		var list_index = player_powerups.find("watermelon")
+		player_powerups.remove(list_index)
+
+	elif type == 'apple_remover':
 		player_is_immune = false
 		var list_index = player_powerups.find("watermelon")
+		player_powerups.remove(list_index)
+
+	elif type == "green_apple":
+		# Half speed for 2m
+		speed /= 2
+		player_powerups.append("green_apple")
+
+		yield(get_tree().create_timer(120.0, false), "timeout")
+
+		speed *= 2
+		var list_index = player_powerups.find("green_apple")
 		player_powerups.remove(list_index)
 	else:
 		pass

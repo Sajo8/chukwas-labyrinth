@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gui/HUD/PowerupsHUD.gd" type="Script" id=1]
+[ext_resource path="res://assets/food.png" type="Texture" id=2]
+[ext_resource path="res://gui/themes/SmallLabel.tres" type="Theme" id=3]
+[ext_resource path="res://assets/green_apple.png" type="Texture" id=4]
+
+[node name="PowerupsHUD" type="Control"]
+anchor_right = 1.0
+margin_bottom = 100.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 47.1537
+margin_right = 188.0
+margin_bottom = 78.1537
+theme = ExtResource( 3 )
+text = "Current powerups:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Apple" type="Sprite" parent="."]
+position = Vector2( 33.5854, 102.736 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 32, 32 )
+
+[node name="Watermelon" type="Sprite" parent="."]
+position = Vector2( 35.0094, 133.83 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 96, 0, 32, 32 )
+
+[node name="GreenApple" type="Sprite" parent="."]
+position = Vector2( 33.9158, 166.427 )
+texture = ExtResource( 4 )

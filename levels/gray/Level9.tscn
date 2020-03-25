@@ -213,7 +213,7 @@ position = Vector2( 137.649, 1300.34 )
 position = Vector2( 92.1761, 78.5942 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1266.74, 730.724 )
+position = Vector2( 1287.51, 749.364 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
 current = true

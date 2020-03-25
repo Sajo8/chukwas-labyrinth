@@ -110,16 +110,20 @@ tracks/0/keys = {
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0.000891209, -0.468982 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 offset = Vector2( 0.989512, -5.15177 )
 vframes = 4
 hframes = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionDisabled" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -0.460697 )
 shape = SubResource( 1 )
+disabled = true
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -4.49223, -11.0358, -8.50414, -5.98446, -9.65993, -0.64819, -7.9629, 5.9704, -6.02114, 8.50962, -2.97302, 10.9853, 2.97643, 10.9743, 6.10237, 8.43493, 7.96945, 5.9704, 9.65806, -0.473929, 8.51715, -6.05871, 4.49057, -11.0253 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 3 )

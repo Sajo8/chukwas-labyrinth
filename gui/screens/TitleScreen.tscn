@@ -29,7 +29,6 @@ margin_bottom = 1047.0
 grow_horizontal = 0
 grow_vertical = 0
 custom_constants/separation = 35
-alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
