@@ -7,8 +7,13 @@ func toggle_pause():
 		$Popup.show()
 		$Popup/HBoxContainer/Resume.grab_focus()
 
-	get_tree().paused = !get_tree().paused
+	get_tree().paused = not get_tree().paused
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		toggle_pause()
+
+func _notification(what: int) -> void:
+	if what == MainLoop.NOTIFICATION_WM_FOCUS_OUT:
+		if not get_tree().paused:
+			toggle_pause()
