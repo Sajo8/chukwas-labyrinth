@@ -40,6 +40,28 @@ Less certain:
 
 These ones will probably be closer to the end, the treasure. Could be turtle marines, whose eternal duty is to protect the treasure or something.
 
+
+
+- no level passed
+- unless hi-score?
+
+- death counter
+- shooter traps
+
+
+- floor spikes that rise up fro grond
+- corridors that open n close
+- locked doors and find key
+
+- press a key at the right time for quick defense
+
+- minimap w/ explored areas r light
+
+
+Final Fantasy 7 Remake - Those Who Fight Further (Full Mix)" by Khunclix
+
+ "Remastered Tracks Rockman Zero Mythos : 02 Departure" by SuperMega233
+
 ## Current Version Gif
 
 Whenever I make significant changes, I'll update this link to a gif of how the game currently looks.
